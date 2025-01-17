@@ -6,6 +6,9 @@ function load_stylesheet() {
     wp_register_style('main', get_template_directory_uri() . '/assets/css/base/main.css', [], false, 'all');
     wp_enqueue_style('main');
 
+    wp_register_style('variables', get_template_directory_uri() . '/assets/css/base/variables.css', [], false, 'all');
+    wp_enqueue_style('variables');
+
     // === LAYOUT STYLES === //
     wp_register_style('grid', get_template_directory_uri() . '/assets/css/layout/grid.css', [], false, 'all');
     wp_enqueue_style('grid');
