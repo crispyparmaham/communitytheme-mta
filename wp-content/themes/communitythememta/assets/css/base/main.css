@@ -1,0 +1,13 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: var(--body-text-size);
+  line-height: 1.5;
+  font-family: 'Open Sans', sans-serif;
+  background-color: var(--body-background-color);
+  margin: 0;
+}

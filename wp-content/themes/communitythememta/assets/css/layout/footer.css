@@ -1,0 +1,95 @@
+.main-footer {
+  display: block;
+  background-color: var(--footer-background-color);
+  color: var(--font-color-footer);
+}
+
+.footer-inner-wrap {
+  width: 100%;
+  max-width: var(--inner-footer-width);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding: 60px 20px 0 20px;
+}
+
+.footer-top {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.footer-top .footer-top-inner {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: start;
+  margin-top: 40px;
+}
+
+.footer-top .footer-top-inner .footer-contact-info p {
+  margin-top: 20px;
+}
+
+.footer-bottom {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 60px;
+  padding: 30px 0;
+  border-top: 2px solid var(--font-color-footer);
+}
+
+.footer-policy {
+  display: flex;
+  flex-direction: row;
+}
+
+.footer-policy a {
+  margin-left: 15px;
+  color: var(--font-color-footer);
+}
+
+.footer-policy a:hover {
+  color: var(--font-color-footer-hover);
+}
+
+/* Kleine, mittlere und große Logos */
+.main-footer .main-logo.logo-small img {
+  width: 140px;
+}
+
+.main-footer .main-logo.logo-medium img {
+  width: 200px;
+}
+
+.main-footer .main-logo.logo-large img {
+  width: 260px;
+}
+
+/* Navigation im footer */
+.main-footer nav {
+  float: right;
+}
+
+.main-footer nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.main-footer nav ul li {
+  display: inline-block;
+  margin-left: 20px;
+}
+
+.main-footer nav ul li a {
+  text-decoration: none;
+  color: var(--font-color-footer);
+}
+
+/* Hover-Effekt für Links */
+.main-footer nav ul li a:hover {
+  color: var(--font-color-footer-hover);
+}

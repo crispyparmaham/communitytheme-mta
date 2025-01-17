@@ -1,0 +1,13 @@
+{
+  "name": "terminliste",
+  "title": "Terminliste",
+  "description": "Alle Termine einer Gemeinde",
+  "category": "community-blocks",
+  "icon": "grid-view",
+  "keywords": ["liste", "aufzählung", "links", "custom", "termine"],
+  "acf": {
+      "mode": "preview",
+      "renderTemplate": "termin.php"
+  },
+  "align": "full"
+}

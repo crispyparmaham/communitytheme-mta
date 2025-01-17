@@ -1,0 +1,45 @@
+.main-content h1,
+.main-content h2,
+.main-content h3,
+.main-content h4,
+.main-content h5,
+.main-content h6 {
+  font-family: var(--font-family-heading);
+  line-height: 1.2;
+  color: var(--font-color-heading);
+  margin-bottom: 1.5rem;
+}
+
+.header-img-heading h1 {
+  color: #ffffff;
+  font-size: var(--headline-xxl);
+  line-height: 1.2;
+}
+
+p {
+  font-family: var(--font-family-text);
+}
+
+h1.wp-block-heading {
+  font-size: var(--headline-xxl);
+}
+
+h2.wp-block-heading {
+  font-size: var(--headline-xl);
+}
+
+h3.wp-block-heading {
+  font-size: var(--headline-l);
+}
+
+h4.wp-block-heading {
+  font-size: var(--headline-m);
+}
+
+h5.wp-block-heading {
+  font-size: var(--headline-s);
+}
+
+h6.wp-block-heading {
+  font-size: var(--headline-xs);
+}

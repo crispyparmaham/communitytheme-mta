@@ -1,0 +1,7 @@
+.wp-block-button__link {
+  background-color: var(--button-root-color);
+}
+
+.wp-block-button__link:hover {
+  background-color: var(--button-hover-color);
+}
