@@ -1,4 +1,4 @@
-<div class="termin-list-start">
+<div class="termin-list-start" role="list">
     <?php
     // === INITIALISIERUNG === //
     global $post;
@@ -62,15 +62,18 @@
     ?>
             <!-- === POST ITEM === -->
             <div id="child-<?php the_ID(); ?>" class="child-page-list-item post-item-startseite post-listing-item termin-item"
-                data-search-term="<?php echo esc_attr(implode(' ', wp_list_pluck(get_the_category(), 'slug'))); ?>">
-                
+                data-search-term="<?php echo esc_attr(implode(' ', wp_list_pluck(get_the_category(), 'slug'))); ?>"
+                role="listitem">
+
                 <!-- Kategorien -->
                 <?php 
                 $categories = get_the_category();
                 if ($categories) :
+                    echo '<ul class="post-categories" role="list">';
                     foreach ($categories as $category) : ?>
-                        <span class="post-category"><?php echo esc_html($category->name); ?></span>
+                        <li class="post-category" role="listitem"><?php echo esc_html($category->name); ?></li>
                     <?php endforeach; 
+                    echo '</ul>';
                 endif; ?>
 
                 <!-- Bild -->
@@ -87,26 +90,30 @@
                 <!-- Text -->
                 <div class="listing-text-wrap post-listing-item-text">
                     <h3 class="post-listings-item-heading">
-                        <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
+                        <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" aria-label="Mehr über <?php the_title(); ?> lesen">
+                            <?php the_title(); ?>
+                        </a>
                     </h3>
 
                     <!-- Adresse -->
                     <?php if ($adresse) : ?>
                         <span class="post-listing-item-adresse adresse">
-                            <a href="<?php echo esc_url($adresslink); ?>" target="_blank"><?php echo esc_html($adresse); ?></a>
+                            <a href="<?php echo esc_url($adresslink); ?>" target="_blank" aria-label="Adresse von <?php the_title(); ?> in Google Maps anzeigen">
+                                <?php echo esc_html($adresse); ?>
+                            </a>
                         </span>
                     <?php endif; ?>
 
                     <!-- Termin-Infos -->
                     <div class="termin-info-wrap">
                         <span class="termin-info <?php echo $more_days ? 'no-margin-right' : ''; ?>">
-                            <span class="termin-icon dashicons <?php echo esc_attr($date_icon); ?>"></span>
+                            <span class="termin-icon dashicons <?php echo esc_attr($date_icon); ?>" aria-hidden="true"></span>
                             <?php echo $more_days ? 'Vom ' : ''; ?>
                             <?php echo esc_html($startdatum_formatted); ?>
                         </span>
                         <?php if (!$more_days) : ?>
                             <span class="post-listing-item-info-time termin-info">
-                                <span class="termin-icon dashicons <?php echo esc_attr($time_icon); ?>"></span>
+                                <span class="termin-icon dashicons <?php echo esc_attr($time_icon); ?>" aria-hidden="true"></span>
                                 <?php echo esc_html($time); ?> Uhr
                             </span>
                         <?php else : ?>
@@ -118,7 +125,9 @@
 
                     <!-- Excerpt -->
                     <?php if (function_exists('custom_field_excerpt') && !empty(custom_field_excerpt())) : ?>
-                        <span class="post-excerpt"><?php echo custom_field_excerpt(); ?></span>
+                        <span class="post-excerpt" aria-label="Zusammenfassung von <?php the_title(); ?>">
+                            <?php echo custom_field_excerpt(); ?>
+                        </span>
                     <?php endif; ?>
                 </div>
             </div>
@@ -126,7 +135,7 @@
         endwhile;
     else : 
     ?>
-        <h3 class="hsmall">Aktuell gibt es leider keine geplanten Termine</h3>
+        <h3 class="hsmall" aria-live="polite">Aktuell gibt es leider keine geplanten Termine</h3>
     <?php 
     endif;
     wp_reset_postdata(); 

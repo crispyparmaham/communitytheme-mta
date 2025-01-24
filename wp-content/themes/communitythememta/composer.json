@@ -1,0 +1,11 @@
+{
+    "name": "morethanads/commuunity-theme",
+    "type": "wordpress-theme",
+    "require": {
+      "tgmpa/tgm-plugin-activation": "^2.6"
+    },
+    "autoload": {
+
+    }
+  }
+  

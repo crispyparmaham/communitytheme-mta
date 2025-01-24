@@ -1,7 +1,7 @@
 .wp-block-button__link {
-  background-color: var(--button-root-color);
+  background-color: var(--accent-01);
 }
 
 .wp-block-button__link:hover {
-  background-color: var(--button-hover-color);
+  background-color: var(--foreground-01);
 }

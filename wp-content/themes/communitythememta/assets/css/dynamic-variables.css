@@ -1,19 +1,29 @@
 
 :root {
     /* PRIMARY COLORS */
-    --primary-color: #dd3333;
-    --secondary-color: #0f6056;
+    --color-foreground: hsl(0, 0%, 0%);
+    --color-background: hsl(0, 0%, 55%);
+    --color-accent: hsl(0, 71%, 35%);
 
-    /* BACKGROUND COLORS */
-    --body-background-color: #f4f4f4;
-    --inner-content-background-color: #ffffff;
-    --header-background-color: #ffffff;
-    --footer-background-color: #bfbfbf;
+    /* COLOR SHADES */
+    --foreground-01: hsl(0, 0%, 0%);
+    --foreground-02: hsl(0, 0%, 0%);
+    --foreground-03: hsl(0, 0%, 9%);
+    --foreground-04: hsl(0, 0%, 18%);
+    --foreground-05: hsl(0, 0%, 27%);
 
-    /* BUTTON COLORS */
-    --button-root-color: #ff2b2b;
-    --button-hover-color: #000000;
+    --background-01: hsl(0, 0%, 64%);
+    --background-02: hsl(0, 0%, 73%);
+    --background-03: hsl(0, 0%, 82%);
+    --background-04: hsl(0, 0%, 91%);
+    --background-05: hsl(0, 0%, 100%);
 
+    --accent-01: hsl(0, 71%, 44%);
+    --accent-02: hsl(0, 71%, 53%);
+    --accent-03: hsl(0, 71%, 62%);
+    --accent-04: hsl(0, 71%, 71%);
+    --accent-05: hsl(0, 71%, 80%);
+    
     /* FONT SIZES */
     --headline-xs: clamp(21.6px, 3vw, 27px);
     --headline-s: clamp(23.4px, 3.5vw, 28.8px);
@@ -31,14 +41,6 @@
     /* FONT SETTINGS */
     --font-family-heading: 'DIN 2014', sans-serif;
     --font-family-text: 'DIN 2014', sans-serif;
-
-    /* FONT COLORS */
-    --font-color-heading: #000000;
-    --font-color-text: #636363;
-    --font-color-header: #000000;
-    --font-color-footer: #ffffff;
-    --font-color-header-hover: #adadad;
-    --font-color-footer-hover: #000000;
 
     /* MENU SETTINGS */
     --font-menu-size: clamp(18px, 3vw, 21.6px);

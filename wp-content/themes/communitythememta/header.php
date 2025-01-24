@@ -2,15 +2,15 @@
 <html lang="de">
 
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title><?php bloginfo('name'); ?></title>
-	<meta name="description" content="<?php bloginfo('description'); ?>">
-	<meta property="og:title" content="<?php wp_title(); ?>">
-	<meta property="og:description" content="<?php bloginfo('description'); ?>">
-	<meta property="og:url" content="<?php echo esc_url(home_url()); ?>">
-	<meta property="og:type" content="website">
-	<?php wp_head(); ?>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><?php bloginfo('name'); ?><?php wp_title('|', true, 'left'); ?></title>
+    <meta name="description" content="<?php bloginfo('description'); ?>">
+    <meta property="og:title" content="<?php wp_title(); ?>">
+    <meta property="og:description" content="<?php bloginfo('description'); ?>">
+    <meta property="og:url" content="<?php echo esc_url(home_url()); ?>">
+    <meta property="og:type" content="website">
+    <?php wp_head(); ?>
 </head>
 
 <body <?php body_class(); ?>>
@@ -20,6 +20,7 @@
         <?php
         $logo = get_field('logo', 'option');
         $logo_size = get_field('logo_size', 'option');
+        $home_url = esc_url(home_url('/'));
 
         if ($logo) :
             $logo_class = '';
@@ -37,18 +38,19 @@
             }
         ?>
             <div class="main-logo <?php echo esc_attr($logo_class); ?>">
-                <a href="/">
+                <a href="<?php echo $home_url; ?>">
                     <img src="<?php echo esc_url($logo['url']); ?>" 
-                         alt="<?php echo esc_attr($logo['alt'] ?: __('Logo von', 'communitytheme') . ' ' . get_bloginfo('name')); ?>">
+                         alt="<?php echo esc_attr($logo['alt'] ?: __('Logo von', 'communitytheme') . ' ' . get_bloginfo('name')); ?>" 
+                         loading="lazy">
                 </a>
             </div>
         <?php else : ?>
             <?php if (is_front_page() && is_home()) : ?>
-                <h1><a href="<?php echo esc_url(home_url()); ?>">
+                <h1><a href="<?php echo $home_url; ?>">
                     <?php bloginfo('name'); ?>
                 </a></h1>
             <?php else : ?>
-                <p><a href="<?php echo esc_url(home_url()); ?>">
+                <p><a href="<?php echo $home_url; ?>">
                     <?php bloginfo('name'); ?>
                 </a></p>
             <?php endif; ?>
@@ -66,13 +68,14 @@
                 'aria-label' => __('Hauptnavigation', 'communitytheme'),
             ));
         else :
-            echo '<nav aria-label="' . __('Navigation fehlt', 'communitytheme') . '">';
+            echo '<nav class="fallback-navigation" aria-label="' . __('Navigation fehlt', 'communitytheme') . '">';
             echo '<p>' . __('Kein Menü ausgewählt.', 'communitytheme') . '</p>';
             echo '</nav>';
         endif;
         ?>
     </div>
 </header>
+
 <?php wp_footer(); ?>
 </body>
 </html>

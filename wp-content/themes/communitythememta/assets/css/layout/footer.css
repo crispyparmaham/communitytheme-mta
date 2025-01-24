@@ -1,6 +1,6 @@
 .main-footer {
   display: block;
-  background-color: var(--footer-background-color);
+  background-color: var(--background-03);
   color: var(--font-color-footer);
 }
 

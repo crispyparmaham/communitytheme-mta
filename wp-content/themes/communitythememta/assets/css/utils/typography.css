@@ -6,7 +6,7 @@
 .main-content h6 {
   font-family: var(--font-family-heading);
   line-height: 1.2;
-  color: var(--font-color-heading);
+  color: var(--foreground-01);
   margin-bottom: 1.5rem;
 }
 
@@ -18,6 +18,7 @@
 
 p {
   font-family: var(--font-family-text);
+  color: var(--foreground-02);
 }
 
 h1.wp-block-heading {

@@ -1,6 +1,6 @@
 /* Hauptheader */
 .main-header {
-  background-color: var(--header-background-color);
+  background-color: var(--background-05);
   width: 100%;
   margin: 0 auto;
   color: var(--font-color-header);

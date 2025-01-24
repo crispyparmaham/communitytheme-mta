@@ -21,7 +21,7 @@
 .left-content-column {
   flex: 7;
   padding: 2.5rem;
-  background-color: var(--inner-content-background-color);
+  background-color: var(--background-05);
   border-radius: var(--border-radius-s);
 }
 
@@ -31,7 +31,7 @@
 }
 
 .right-content-column .scroll-container {
-  background-color: var(--inner-content-background-color);
+  background-color: var(--background-05);
   padding: 2rem;
   position: sticky;
   top: 50px;

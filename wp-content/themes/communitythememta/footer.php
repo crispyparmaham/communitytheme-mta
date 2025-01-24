@@ -1,6 +1,6 @@
 <?php wp_footer(); ?>
 
-<footer class="main-footer">
+<footer class="main-footer" role="contentinfo">
 	<div class="footer-inner-wrap">
 		<div class="footer-top">
 			<?php
@@ -23,14 +23,15 @@
 				}
 				?>
 				<div class="main-logo <?php echo esc_attr( $logo_class ); ?>">
-					<a href="/">
+					<a href="/" aria-label="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>">
 						<img src="<?php echo esc_url( $logo['url'] ); ?>"
-							alt="<?php echo esc_attr( $logo['alt'] ?: __( 'Footer-Logo von', 'communitytheme' ) . ' ' . get_bloginfo( 'name' ) ); ?>">
+							alt="<?php echo esc_attr( $logo['alt'] ?: __( 'Footer-Logo von', 'communitytheme' ) . ' ' . get_bloginfo( 'name' ) ); ?>"
+							loading="lazy">
 					</a>
 				</div>
 			<?php else : ?>
 				<h1>
-					<a href="<?php echo esc_url( home_url() ); ?>">
+					<a href="<?php echo esc_url( home_url() ); ?>" aria-label="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>">
 						<?php bloginfo( 'name' ); ?>
 					</a>
 				</h1>
@@ -56,6 +57,8 @@
 							'container' => 'nav',
 							'container_class' => 'main-navigation',
 							'aria-label' => __( 'Footer-Navigation', 'communitytheme' ),
+							'role' => 'navigation', // Role hinzugefügt
+							'fallback_cb' => false // Verhindert die Anzeige von Standardmenüs
 						) );
 					else :
 						echo '<p>' . __( 'Kein Menü ausgewählt.', 'communitytheme' ) . '</p>';
@@ -69,15 +72,15 @@
 			<div class="footer-copyright">
 				<span>&copy; <?php echo date( 'Y' ); ?> <?php bloginfo( 'name' ); ?></span>
 			</div>
-			<nav class="footer-policy">
+			<nav class="footer-policy" aria-label="Rechtliche Hinweise">
 				<ul>
-					<li><a href="/impressum" rel="nofollow"><?php _e( 'Impressum', 'communitytheme' ); ?></a></li>
-					<li><a href="/datenschutz" rel="nofollow"><?php _e( 'Datenschutz', 'communitytheme' ); ?></a></li>
+					<li><a href="/impressum" rel="nofollow" aria-label="<?php _e( 'Impressum', 'communitytheme' ); ?>"><?php _e( 'Impressum', 'communitytheme' ); ?></a></li>
+					<li><a href="/datenschutz" rel="nofollow" aria-label="<?php _e( 'Datenschutz', 'communitytheme' ); ?>"><?php _e( 'Datenschutz', 'communitytheme' ); ?></a></li>
 				</ul>
 			</nav>
 		</div>
 	</div>
 </footer>
-</body>
 
+</body>
 </html>

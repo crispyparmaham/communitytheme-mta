@@ -52,6 +52,7 @@ add_filter('acf/load_field/name=selected_menu', 'populate_selected_menu_field');
 // === INCLUDE EXTERNAL FUNCTION FILES === //
 require_once(plugin_dir_path(__FILE__) . '/functions/css-variables.php'); // Dynamische CSS-Variablen
 require_once(plugin_dir_path(__FILE__) . '/functions/load-styles.php'); // Stylesheets laden
+require_once(plugin_dir_path(__FILE__) . '/functions/load-acf-fields.php'); // ACF-Felder laden
 
 
 
@@ -67,3 +68,38 @@ function use_custom_template_for_termin($template) {
 add_filter('template_include', 'use_custom_template_for_termin');
 
 
+
+
+// Lade TGM Plugin Activation
+// Lade TGM Plugin Activation aus dem Composer 'vendor' Verzeichnis
+if ( file_exists( get_template_directory() . '/vendor/tgmpa/tgm-plugin-activation/src/class-tgm-plugin-activation.php' ) ) {
+    require_once get_template_directory() . '/vendor/tgmpa/tgm-plugin-activation/src/class-tgm-plugin-activation.php';
+}
+
+
+function my_theme_register_required_plugins() {
+    $plugins = array(
+        array(
+            'name'      => 'Advanced Custom Fields', // Name des Plugins
+            'slug'      => 'advanced-custom-fields', // Slug des Plugins
+            'required'  => true, // Muss installiert werden
+        ),
+    );
+
+    tgmpa( $plugins );
+}
+add_action( 'tgmpa_register', 'my_theme_register_required_plugins' );
+
+
+
+if( function_exists('acf_add_options_page') ) {
+
+    acf_add_options_page(array(
+        'page_title'    => 'Theme Settings',
+        'menu_title'    => 'Theme Settings',
+        'menu_slug'     => 'theme-settings',
+        'capability'    => 'edit_posts',
+        'redirect'      => false,
+    ));
+
+}
