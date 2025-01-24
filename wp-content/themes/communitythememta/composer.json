@@ -1,5 +1,5 @@
 {
-    "name": "morethanads/commuunity-theme",
+    "name": "morethanads/community-theme",
     "type": "wordpress-theme",
     "require": {
       "tgmpa/tgm-plugin-activation": "^2.6"

@@ -70,26 +70,28 @@ add_filter('template_include', 'use_custom_template_for_termin');
 
 
 
-// Lade TGM Plugin Activation
-// Lade TGM Plugin Activation aus dem Composer 'vendor' Verzeichnis
-if ( file_exists( get_template_directory() . '/vendor/tgmpa/tgm-plugin-activation/src/class-tgm-plugin-activation.php' ) ) {
-    require_once get_template_directory() . '/vendor/tgmpa/tgm-plugin-activation/src/class-tgm-plugin-activation.php';
+//ACF INTEGRATION
+
+function my_theme_acf_pro_notice() {
+    // Überprüfen, ob ACF Pro nicht installiert ist
+    if ( ! class_exists( 'ACF' ) ) {
+        echo '<div class="notice notice-warning is-dismissible">
+            <p><strong>ACF Custom Fields Pro</strong> muss installiert werden, um alle Funktionen des Themes zu nutzen.</p>
+            <p><a href="https://www.advancedcustomfields.com/pro/" target="_blank" class="button button-primary">Jetzt ACF Pro installieren</a></p>
+        </div>';
+    }
 }
+add_action( 'admin_notices', 'my_theme_acf_pro_notice' );
 
 
-function my_theme_register_required_plugins() {
-    $plugins = array(
-        array(
-            'name'      => 'Advanced Custom Fields', // Name des Plugins
-            'slug'      => 'advanced-custom-fields', // Slug des Plugins
-            'required'  => true, // Muss installiert werden
-        ),
-    );
 
-    tgmpa( $plugins );
+// Stelle sicher, dass ACF die JSON-Dateien lädt, wenn das Theme aktiviert wird
+add_filter('acf/settings/load_json', 'my_theme_acf_json_load_point');
+function my_theme_acf_json_load_point( $paths ) {
+    // Verzeichnis, in dem du deine JSON-Dateien speicherst
+    $paths[] = get_template_directory() . '/acf-json/';
+    return $paths;
 }
-add_action( 'tgmpa_register', 'my_theme_register_required_plugins' );
-
 
 
 if( function_exists('acf_add_options_page') ) {
@@ -103,3 +105,4 @@ if( function_exists('acf_add_options_page') ) {
     ));
 
 }
+
