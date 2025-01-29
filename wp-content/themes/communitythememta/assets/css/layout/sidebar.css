@@ -10,6 +10,10 @@
   margin-bottom: 20px;
 }
 
+.widget p {
+  font-size: 16px;
+}
+
 /*SIDEBAR*/
 
 .sidebar-block .termin-item {

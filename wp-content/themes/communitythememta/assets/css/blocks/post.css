@@ -39,9 +39,11 @@
   background-color: var(--accent-01);
   color: #fff;
   font-size: 0.9rem;
-  padding: 8px 15px;
+  padding: 6px 12px;
   margin-top: 15px;
   width: fit-content;
+  border-radius: var(--border-radius-s);
+  text-decoration: none;
 }
 
 .post-content .post-link:hover {
