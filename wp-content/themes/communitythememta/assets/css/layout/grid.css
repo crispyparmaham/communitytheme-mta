@@ -18,6 +18,10 @@
   color: var(--font-color-text);
 }
 
+.content-container {
+  padding: 4rem 0;
+}
+
 .left-content-column {
   flex: 7;
   padding: 2.5rem;
@@ -38,7 +42,7 @@
   border-radius: var(--border-radius-s);
 }
 
-.content-container .header-img-wrap {
+.main-container .header-img-wrap {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -46,7 +50,7 @@
   margin: 0;
 }
 
-.content-container .header-img-heading {
+.main-container .header-img-heading {
   margin: 0 auto;
   width: 100%;
   max-width: var(--inner-content-width);

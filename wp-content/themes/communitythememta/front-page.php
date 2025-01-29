@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<main class="content-container">
+<main class="main-container">
     <section class="header-img-wrap" role="banner">
         <?php if ( has_post_thumbnail() ) : ?>
             <?php $headerImage = get_the_post_thumbnail_url( null, 'full' ); ?>
@@ -18,7 +18,8 @@
     </section>
 
     <div class="main-content">
-        <section id="vereine">
+        <section id="vereine" class="content-container">
+            <h2 class="section-heading">Vereine</h2>
             <?php include get_template_directory() . '/blocks/vereine/verein.php'; ?>
         </section>
     </div>

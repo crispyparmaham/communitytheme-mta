@@ -44,3 +44,9 @@ h5.wp-block-heading {
 h6.wp-block-heading {
   font-size: var(--headline-xs);
 }
+
+.section-heading {
+  font-size: var(--headline-l);
+  color: var(--foreground-01);
+  margin-bottom: 3.5rem !important;
+}
