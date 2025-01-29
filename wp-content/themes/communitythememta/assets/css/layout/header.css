@@ -61,3 +61,18 @@
 .main-header nav ul li a:hover {
   color: var(--font-color-header-hover);
 }
+
+@media (max-width: 992px) {
+  /* Kleine, mittlere und große Logos */
+  .main-header .main-logo.logo-small img {
+    width: 100px;
+  }
+
+  .main-header .main-logo.logo-medium img {
+    width: 140px;
+  }
+
+  .main-header .main-logo.logo-large img {
+    width: 180px;
+  }
+}

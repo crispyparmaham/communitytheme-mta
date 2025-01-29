@@ -1,18 +1,41 @@
 <?php 
 
-// === GUTENBERG BLOCKS SCRIPTS === //
-wp_enqueue_script(
-    'termin-block-js',
-    plugin_dir_url(__FILE__) . '/blocks/termine/index.js',
-    [], // Keine Abhängigkeiten
-    '1.0.0', // Versionsnummer
-    true // Script wird im Footer geladen
-);
+// === ENQUEUE SCRIPTS === //
+function theme_enqueue_scripts() {
+    // Pfad zu den Skripten mit get_template_directory_uri() (für Themes)
+    wp_enqueue_script(
+        'termin-block-js',
+        get_template_directory_uri() . '/blocks/termine/index.js',
+        [], // Keine Abhängigkeiten
+        '1.0.0', // Versionsnummer
+        false // Script wird im Footer geladen
+    );
+
+    wp_enqueue_script(
+        'verein-block-js',
+        get_template_directory_uri() . '/blocks/vereine/index.js',
+        [], // Keine Abhängigkeiten
+        '1.0.0', // Versionsnummer
+        false // Script wird im Footer geladen
+    );
+
+    wp_enqueue_script(
+        'accordeon-js',
+        get_template_directory_uri() . '/assets/js/accordeon.js',
+        [], // Keine Abhängigkeiten
+        '1.0.0', // Versionsnummer
+        false // Script wird im Footer geladen
+    );
+}
+add_action('wp_enqueue_scripts', 'theme_enqueue_scripts');
+
 
 
 // === REGISTER CUSTOM GUTENBERG BLOCKS === //
+
 function register_blocks() {
     register_block_type(__DIR__ . '/blocks/termine'); // Registrierung des "Termine"-Blocks
+    register_block_type(__DIR__ . '/blocks/vereine'); // Registrierung des "Vereine"-Blocks
 }
 add_action('init', 'register_blocks');
 
@@ -105,4 +128,5 @@ if( function_exists('acf_add_options_page') ) {
     ));
 
 }
+
 

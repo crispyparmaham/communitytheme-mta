@@ -79,11 +79,23 @@
                 <!-- Bild -->
                 <div class="post-listing-item-image <?php echo $post_image ? '' : 'is-empty-post-image'; ?>">
                     <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-                        <img <?php responsive_image($post_image ?: $placeholder_image, 'post-listing', '310px'); ?>
-                            height="<?php echo esc_attr($post_image_height); ?>" 
-                            width="<?php echo esc_attr($post_image_width); ?>" 
-                            alt="<?php echo esc_attr(get_post_meta($post_image ?: $placeholder_image, '_wp_attachment_image_alt', true) ?: get_the_title($post_image ?: $placeholder_image)); ?>" 
-                            loading="lazy">
+                        <?php
+                        if ($post_image) {
+                            echo wp_get_attachment_image($post_image, 'post-listing', false, [
+                                'width' => $post_image_width,
+                                'height' => $post_image_height,
+                                'alt' => esc_attr(get_post_meta($post_image, '_wp_attachment_image_alt', true) ?: get_the_title($post_image)),
+                                'loading' => 'lazy',
+                            ]);
+                        } else {
+                            echo wp_get_attachment_image($placeholder_image, 'post-listing', false, [
+                                'width' => $post_image_width,
+                                'height' => $post_image_height,
+                                'alt' => esc_attr(get_post_meta($placeholder_image, '_wp_attachment_image_alt', true) ?: get_the_title($placeholder_image)),
+                                'loading' => 'lazy',
+                            ]);
+                        }
+                        ?>
                     </a>
                 </div>
 

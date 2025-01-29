@@ -104,12 +104,12 @@ function generate_dynamic_css() {
     $bodyText = get_field( 'body_text', 'option' ) ? get_field( 'body_text', 'option' ) : 18;
 
     // Dynamische Überschrift-Größen basierend auf bodyText
-    $headlineXS = "clamp(" . ( $bodyText * 1.2 ) . "px, 3vw, " . ( $bodyText * 1.5 ) . "px)";
-    $headlineS = "clamp(" . ( $bodyText * 1.3 ) . "px, 3.5vw, " . ( $bodyText * 1.6 ) . "px)";
-    $headlineM = "clamp(" . ( $bodyText * 1.5 ) . "px, 4vw, " . ( $bodyText * 1.8 ) . "px)";
-    $headlineL = "clamp(" . ( $bodyText * 1.8 ) . "px, 5vw, " . ( $bodyText * 2.2 ) . "px)";
-    $headlineXL = "clamp(" . ( $bodyText * 2.2 ) . "px, 6vw, " . ( $bodyText * 2.8 ) . "px)";
-    $headlineXXL = "clamp(" . ( $bodyText * 2.5 ) . "px, 8vw, " . ( $bodyText * 3.3 ) . "px)";
+    $headlineXS = "clamp(" . ( $bodyText * 1 ) . "px, 3vw, " . ( $bodyText * 1.2 ) . "px)";
+    $headlineS = "clamp(" . ( $bodyText * 1.4 ) . "px, 3.5vw, " . ( $bodyText * 1.8 ) . "px)";
+    $headlineM = "clamp(" . ( $bodyText * 2 ) . "px, 4vw, " . ( $bodyText * 2.4 ) . "px)";
+    $headlineL = "clamp(" . ( $bodyText * 2.6 ) . "px, 5vw, " . ( $bodyText * 2.8 ) . "px)";
+    $headlineXL = "clamp(" . ( $bodyText * 3.2 ) . "px, 6vw, " . ( $bodyText * 3.6 ) . "px)";
+    $headlineXXL = "clamp(" . ( $bodyText * 3.8 ) . "px, 8vw, " . ( $bodyText * 4.2 ) . "px)";
 
     $fontFamilyHeading = get_field( 'font_heading', 'option' );
     $fontFamilyText = get_field( 'font_text', 'option' );

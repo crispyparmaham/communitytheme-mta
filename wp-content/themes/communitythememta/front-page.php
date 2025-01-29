@@ -18,22 +18,9 @@
     </section>
 
     <div class="main-content">
-        <article class="left-content-column">
-            <?php if ( have_posts() ) : ?>
-                <?php while ( have_posts() ) : the_post(); ?>
-                        <?php the_content(); ?>
-                <?php endwhile; ?>
-            <?php else : ?>
-                <p role="alert">Keine Inhalte gefunden. Bitte versuchen Sie es später erneut.</p>
-            <?php endif; ?>
-        </article>
-
-        <aside class="right-content-column" aria-labelledby="sidebar-title">
-            <div class="scroll-container">
-                <h2 id="sidebar-title" class="screen-reader-text">Zusätzliche Inhalte</h2>
-                <?php get_sidebar(); ?>
-            </div>
-        </aside>
+        <section id="vereine">
+            <?php include get_template_directory() . '/blocks/vereine/verein.php'; ?>
+        </section>
     </div>
 </main>
 

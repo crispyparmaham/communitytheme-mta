@@ -1,0 +1,117 @@
+.accordion {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.accordion-item {
+  margin-bottom: 0.3rem;
+}
+
+.accordion-header {
+  background-color: var(--background-03);
+  font-size: 18px;
+  font-weight: bold;
+  text-align: left;
+  cursor: pointer;
+  border: none;
+  width: 100%;
+}
+
+h2.accordion-header {
+  margin-bottom: 0;
+  font-size: var(--headline-xs);
+}
+
+.accordion-button {
+  padding: 18px 22px;
+  background: none;
+  color: inherit;
+  font: inherit;
+  border: none;
+  width: 100%;
+  text-align: left;
+  font-size: inherit;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.accordion-body {
+  display: flex;
+  background-color: var(--background-05);
+  font-size: 16px;
+  color: #333;
+}
+
+.accordion-body img {
+  max-width: 50%;
+  height: auto;
+  object-fit: cover;
+}
+
+.contact-wrap {
+  max-width: 50%;
+  padding: 50px;
+}
+
+.contact-wrap p {
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 5px 0;
+}
+
+.contact-wrap .inner {
+  margin-bottom: 20px;
+}
+
+.accordion-body a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.accordion-body a:hover {
+  text-decoration: underline;
+}
+
+.accordion-collapse {
+  display: none;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
+
+.accordion-collapse.open {
+  display: block;
+}
+
+.accordion-button:focus {
+  outline: none;
+}
+
+.accordion-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: var(--background-02);
+}
+
+@media (max-width: 768px) {
+  .accordion-body {
+    flex-direction: column;
+  }
+
+  .accordion-body img {
+    max-width: 100%;
+  }
+
+  .contact-wrap {
+    max-width: 100%;
+    padding: 20px;
+  }
+}
