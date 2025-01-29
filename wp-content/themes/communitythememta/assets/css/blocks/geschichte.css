@@ -1,0 +1,50 @@
+/* Hauptbereich */
+.geschichte-main {
+  display: flex;
+  gap: 60px;
+}
+
+.geschichte-content {
+  width: 65%;
+  line-height: 1.6;
+  color: var(--foreground-01);
+}
+
+.geschichte-sidebar {
+  width: 35%;
+  background-color: var(--background-03);
+  padding: 40px;
+}
+
+.geschichte-sidebar h3 {
+  margin-bottom: 10px;
+  color: var(--foreground-01);
+}
+
+.geschichte-sidebar h4 {
+  margin-bottom: 10px;
+  color: var(--foreground-01);
+  text-decoration: underline;
+}
+
+.sidebar-content {
+  line-height: 1.5;
+  color: var(--foreground-01);
+}
+
+.sidebar-content img {
+  height: 80px;
+  margin-bottom: 20px;
+}
+
+/* Responsives Design */
+@media (max-width: 768px) {
+  .geschichte-main {
+    flex-direction: column;
+  }
+
+  .geschichte-content,
+  .geschichte-sidebar {
+    width: 100%;
+  }
+}

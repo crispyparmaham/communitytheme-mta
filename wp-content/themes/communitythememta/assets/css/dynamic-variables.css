@@ -2,7 +2,7 @@
 :root {
     /* PRIMARY COLORS */
     --color-foreground: hsl(0, 0%, 0%);
-    --color-background: hsl(0, 0%, 57%);
+    --color-background: hsl(0, 0%, 60%);
     --color-accent: hsl(0, 71%, 35%);
 
     /* COLOR SHADES */
@@ -12,10 +12,10 @@
     --foreground-04: hsl(0, 0%, 18%);
     --foreground-05: hsl(0, 0%, 27%);
 
-    --background-01: hsl(0, 0%, 66%);
-    --background-02: hsl(0, 0%, 75%);
-    --background-03: hsl(0, 0%, 84%);
-    --background-04: hsl(0, 0%, 93%);
+    --background-01: hsl(0, 0%, 69%);
+    --background-02: hsl(0, 0%, 78%);
+    --background-03: hsl(0, 0%, 87%);
+    --background-04: hsl(0, 0%, 96%);
     --background-05: hsl(0, 0%, 100%);
 
     --accent-01: hsl(0, 71%, 44%);
@@ -26,17 +26,17 @@
     
     /* FONT SIZES */
     --headline-xs: clamp(18px, 3vw, 21.6px);
-    --headline-s: clamp(25.2px, 3.5vw, 32.4px);
-    --headline-m: clamp(36px, 4vw, 43.2px);
-    --headline-l: clamp(46.8px, 5vw, 50.4px);
-    --headline-xl: clamp(57.6px, 6vw, 64.8px);
-    --headline-xxl: clamp(68.4px, 8vw, 75.6px);
+    --headline-s: clamp(21.6px, 3.5vw, 25.2px);
+    --headline-m: clamp(28.8px, 4vw, 36px);
+    --headline-l: clamp(36px, 5vw, 46.8px);
+    --headline-xl: clamp(46.8px, 6vw, 54px);
+    --headline-xxl: clamp(54px, 8vw, 61.2px);
     --body-text-size: 18px;
 
     /* GRID WIDTH */
-    --inner-content-width: 1600px;
-    --inner-header-width: 1600px;
-    --inner-footer-width: 1600px;
+    --inner-content-width: 1400px;
+    --inner-header-width: 1400px;
+    --inner-footer-width: 1400px;
 
     /* FONT SETTINGS */
     --font-family-heading: 'DIN 2014', sans-serif;

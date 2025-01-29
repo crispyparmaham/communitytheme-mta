@@ -17,9 +17,10 @@
   width: 100%;
 }
 
-h2.accordion-header {
+.accordion-header h4 {
   margin-bottom: 0;
   font-size: var(--headline-xs);
+  color: var(--foreground-05);
 }
 
 .accordion-button {
@@ -42,7 +43,6 @@ h2.accordion-header {
   display: flex;
   background-color: var(--background-05);
   font-size: 16px;
-  color: #333;
 }
 
 .accordion-body img {
@@ -99,6 +99,7 @@ h2.accordion-header {
   top: 0;
   bottom: 0;
   background-color: var(--background-02);
+  color: var(--foreground-05);
 }
 
 @media (max-width: 768px) {

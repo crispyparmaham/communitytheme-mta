@@ -12,7 +12,7 @@
 
 .header-img-heading h1 {
   color: #ffffff;
-  font-size: var(--headline-xxl);
+  font-size: var(--headline-xl);
   line-height: 1.2;
 }
 
@@ -22,31 +22,37 @@ p {
 }
 
 h1.wp-block-heading {
-  font-size: var(--headline-xxl);
+  font-size: var(--headline-xl);
+  line-height: 1.2;
 }
 
 h2.wp-block-heading {
-  font-size: var(--headline-xl);
+  font-size: var(--headline-l);
+  line-height: 1.2;
 }
 
 h3.wp-block-heading {
-  font-size: var(--headline-l);
+  font-size: var(--headline-m);
+  line-height: 1.2;
 }
 
 h4.wp-block-heading {
-  font-size: var(--headline-m);
+  font-size: var(--headline-s);
+  line-height: 1.2;
 }
 
 h5.wp-block-heading {
-  font-size: var(--headline-s);
+  font-size: var(--headline-xs);
+  line-height: 1.2;
 }
 
 h6.wp-block-heading {
   font-size: var(--headline-xs);
+  line-height: 1.2;
 }
 
 .section-heading {
-  font-size: var(--headline-l);
+  font-size: var(--headline-m);
   color: var(--foreground-01);
   margin-bottom: 3.5rem !important;
 }

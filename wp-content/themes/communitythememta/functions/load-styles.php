@@ -16,6 +16,9 @@ function load_stylesheet() {
         'typography' => '/assets/css/utils/typography.css',
         'termine' => '/assets/css/blocks/termin.css',
         'vereine' => '/assets/css/blocks/vereine.css',
+        'daten' => '/assets/css/blocks/daten.css',
+        'grusswort' => '/assets/css/blocks/grusswort.css',
+        'geschichte' => '/assets/css/blocks/geschichte.css',
     ];
 
     // Schleife durch das Stylesheet-Array und enqueue jedes Stylesheet

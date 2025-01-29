@@ -1,3 +1,46 @@
+#front-page {
+  display: block;
+}
+
 #vereine {
   width: 100%;
+}
+
+.gallery-img-wrap {
+  display: flex;
+  width: 100%;
+}
+
+.gallery-img-wrap img:first-child {
+  width: 35%;
+  height: auto;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+.gallery-img-wrap img:last-child {
+  width: 65%;
+  height: auto;
+  object-fit: cover;
+  margin-left: 10px;
+}
+
+/*MEDIA QUERIES*/
+
+@media (max-width: 992px) {
+  .gallery-img-wrap {
+    flex-direction: column;
+  }
+
+  .gallery-img-wrap img:first-child {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 7.5px;
+  }
+
+  .gallery-img-wrap img:last-child {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 7.5px;
+  }
 }

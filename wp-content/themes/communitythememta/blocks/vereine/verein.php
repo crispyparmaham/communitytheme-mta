@@ -10,7 +10,7 @@ $query = new WP_Query( $args );
 
 if ( $query->have_posts() ) :
 	?>
-	<div class="accordion" id="vereineAccordion" role="region" aria-labelledby="vereineHeading">
+	<div class="accordion inner-max-width" id="vereineAccordion" role="region" aria-labelledby="vereineHeading">
 		<?php
 		while ( $query->have_posts() ) :
 			$query->the_post();
@@ -27,13 +27,13 @@ if ( $query->have_posts() ) :
 			$collapse_id = 'collapse-' . $post_id;
 			?>
 			<div class="accordion-item">
-				<h2 class="accordion-header" id="<?php echo esc_attr( $heading_id ); ?>">
+				<div class="accordion-header" id="<?php echo esc_attr( $heading_id ); ?>">
 					<button class="accordion-button" type="button" aria-expanded="false"
 						aria-controls="<?php echo esc_attr( $collapse_id ); ?>">
-						<?php the_title(); ?>
-						<span class="accordion-icon">+</span> <!-- Das Plus-Symbol -->
+						<h4><?php the_title(); ?></h4>
+						<span class="accordion-icon">+</span>
 					</button>
-				</h2>
+				</div>
 				<div id="<?php echo esc_attr( $collapse_id ); ?>" class="accordion-collapse">
 					<div class="accordion-body">
 						<?php if ( $association_img ) : ?>

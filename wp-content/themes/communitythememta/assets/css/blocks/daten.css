@@ -1,0 +1,160 @@
+/* Styling für die Datenfelder */
+.daten-fakten {
+  margin-bottom: 30px;
+}
+
+.daten {
+  margin-bottom: 80px;
+  padding: 40px;
+  background-color: var(--background-03);
+}
+
+.daten .inner-wrap {
+  display: grid;
+  grid-template-columns: repeat(4, 25%);
+}
+
+.data-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: var(--foreground-01);
+}
+
+.data-item .label {
+  font-size: 20px;
+}
+
+.daten .value {
+  font-weight: bold;
+  font-size: 32px;
+  position: relative;
+  margin-left: 40px;
+}
+
+/* Die Icon-Grafik als Hintergrundbild */
+.daten .data-item .value::before {
+  content: '';
+  position: absolute;
+  left: -45px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px; /* Icon-Größe */
+  height: 40px; /* Icon-Größe */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Icons für einzelne Daten */
+.daten .data-item.einwohner .value::before {
+  background-image: url('/wp-content/themes/communitythememta/assets/images/icons/person-icon.svg');
+}
+
+.daten .data-item.plz .value::before {
+  background-image: url('/wp-content/themes/communitythememta/assets/images/icons/location-icon.svg');
+}
+
+.daten .data-item.hoehe .value::before {
+  background-image: url('/wp-content/themes/communitythememta/assets/images/icons/size-icon.svg');
+}
+
+.daten .data-item.flaeche .value::before {
+  background-image: url('/wp-content/themes/communitythememta/assets/images/icons/area-icon.svg');
+}
+
+/* Layout für die Flexbox */
+.einwohner-gemeinderat {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.einwohner-grid,
+.gemeinderat-grid {
+  width: 48%;
+}
+
+.einwohner-grid h4,
+.gemeinderat-grid h4 {
+  font-size: var(--headline-xs);
+  color: var(--foreground-01);
+  margin-bottom: 40px;
+}
+
+/* Styling für Tabellen */
+.ortsteil-tabelle table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+/* Grundstyle für die Tabelle */
+.ortsteil-tabelle th,
+.ortsteil-tabelle td {
+  padding: 16px;
+  text-align: left;
+}
+
+/* Grundstyle für die Tabelle */
+.ortsteil-tabelle th,
+.ortsteil-tabelle td {
+  padding: 16px;
+  text-align: left;
+}
+
+/* Stil für die Kopfzeilen */
+.ortsteil-tabelle th {
+  background-color: var(--background-04);
+  color: var(--foreground-05);
+  font-weight: bold;
+}
+
+/* Hintergrundfarbe für die Zellen */
+.ortsteil-tabelle td {
+  background-color: transparent; /* Zellen haben keinen festen Hintergrund */
+  color: var(--foreground-02);
+}
+
+/* Abwechselnde Hintergrundfarben für Zeilen */
+.ortsteil-tabelle tr:nth-child(odd) {
+  background-color: var(--background-03); /* Farbe für ungerade Zeilen */
+}
+
+.ortsteil-tabelle tr:nth-child(even) {
+  background-color: var(--background-04); /* Farbe für gerade Zeilen */
+}
+
+/*MEDIA QUERIES*/
+
+@media (max-width: 992px) {
+  .einwohner-gemeinderat {
+    flex-direction: column;
+  }
+
+  .einwohner-grid,
+  .gemeinderat-grid {
+    width: 100%;
+  }
+
+  .gemeinderat-grid {
+    margin-top: 50px;
+  }
+}
+
+@media (max-width: 850px) {
+  .daten .inner-wrap {
+    grid-template-columns: repeat(2, 50%);
+    row-gap: 30px;
+  }
+}
+
+@media (max-width: 600px) {
+  .daten .inner-wrap {
+    grid-template-columns: repeat(1, 100%);
+  }
+
+  .data-item {
+    align-items: center;
+  }
+}

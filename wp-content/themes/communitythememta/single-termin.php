@@ -2,7 +2,7 @@
 get_header();
 ?>
 
-<main class="content-container">
+<main class="main-container">
 	<!-- Termin-Header: Bild und Titel -->
 	<section class="header-img-wrap">
 		<?php if ( has_post_thumbnail() ) : ?>

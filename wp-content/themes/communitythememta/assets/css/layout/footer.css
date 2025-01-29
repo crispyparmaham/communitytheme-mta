@@ -1,7 +1,7 @@
 .main-footer {
   display: block;
   background-color: var(--background-03);
-  color: var(--font-color-footer);
+  color: var(--foreground-01);
 }
 
 .footer-inner-wrap {
@@ -48,24 +48,23 @@
 
 .footer-policy a {
   margin-left: 15px;
-  color: var(--font-color-footer);
 }
 
 .footer-policy a:hover {
-  color: var(--font-color-footer-hover);
+  color: var(--accent-01);
 }
 
 /* Kleine, mittlere und große Logos */
 .main-footer .main-logo.logo-small img {
-  width: 140px;
+  width: 80px;
 }
 
 .main-footer .main-logo.logo-medium img {
-  width: 200px;
+  width: 100px;
 }
 
 .main-footer .main-logo.logo-large img {
-  width: 260px;
+  width: 140px;
 }
 
 /* Navigation im footer */
@@ -86,10 +85,10 @@
 
 .main-footer nav ul li a {
   text-decoration: none;
-  color: var(--font-color-footer);
+  color: var(--foreground-01);
 }
 
 /* Hover-Effekt für Links */
 .main-footer nav ul li a:hover {
-  color: var(--font-color-footer-hover);
+  color: var(--accent-01);
 }

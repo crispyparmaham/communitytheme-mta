@@ -18,6 +18,12 @@
   color: var(--font-color-text);
 }
 
+.inner-max-width {
+  max-width: var(--inner-content-width);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
 .content-container {
   padding: 4rem 0;
 }

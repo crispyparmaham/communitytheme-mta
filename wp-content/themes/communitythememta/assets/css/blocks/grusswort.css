@@ -1,0 +1,56 @@
+/* Allgemeines Styling für den Container */
+.gruswort-container {
+  display: flex;
+  margin: 0 auto;
+}
+
+/* Styling für das Bild */
+.gruswort-container .portrait {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  width: 40%;
+}
+
+.gruswort-container .portrait img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+}
+
+/* Styling für den Grußwort-Text */
+.gruswort-container .content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 60%;
+  padding: 60px;
+}
+
+.gruswort-container .content h3 {
+  font-size: var(--headline-s);
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+/* Responsives Design */
+@media (max-width: 768px) {
+  .gruswort-container {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .gruswort-container .portrait {
+    width: 120px;
+    height: 120px;
+  }
+
+  .gruswort-container .content h2 {
+    font-size: 1.5rem;
+  }
+
+  .gruswort-container .content p {
+    font-size: 0.9rem;
+  }
+}
