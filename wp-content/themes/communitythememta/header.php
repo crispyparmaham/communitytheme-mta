@@ -60,22 +60,34 @@
         $selected_menu_id = get_field('selected_menu', 'option'); 
 
         if ($selected_menu_id) :
-            wp_nav_menu(array(
-                'menu' => $selected_menu_id,
-                'container' => 'nav',
-                'container_class' => 'main-navigation',
-                'container_id' => 'main-navigation',
-                'aria-label' => __('Hauptnavigation', 'communitytheme'),
-            ));
-        else :
-            echo '<nav class="fallback-navigation" aria-label="' . __('Navigation fehlt', 'communitytheme') . '">';
-            echo '<p>' . __('Kein Menü ausgewählt.', 'communitytheme') . '</p>';
-            echo '</nav>';
-        endif;
         ?>
+            <!-- Hamburger Button für mobile Ansicht -->
+            <button class="hamburger-menu" aria-label="Menü anzeigen" aria-expanded="false">
+                <span class="hamburger-icon"></span>
+                <span class="hamburger-icon"></span>
+                <span class="hamburger-icon"></span>
+            </button>
+
+            <nav class="main-navigation" aria-label="Hauptnavigation">
+                <?php
+                wp_nav_menu(array(
+                    'menu' => $selected_menu_id,
+                    'container' => false,
+                    'menu_class' => 'menu-items',
+                    'aria-label' => __('Hauptnavigation', 'communitytheme'),
+                ));
+                ?>
+            </nav>
+        <?php else : ?>
+            <nav class="fallback-navigation" aria-label="Navigation fehlt">
+                <p><?php echo __('Kein Menü ausgewählt.', 'communitytheme'); ?></p>
+            </nav>
+        <?php endif; ?>
+
     </div>
 </header>
 
 <?php wp_footer(); ?>
 </body>
+
 </html>

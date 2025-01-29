@@ -29,7 +29,7 @@ if ( $query->have_posts() ) :
 			<div class="accordion-item">
 				<div class="accordion-header" id="<?php echo esc_attr( $heading_id ); ?>">
 					<button class="accordion-button" type="button" aria-expanded="false"
-						aria-controls="<?php echo esc_attr( $collapse_id ); ?>">
+						aria-controls="<?php echo esc_attr( $collapse_id ); ?>" tabindex="0">
 						<h4><?php the_title(); ?></h4>
 						<span class="accordion-icon">+</span>
 					</button>

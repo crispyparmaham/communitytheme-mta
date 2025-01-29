@@ -1735,9 +1735,8 @@ add_action( 'init', function () {
 		'menu_icon' => 'dashicons-groups',
 		'supports' => array(
 			0 => 'title',
-			1 => 'editor',
-			2 => 'thumbnail',
-			3 => 'custom-fields',
+			1 => 'thumbnail',
+			2 => 'custom-fields',
 		),
 		'has_archive' => 'verein',
 		'rewrite' => array(

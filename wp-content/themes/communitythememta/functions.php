@@ -6,25 +6,33 @@ function theme_enqueue_scripts() {
     wp_enqueue_script(
         'termin-block-js',
         get_template_directory_uri() . '/blocks/termine/index.js',
-        [], // Keine Abhängigkeiten
-        '1.0.0', // Versionsnummer
-        false // Script wird im Footer geladen
+        [], 
+        '1.0.0', 
+        false
     );
 
     wp_enqueue_script(
         'verein-block-js',
         get_template_directory_uri() . '/blocks/vereine/index.js',
-        [], // Keine Abhängigkeiten
-        '1.0.0', // Versionsnummer
-        false // Script wird im Footer geladen
+        [], 
+        '1.0.0', 
+        false 
     );
 
     wp_enqueue_script(
         'accordeon-js',
         get_template_directory_uri() . '/assets/js/accordeon.js',
-        [], // Keine Abhängigkeiten
-        '1.0.0', // Versionsnummer
-        false // Script wird im Footer geladen
+        [], 
+        '1.0.1',
+        false
+    );
+
+    wp_enqueue_script(
+        'mobile-menu-js',
+        get_template_directory_uri() . '/assets/js/mobile-menu.js',
+        [],
+        '1.0.2',
+        false
     );
 }
 add_action('wp_enqueue_scripts', 'theme_enqueue_scripts');
