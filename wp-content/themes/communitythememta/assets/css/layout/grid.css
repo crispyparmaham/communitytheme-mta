@@ -40,14 +40,6 @@
   height: auto;
 }
 
-.right-content-column .scroll-container {
-  background-color: var(--background-05);
-  padding: 2rem;
-  position: sticky;
-  top: 50px;
-  border-radius: var(--border-radius-s);
-}
-
 .main-container .header-img-wrap {
   display: flex;
   justify-content: center;

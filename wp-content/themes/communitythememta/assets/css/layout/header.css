@@ -59,7 +59,7 @@
 
 .main-header nav ul li a {
   text-decoration: none;
-  color: var(--font-color-header);
+  color: var(--foreground-01);
   font-size: var(--font-menu-size);
 }
 

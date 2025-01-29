@@ -19,6 +19,7 @@ function load_stylesheet() {
         'daten' => '/assets/css/blocks/daten.css',
         'grusswort' => '/assets/css/blocks/grusswort.css',
         'geschichte' => '/assets/css/blocks/geschichte.css',
+        'posts' => '/assets/css/blocks/post.css',
     ];
 
     // Schleife durch das Stylesheet-Array und enqueue jedes Stylesheet

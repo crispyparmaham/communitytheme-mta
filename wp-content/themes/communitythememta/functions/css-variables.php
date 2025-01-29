@@ -111,9 +111,6 @@ function generate_dynamic_css() {
     $headlineXL = "clamp(" . ( $bodyText * 2.6 ) . "px, 6vw, " . ( $bodyText * 3 ) . "px)";
     $headlineXXL = "clamp(" . ( $bodyText * 3 ) . "px, 8vw, " . ( $bodyText * 3.4 ) . "px)";
 
-    $fontFamilyHeading = get_field( 'font_heading', 'option' );
-    $fontFamilyText = get_field( 'font_text', 'option' );
-
     // === MENU SETTINGS === //
     $fontMenuSize = "clamp(" . ( $bodyText * 1.0 ) . "px, 3vw, " . ( $bodyText * 1.2 ) . "px)";
     $marginMenuSize = get_field( 'margin_size_menu', 'option' ) . "px";
@@ -158,10 +155,6 @@ function generate_dynamic_css() {
     --inner-content-width: {$innerContentWidth};
     --inner-header-width: {$innerHeaderWidth};
     --inner-footer-width: {$innerFooterWidth};
-
-    /* FONT SETTINGS */
-    --font-family-heading: {$fontFamilyHeading};
-    --font-family-text: {$fontFamilyText};
 
     /* MENU SETTINGS */
     --font-menu-size: {$fontMenuSize};

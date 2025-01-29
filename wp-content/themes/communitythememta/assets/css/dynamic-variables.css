@@ -2,7 +2,7 @@
 :root {
     /* PRIMARY COLORS */
     --color-foreground: hsl(0, 0%, 0%);
-    --color-background: hsl(0, 0%, 60%);
+    --color-background: hsl(0, 0%, 61%);
     --color-accent: hsl(0, 71%, 35%);
 
     /* COLOR SHADES */
@@ -12,10 +12,10 @@
     --foreground-04: hsl(0, 0%, 18%);
     --foreground-05: hsl(0, 0%, 27%);
 
-    --background-01: hsl(0, 0%, 69%);
-    --background-02: hsl(0, 0%, 78%);
-    --background-03: hsl(0, 0%, 87%);
-    --background-04: hsl(0, 0%, 96%);
+    --background-01: hsl(0, 0%, 70%);
+    --background-02: hsl(0, 0%, 79%);
+    --background-03: hsl(0, 0%, 88%);
+    --background-04: hsl(0, 0%, 97%);
     --background-05: hsl(0, 0%, 100%);
 
     --accent-01: hsl(0, 71%, 44%);
@@ -37,10 +37,6 @@
     --inner-content-width: 1400px;
     --inner-header-width: 1400px;
     --inner-footer-width: 1400px;
-
-    /* FONT SETTINGS */
-    --font-family-heading: 'DIN 2014', sans-serif;
-    --font-family-text: 'DIN 2014', sans-serif;
 
     /* MENU SETTINGS */
     --font-menu-size: clamp(18px, 3vw, 21.6px);

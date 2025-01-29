@@ -111,6 +111,9 @@
   display: flex;
   flex-direction: column;
   line-height: 1.6;
+  padding: 2rem;
+  background-color: var(--background-05);
+  border-radius: var(--border-radius-s);
 }
 
 .termin-cta-wrap .termin-cta-link {

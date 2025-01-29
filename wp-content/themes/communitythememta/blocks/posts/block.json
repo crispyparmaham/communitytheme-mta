@@ -1,0 +1,13 @@
+{
+  "name": "beitragsliste",
+  "title": "Beitragsliste",
+  "description": "Alle Beiträge einer Gemeinde",
+  "category": "community-blocks",
+  "icon": "grid-view",
+  "keywords": ["liste", "aufzählung", "links", "custom", "beiträge"],
+  "acf": {
+      "mode": "preview",
+      "renderTemplate": "post.php"
+  },
+  "align": "full"
+}
