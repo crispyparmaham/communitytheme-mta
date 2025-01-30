@@ -1,0 +1,13 @@
+{
+    "name": "teammitglieder",
+    "title": "Teammitglieder",
+    "description": "Alle Teammitglieder einer Einrichtung",
+    "category": "community-blocks",
+    "icon": "grid-view",
+    "keywords": ["liste", "grid", "links", "custom", "teammitglieder"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "team-member.php"
+    },
+    "align": "full"
+  }

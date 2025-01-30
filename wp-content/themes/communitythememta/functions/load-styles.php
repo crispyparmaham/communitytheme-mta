@@ -16,11 +16,12 @@ function load_stylesheet() {
         'button' => '/assets/css/utils/button.css',
         'typography' => '/assets/css/utils/typography.css',
         'termine' => '/assets/css/blocks/termin.css',
-        'vereine' => '/assets/css/blocks/vereine.css',
+        'vereine' => '/assets/css/blocks/accordion.css',
         'daten' => '/assets/css/blocks/daten.css',
         'grusswort' => '/assets/css/blocks/grusswort.css',
         'geschichte' => '/assets/css/blocks/geschichte.css',
         'posts' => '/assets/css/blocks/post.css',
+        'team-member' => '/assets/css/blocks/team-member.css',
     ];
 
     // Schleife durch das Stylesheet-Array und enqueue jedes Stylesheet

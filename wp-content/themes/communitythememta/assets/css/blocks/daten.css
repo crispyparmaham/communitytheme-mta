@@ -1,12 +1,25 @@
 /* Styling für die Datenfelder */
 .daten-fakten {
+  position: relative;
   margin-bottom: 30px;
 }
 
+.coordinates {
+  position: absolute;
+  right: 20%;
+  top: 50%;
+  transform: translate(0, -50%);
+  font-size: 10rem;
+  font-weight: 900;
+  line-height: 1;
+  opacity: 0.05;
+}
+
 .daten {
-  margin-bottom: 80px;
+  margin-bottom: 120px;
   padding: 40px;
-  background-color: var(--background-03);
+  background-color: var(--background-04);
+  position: relative;
 }
 
 .daten .inner-wrap {
@@ -112,17 +125,17 @@
 
 /* Hintergrundfarbe für die Zellen */
 .ortsteil-tabelle td {
-  background-color: transparent; /* Zellen haben keinen festen Hintergrund */
+  background-color: transparent;
   color: var(--foreground-02);
 }
 
 /* Abwechselnde Hintergrundfarben für Zeilen */
 .ortsteil-tabelle tr:nth-child(odd) {
-  background-color: var(--background-03); /* Farbe für ungerade Zeilen */
+  background-color: var(--background-04);
 }
 
 .ortsteil-tabelle tr:nth-child(even) {
-  background-color: var(--background-04); /* Farbe für gerade Zeilen */
+  background-color: var(--background-05);
 }
 
 /*MEDIA QUERIES*/
@@ -139,6 +152,10 @@
 
   .gemeinderat-grid {
     margin-top: 50px;
+  }
+
+  .coordinates {
+    font-size: 5rem;
   }
 }
 

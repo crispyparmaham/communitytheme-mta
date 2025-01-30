@@ -28,8 +28,24 @@ function theme_enqueue_scripts() {
     );
 
     wp_enqueue_script(
+        'gewerbe-block-js',
+        get_template_directory_uri() . '/blocks/gewerbe/index.js',
+        [], 
+        '1.0.0', 
+        false 
+    );
+
+    wp_enqueue_script(
         'posts-block-js',
         get_template_directory_uri() . '/blocks/posts/index.js',
+        [], 
+        '1.0.0', 
+        false 
+    );
+
+    wp_enqueue_script(
+        'team-member-block-js',
+        get_template_directory_uri() . '/blocks/teammitglieder/index.js',
         [], 
         '1.0.0', 
         false 
@@ -62,7 +78,6 @@ function theme_enqueue_scripts() {
 add_action('wp_enqueue_scripts', 'theme_enqueue_scripts');
 
 
-
 // === REGISTER CUSTOM GUTENBERG BLOCKS === //
 
 function register_blocks() {
@@ -70,8 +85,10 @@ function register_blocks() {
     register_block_type(__DIR__ . '/blocks/vereine'); // Registrierung des "Vereine"-Blocks
     register_block_type(__DIR__ . '/blocks/posts'); // Registrierung des "Beitrags"-Blocks
     register_block_type(__DIR__ . '/blocks/tourismus'); // Registrierung des "Tourismus"-Blocks
+    register_block_type(__DIR__ . '/blocks/gewerbe'); // Registrierung des "Gewerbe"-Blocks
 }
 add_action('init', 'register_blocks');
+
 
 
 // === REGISTER SIDEBARS === //
@@ -162,5 +179,6 @@ if( function_exists('acf_add_options_page') ) {
     ));
 
 }
+
 
 

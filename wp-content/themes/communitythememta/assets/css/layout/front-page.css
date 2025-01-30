@@ -1,5 +1,6 @@
 #front-page {
   display: block;
+  background-color: var(--background-05);
 }
 
 #vereine {
