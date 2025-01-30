@@ -20,6 +20,14 @@ function theme_enqueue_scripts() {
     );
 
     wp_enqueue_script(
+        'verein-block-js',
+        get_template_directory_uri() . '/blocks/tourismus/index.js',
+        [], 
+        '1.0.0', 
+        false 
+    );
+
+    wp_enqueue_script(
         'posts-block-js',
         get_template_directory_uri() . '/blocks/posts/index.js',
         [], 
@@ -31,7 +39,7 @@ function theme_enqueue_scripts() {
         'accordeon-js',
         get_template_directory_uri() . '/assets/js/accordeon.js',
         [], 
-        '1.0.1',
+        '1.0.2',
         false
     );
 
@@ -61,6 +69,7 @@ function register_blocks() {
     register_block_type(__DIR__ . '/blocks/termine'); // Registrierung des "Termine"-Blocks
     register_block_type(__DIR__ . '/blocks/vereine'); // Registrierung des "Vereine"-Blocks
     register_block_type(__DIR__ . '/blocks/posts'); // Registrierung des "Beitrags"-Blocks
+    register_block_type(__DIR__ . '/blocks/tourismus'); // Registrierung des "Tourismus"-Blocks
 }
 add_action('init', 'register_blocks');
 

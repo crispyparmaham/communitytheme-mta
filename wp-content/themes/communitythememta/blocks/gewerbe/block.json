@@ -1,0 +1,13 @@
+{
+    "name": "gewerbeliste",
+    "title": "Gewerbeliste",
+    "description": "Alle Gewerbe einer Gemeinde",
+    "category": "community-blocks",
+    "icon": "grid-view",
+    "keywords": ["liste", "akkordeon", "links", "custom", "gewerbe"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "gewerbe.php"
+    },
+    "align": "full"
+  }

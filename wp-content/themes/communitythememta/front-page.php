@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
 <main class="main-container">
-	<section class="header-img-wrap" role="banner">
+	<section id="start-header" class="header-img-wrap" role="banner">
 		<?php if ( has_post_thumbnail() ) : ?>
 			<?php $headerImage = get_the_post_thumbnail_url( null, 'full' ); ?>
 			<img src="<?php echo esc_url( $headerImage ); ?>" alt="<?php echo esc_attr( get_the_title() ); ?>"
