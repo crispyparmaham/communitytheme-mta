@@ -1863,7 +1863,7 @@ add_action( 'init', function () {
 			1 => 'thumbnail',
 			2 => 'custom-fields',
 		),
-		'has_archive' => 'tourismus',
+		'has_archive' => false,
 		'rewrite' => array(
 			'feeds' => false,
 		),
@@ -1910,7 +1910,7 @@ add_action( 'init', function () {
 			1 => 'thumbnail',
 			2 => 'custom-fields',
 		),
-		'has_archive' => 'gewerbe',
+		'has_archive' => false,
 		'rewrite' => array(
 			'feeds' => false,
 		),
