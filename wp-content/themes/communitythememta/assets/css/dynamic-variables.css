@@ -38,7 +38,4 @@
     --inner-header-width: 1400px;
     --inner-footer-width: 1400px;
 
-    /* MENU SETTINGS */
-    --font-menu-size: clamp(18px, 3vw, 21.6px);
-    --margin-menu-size: 24px;
 }

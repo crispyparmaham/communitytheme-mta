@@ -1,0 +1,58 @@
+/* Container für das Suchformular */
+.search-container {
+  margin-left: 20px;
+  display: flex;
+  align-items: center;
+}
+
+/* Suchformular */
+.search-form {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+/* Suchfeld */
+.search-field {
+  padding: 8px 12px;
+  font-size: 15px;
+  border: 2px solid var(--background-02);
+  border-radius: 25px;
+  width: 260px;
+  transition: all 0.3s ease;
+}
+
+.search-field:focus {
+  border-color: var(--accent-01);
+  outline: none;
+}
+
+/* Button (für das Such-Icon) */
+.search-submit {
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+}
+
+.search-submit svg {
+  width: 18px;
+  height: 18px;
+  fill: var(--background-02);
+  transition: fill 0.3s ease;
+}
+
+.search-form:focus-within .search-submit svg {
+  fill: var(--accent-01);
+}
+
+.search-submit:hover svg {
+  fill: var(--accent-01);
+}
+
+@media screen and (max-width: 1120px) {
+  .search-field {
+    width: 200px;
+  }
+}

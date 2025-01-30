@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
     const hamburger = document.querySelector('.hamburger-menu');
-    const navigation = document.querySelector('.main-navigation');
+    const menuWrap = document.querySelector('.menu-wrap');
     const mainHeader = document.querySelector('.main-header');
 
     function updateMenuPosition() {
@@ -8,33 +8,37 @@ document.addEventListener("DOMContentLoaded", function() {
         const windowHeight = window.innerHeight;
         const menuHeight = windowHeight - headerHeight;
 
-        navigation.style.top = `${headerHeight}px`;
-        navigation.style.height = `${menuHeight}px`;
+        menuWrap.style.top = `${headerHeight}px`;
+        menuWrap.style.height = `${menuHeight}px`;
     }
 
     function isMobileViewport() {
         return window.innerWidth <= 992;
     }
 
-    if (hamburger && navigation && mainHeader) {
+    if (hamburger && menuWrap && mainHeader) {
         hamburger.addEventListener('click', function() {
             const expanded = hamburger.getAttribute('aria-expanded') === 'true' || false;
             hamburger.setAttribute('aria-expanded', !expanded);
-            navigation.classList.toggle('active');
+            menuWrap.classList.toggle('active');
             hamburger.classList.toggle('active');
 
-            if (isMobileViewport() && navigation.classList.contains('active')) {
+            if (isMobileViewport() && menuWrap.classList.contains('active')) {
                 updateMenuPosition();
             }
         });
 
         window.addEventListener('resize', function() {
-            if (isMobileViewport() && navigation.classList.contains('active')) {
+            if (isMobileViewport() && menuWrap.classList.contains('active')) {
                 updateMenuPosition();
+            } else if (!isMobileViewport()) {
+                // Reset styles for larger viewports
+                menuWrap.style.top = '';
+                menuWrap.style.height = '';
             }
         });
 
-        if (isMobileViewport() && navigation.classList.contains('active')) {
+        if (isMobileViewport() && menuWrap.classList.contains('active')) {
             updateMenuPosition();
         }
     }

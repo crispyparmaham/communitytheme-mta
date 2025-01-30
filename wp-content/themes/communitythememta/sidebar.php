@@ -8,7 +8,7 @@
         endif;
     ?>
 </aside>
-<div class="sidebar-block" role="list">
+<div id="termine" class="sidebar-block" role="list">
     <?php
     // === INITIALISIERUNG === //
     global $post;

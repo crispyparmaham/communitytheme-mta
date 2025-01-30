@@ -39,6 +39,14 @@ function theme_enqueue_scripts() {
         'mobile-menu-js',
         get_template_directory_uri() . '/assets/js/mobile-menu.js',
         [],
+        '1.0.3',
+        false
+    );
+
+    wp_enqueue_script(
+        'fixed-menu-js',
+        get_template_directory_uri() . '/assets/js/header.js',
+        [],
         '1.0.2',
         false
     );

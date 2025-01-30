@@ -111,9 +111,6 @@ function generate_dynamic_css() {
     $headlineXL = "clamp(" . ( $bodyText * 2.6 ) . "px, 6vw, " . ( $bodyText * 3 ) . "px)";
     $headlineXXL = "clamp(" . ( $bodyText * 3 ) . "px, 8vw, " . ( $bodyText * 3.4 ) . "px)";
 
-    // === MENU SETTINGS === //
-    $fontMenuSize = "clamp(" . ( $bodyText * 1.0 ) . "px, 3vw, " . ( $bodyText * 1.2 ) . "px)";
-    $marginMenuSize = get_field( 'margin_size_menu', 'option' ) . "px";
 
     // === BUILD CSS CONTENT === //
     $css_content = "
@@ -156,9 +153,6 @@ function generate_dynamic_css() {
     --inner-header-width: {$innerHeaderWidth};
     --inner-footer-width: {$innerFooterWidth};
 
-    /* MENU SETTINGS */
-    --font-menu-size: {$fontMenuSize};
-    --margin-menu-size: {$marginMenuSize};
 }";
 
     // === WRITE CSS TO FILE === //

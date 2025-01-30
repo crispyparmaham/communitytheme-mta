@@ -12,6 +12,7 @@ function load_stylesheet() {
         'footer' => '/assets/css/layout/footer.css',
         'sidebar' => '/assets/css/layout/sidebar.css',
         'theme' => '/assets/css/layout/theme.css',
+        'search' => '/assets/css/layout/search.css',
         'button' => '/assets/css/utils/button.css',
         'typography' => '/assets/css/utils/typography.css',
         'termine' => '/assets/css/blocks/termin.css',

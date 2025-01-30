@@ -3,7 +3,20 @@
   background-color: var(--background-05);
   width: 100%;
   margin: 0 auto;
-  color: var(--font-color-header);
+  z-index: 1000;
+  transition: all 0.3s ease;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+}
+
+.logo-wrap img {
+  transition: all 0.3s ease;
+}
+
+.logo-wrap img.scrolled {
+  width: 60px !important;
 }
 
 .header-inner-wrap {
@@ -11,34 +24,43 @@
   max-width: var(--inner-header-width);
   display: flex;
   flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
   margin: 0 auto;
   padding: 20px;
 }
 
-/* Logo im Header */
-.main-header .main-logo {
-  float: left;
+.menu-wrap {
+  position: relative;
 }
 
-/* Kleine, mittlere und große Logos */
-.main-header .main-logo.logo-small img {
-  width: 140px;
-  max-height: 100px;
-  object-fit: contain;
+.head-menu {
+  top: 0;
+  right: 0;
+  z-index: 10;
+  position: absolute;
 }
 
-.main-header .main-logo.logo-medium img {
-  width: 200px;
-  max-height: 130px;
-  object-fit: contain;
+.main-menu {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+  position: absolute;
 }
 
-.main-header .main-logo.logo-large img {
-  width: 260px;
-  max-height: 160px;
-  object-fit: contain;
+/* Logo-Größen */
+.main-header .logo-wrap.logo-small img {
+  width: 80px;
+}
+
+.main-header .logo-wrap.logo-medium img {
+  width: 100px;
+}
+
+.main-header .logo-wrap.logo-large img {
+  width: 120px;
 }
 
 /* Navigation im Header */
@@ -54,13 +76,25 @@
 
 .main-header nav ul li {
   display: inline-block;
-  margin: 0 24px;
+  margin: 0 20px;
+}
+
+.main-header nav.head-menu ul li {
+  display: inline-block;
+  margin: 0 12px;
 }
 
 .main-header nav ul li a {
   text-decoration: none;
   color: var(--foreground-01);
-  font-size: var(--font-menu-size);
+  font-size: 20px;
+}
+
+.main-header nav.head-menu ul li a {
+  text-decoration: none;
+  color: var(--foreground-01);
+  font-size: 16px;
+  opacity: 0.5;
 }
 
 .main-header nav ul li a:hover {
@@ -83,7 +117,7 @@
 .hamburger-icon {
   width: 100%;
   height: 4px;
-  background-color: #333;
+  background-color: var(--foreground-01);
   border-radius: 4px;
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
@@ -94,30 +128,33 @@
 }
 
 /* Mobile Ansicht */
-@media (max-width: 992px) {
+@media (max-width: 1120px) {
   /* Logos für mittlere Bildschirme */
-  .main-header .main-logo.logo-small img {
-    width: 100px;
-    max-height: 60px;
+  .main-header .logo-wrap.logo-small img {
+    width: 60px;
     object-fit: contain;
   }
 
-  .main-header .main-logo.logo-medium img {
-    width: 140px;
-    max-height: 80px;
+  .main-header .logo-wrap.logo-medium img {
+    width: 70px;
     object-fit: contain;
   }
 
-  .main-header .main-logo.logo-large img {
-    width: 180px;
-    max-height: 100px;
+  .main-header .logo-wrap.logo-large img {
+    width: 80px;
     object-fit: contain;
   }
 }
 
 @media (max-width: 992px) {
-  .main-navigation {
+  .header-inner-wrap {
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .menu-wrap {
     display: flex;
+    flex-direction: column;
     width: 100%;
     position: absolute;
     left: 0;
@@ -126,15 +163,34 @@
     z-index: 999;
     padding: 20px 0;
     width: 50vw;
-    background-color: #fff;
+    background-color: var(--background-05);
+  }
+
+  .main-menu,
+  .head-menu {
+    position: relative;
+  }
+
+  #menu-main-menu {
+    margin-bottom: 15px;
+  }
+
+  .main-menu {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .head-menu {
+    order: 2;
+    margin-top: 40px;
   }
 
   .hamburger-menu {
     display: flex;
   }
 
-  .main-navigation.active {
-    transform: translateX(0);
+  .menu-wrap.active {
+    transform: translateY(0);
   }
 
   .menu-items {
@@ -142,7 +198,8 @@
     width: 100%;
   }
 
-  .main-header nav ul li {
+  .main-header nav ul li,
+  .main-header nav.head-menu ul li {
     margin: 6px 24px;
   }
 
@@ -160,5 +217,11 @@
     transform: rotate(-45deg);
     position: relative;
     top: -12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .menu-wrap {
+    width: 70vw;
   }
 }

@@ -75,3 +75,23 @@
     padding: 1.5rem;
   }
 }
+
+/*COLUMN GRID*/
+
+.col-xs-4 {
+  width: calc(30% - 16px);
+}
+
+.col-xs-8 {
+  width: calc(60% - 16px);
+}
+
+@media (min-width: 768px) {
+  .col-sm-2 {
+    width: calc(13% - 16px);
+  }
+
+  .col-sm-10 {
+    width: calc(87% - 16px);
+  }
+}

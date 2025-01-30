@@ -16,6 +16,10 @@
 
 /*SIDEBAR*/
 
+#termine.sidebar-block {
+  border-left: 4px solid var(--accent-01);
+}
+
 .sidebar-block .termin-item {
   display: flex;
   align-items: center;
