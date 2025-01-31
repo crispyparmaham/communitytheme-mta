@@ -9,6 +9,7 @@
     ?>
 </aside>
 <div id="termine" class="sidebar-block" role="list">
+    <h4 class="sidebar-heading">Termine</h4>
     <?php
     // === INITIALISIERUNG === //
     global $post;

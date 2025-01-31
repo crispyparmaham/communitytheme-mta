@@ -1,0 +1,17 @@
+.breadcrumbs {
+  width: fit-content;
+  font-size: 16px;
+  margin: 20px 0;
+  padding: 6px 12px;
+  border-radius: var(--border-radius-s);
+  background-color: var(--background-05);
+}
+
+.breadcrumbs a {
+  text-decoration: none;
+  color: var(--color-accent);
+}
+
+.breadcrumbs a:hover {
+  text-decoration: underline;
+}

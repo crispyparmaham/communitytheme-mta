@@ -15,6 +15,11 @@
   font-size: var(--headline-xl);
   line-height: 1.2;
   max-width: 700px;
+  font-weight: 300;
+}
+
+.header-img-heading h1 span {
+  font-weight: 900;
 }
 
 p {

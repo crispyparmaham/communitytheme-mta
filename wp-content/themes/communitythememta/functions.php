@@ -127,6 +127,7 @@ add_filter('acf/load_field/name=selected_menu', 'populate_selected_menu_field');
 require_once(plugin_dir_path(__FILE__) . '/functions/css-variables.php'); // Dynamische CSS-Variablen
 require_once(plugin_dir_path(__FILE__) . '/functions/load-styles.php'); // Stylesheets laden
 require_once(plugin_dir_path(__FILE__) . '/functions/load-acf-fields.php'); // ACF-Felder laden
+require_once(plugin_dir_path(__FILE__) . '/functions/breadcrumbs.php');
 
 
 

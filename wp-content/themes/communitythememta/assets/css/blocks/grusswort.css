@@ -14,7 +14,7 @@
 }
 
 .gruswort-container .portrait img {
-  max-width: 100%;
+  width: 100%;
   max-height: 500px;
   object-fit: cover;
 }
@@ -35,15 +35,27 @@
 }
 
 /* Responsives Design */
+
+@media (max-width: 850px) {
+  .gruswort-container {
+    flex-direction: column;
+  }
+
+  .gruswort-container .portrait {
+    width: 100%;
+    margin-bottom: 60px;
+  }
+
+  .gruswort-container .content {
+    width: 100%;
+    padding: 0;
+  }
+}
+
 @media (max-width: 768px) {
   .gruswort-container {
     grid-template-columns: 1fr;
     gap: 10px;
-  }
-
-  .gruswort-container .portrait {
-    width: 120px;
-    height: 120px;
   }
 
   .gruswort-container .content h2 {

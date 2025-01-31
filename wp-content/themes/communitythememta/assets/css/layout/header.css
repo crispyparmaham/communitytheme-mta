@@ -38,7 +38,7 @@
 }
 
 .head-menu {
-  top: 0;
+  top: -10px;
   right: 0;
   z-index: 10;
   position: absolute;
@@ -48,11 +48,26 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
   left: 0;
-  bottom: -5px;
+  bottom: 0;
   z-index: 10;
   position: absolute;
+}
+
+.header-greeting {
+  font-size: 22px;
+  display: inline-block;
+  margin-left: 15px;
+  margin-bottom: 15px;
+  color: var(--foreground-05);
+  padding-bottom: 5px;
+  border-bottom: 1px solid var(--background-03);
+}
+
+.header-greeting span {
+  font-weight: 900;
+  color: var(--foreground-01);
 }
 
 /* Logo-Größen */
@@ -79,13 +94,6 @@
   padding: 0;
 }
 
-.main-header nav ul li {
-  display: inline-block;
-  margin: 0 16px;
-  padding-bottom: 20px;
-  position: relative;
-}
-
 .main-header nav.head-menu ul li {
   display: inline-block;
   margin: 0 12px;
@@ -103,23 +111,32 @@
   opacity: 0.5;
 }
 
+@media (min-width: 992px) {
+  .main-header nav ul li {
+    display: inline-block;
+    margin: 0 16px;
+    padding-bottom: 20px;
+    position: relative;
+  }
+
+  .main-header nav.main-menu ul li:after {
+    content: '';
+    display: block;
+    background: var(--color-accent);
+    width: 0;
+    height: 5px;
+    transition: all 0.2s ease;
+    position: absolute;
+    bottom: 0;
+  }
+
+  .main-header nav.main-menu ul li:hover:after {
+    width: 100%;
+  }
+}
+
 .main-header nav ul li a:hover {
   color: var(--accent-01);
-}
-
-.main-header nav.main-menu ul li:after {
-  content: '';
-  display: block;
-  background: var(--color-accent);
-  width: 0;
-  height: 5px;
-  transition: all 0.2s ease;
-  position: absolute;
-  bottom: 0;
-}
-
-.main-header nav.main-menu ul li:hover:after {
-  width: 100%;
 }
 
 /* MOBILES MENU */
@@ -153,24 +170,43 @@
   /* Logos für mittlere Bildschirme */
   .main-header .logo-wrap.logo-small img {
     width: 60px;
-    object-fit: contain;
   }
 
   .main-header .logo-wrap.logo-medium img {
     width: 70px;
-    object-fit: contain;
   }
 
   .main-header .logo-wrap.logo-large img {
     width: 80px;
-    object-fit: contain;
   }
 }
 
 @media (max-width: 992px) {
+  .header-greeting {
+    display: none;
+  }
+
   .header-inner-wrap {
     justify-content: space-between;
     align-items: center;
+    padding: 20px;
+  }
+
+  .logo-wrap {
+    padding: 0;
+  }
+
+  /* Logos für mittlere Bildschirme */
+  .main-header .logo-wrap.logo-small img {
+    width: 50px;
+  }
+
+  .main-header .logo-wrap.logo-medium img {
+    width: 60px;
+  }
+
+  .main-header .logo-wrap.logo-large img {
+    width: 70px;
   }
 
   .menu-wrap {

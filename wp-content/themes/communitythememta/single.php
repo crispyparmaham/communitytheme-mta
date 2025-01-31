@@ -12,6 +12,7 @@
 
 	</section>
 	<section class="inner-max-width">
+		<?php custom_breadcrumbs(); ?>
 		<div class="page-start-text">
 			<h1><?php the_title(); ?></h1>
 			<?php

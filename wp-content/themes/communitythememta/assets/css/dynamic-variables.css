@@ -3,7 +3,7 @@
     /* PRIMARY COLORS */
     --color-foreground: hsl(0, 0%, 0%);
     --color-background: hsl(0, 0%, 57%);
-    --color-accent: hsl(0, 71%, 35%);
+    --color-accent: hsl(0, 74%, 36%);
 
     /* COLOR SHADES */
     --foreground-01: hsl(0, 0%, 0%);
@@ -18,19 +18,19 @@
     --background-04: hsl(0, 0%, 93%);
     --background-05: hsl(0, 0%, 100%);
 
-    --accent-01: hsl(0, 71%, 44%);
-    --accent-02: hsl(0, 71%, 53%);
-    --accent-03: hsl(0, 71%, 62%);
-    --accent-04: hsl(0, 71%, 71%);
-    --accent-05: hsl(0, 71%, 80%);
+    --accent-01: hsl(0, 74%, 45%);
+    --accent-02: hsl(0, 74%, 54%);
+    --accent-03: hsl(0, 74%, 63%);
+    --accent-04: hsl(0, 74%, 72%);
+    --accent-05: hsl(0, 74%, 81%);
     
     /* FONT SIZES */
     --headline-xs: clamp(18px, 3vw, 21.6px);
     --headline-s: clamp(21.6px, 3.5vw, 25.2px);
     --headline-m: clamp(28.8px, 4vw, 36px);
     --headline-l: clamp(36px, 5vw, 46.8px);
-    --headline-xl: clamp(46.8px, 6vw, 54px);
-    --headline-xxl: clamp(54px, 8vw, 61.2px);
+    --headline-xl: clamp(39.6px, 6vw, 54px);
+    --headline-xxl: clamp(46.8px, 8vw, 57.6px);
     --body-text-size: 18px;
 
     /* GRID WIDTH */

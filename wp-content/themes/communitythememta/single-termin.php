@@ -12,12 +12,19 @@ get_header();
 			<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/mta-communitytheme-bg-thumbnail.jpg"
 				alt="Standard-Hintergrundbild der MTA-Community">
 		<?php endif; ?>
-		<div class="header-img-heading">
+	</section>
+	<section class="inner-max-width">
+		<?php custom_breadcrumbs(); ?>
+		<div class="page-start-text">
 			<h1><?php the_title(); ?></h1>
+			<?php
+			$startText = get_field( 'einleitungstext' );
+			?>
+			<?php if ( $startText ) : ?>
+				<p class=""><?php echo $startText; ?></p>
+			<?php endif; ?>
 		</div>
 	</section>
-
-
 	<!-- Main Content: Weitere Informationen und Gutenberg-Content -->
 	<div class="main-content">
 		<article class="left-content-column termin-single-container">

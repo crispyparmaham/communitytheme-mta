@@ -11,7 +11,10 @@
 				alt="Standard-Hintergrundbild der MTA-Community" loading="lazy">
 		<?php endif; ?>
 		<div class="header-img-heading">
-			<h1><?php the_title(); ?></h1>
+			<?php
+			$gemeindeName = get_field( 'gemeindename', 'option' );
+			?>
+			<h1><?php the_title(); ?> <span><?php echo $gemeindeName; ?></span></h1>
 		</div>
 	</section>
 

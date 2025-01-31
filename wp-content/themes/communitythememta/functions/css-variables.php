@@ -108,8 +108,8 @@ function generate_dynamic_css() {
     $headlineS = "clamp(" . ( $bodyText * 1.2 ) . "px, 3.5vw, " . ( $bodyText * 1.4 ) . "px)";
     $headlineM = "clamp(" . ( $bodyText * 1.6 ) . "px, 4vw, " . ( $bodyText * 2 ) . "px)";
     $headlineL = "clamp(" . ( $bodyText * 2 ) . "px, 5vw, " . ( $bodyText * 2.6 ) . "px)";
-    $headlineXL = "clamp(" . ( $bodyText * 2.6 ) . "px, 6vw, " . ( $bodyText * 3 ) . "px)";
-    $headlineXXL = "clamp(" . ( $bodyText * 3 ) . "px, 8vw, " . ( $bodyText * 3.4 ) . "px)";
+    $headlineXL = "clamp(" . ( $bodyText * 2.2 ) . "px, 6vw, " . ( $bodyText * 3 ) . "px)";
+    $headlineXXL = "clamp(" . ( $bodyText * 2.6 ) . "px, 8vw, " . ( $bodyText * 3.2 ) . "px)";
 
 
     // === BUILD CSS CONTENT === //

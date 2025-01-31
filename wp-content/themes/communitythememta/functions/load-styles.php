@@ -5,9 +5,9 @@ function load_stylesheet() {
     // Array mit allen Stylesheets
     $styles = [
         'main' => '/assets/css/base/main.css',
-        'front-page' => '/assets/css/layout/front-page.css',
         'variables' => '/assets/css/base/variables.css',
         'grid' => '/assets/css/layout/grid.css',
+        'front-page' => '/assets/css/layout/front-page.css',
         'header' => '/assets/css/layout/header.css',
         'footer' => '/assets/css/layout/footer.css',
         'sidebar' => '/assets/css/layout/sidebar.css',
@@ -22,6 +22,7 @@ function load_stylesheet() {
         'geschichte' => '/assets/css/blocks/geschichte.css',
         'posts' => '/assets/css/blocks/post.css',
         'team-member' => '/assets/css/blocks/team-member.css',
+        'breadcrumbs' => '/assets/css/layout/breadcrumbs.css',
     ];
 
     // Schleife durch das Stylesheet-Array und enqueue jedes Stylesheet

@@ -21,6 +21,7 @@
 			$logo = get_field( 'logo', 'option' );
 			$logo_size = get_field( 'logo_size', 'option' );
 			$home_url = esc_url( home_url( '/' ) );
+			$gemeindeName = get_field( 'gemeindename', 'option' );
 
 			if ( $logo ) :
 				$logo_class = '';
@@ -88,15 +89,20 @@
 						</ul>
 					</nav>
 
+
 					<nav class="main-menu main-navigation" aria-label="Hauptnavigation">
-						<?php
-						wp_nav_menu( array(
-							'menu' => $selected_menu_id,
-							'container' => false,
-							'menu_class' => 'menu-items',
-							'aria-label' => __( 'Hauptnavigation', 'communitytheme' ),
-						) );
-						?>
+						<div class="main-menu-inner-wrap">
+							<span class="header-greeting">Willkommen in der Gemeinde <span>
+							<?php echo $gemeindeName; ?></span></span>
+							<?php
+							wp_nav_menu( array(
+								'menu' => $selected_menu_id,
+								'container' => false,
+								'menu_class' => 'menu-items',
+								'aria-label' => __( 'Hauptnavigation', 'communitytheme' ),
+							) );
+							?>
+						</div>
 						<!-- Suche hinzufügen -->
 						<div class="search-container">
 							<form role="search" method="get" class="search-form"
@@ -116,6 +122,7 @@
 							</form>
 						</div>
 					</nav>
+
 				<?php else : ?>
 					<nav class="fallback-navigation" aria-label="Navigation fehlt">
 						<p><?php echo __( 'Kein Menü ausgewählt.', 'communitytheme' ); ?></p>
