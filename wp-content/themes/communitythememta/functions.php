@@ -86,6 +86,7 @@ function register_blocks() {
     register_block_type(__DIR__ . '/blocks/posts'); // Registrierung des "Beitrags"-Blocks
     register_block_type(__DIR__ . '/blocks/tourismus'); // Registrierung des "Tourismus"-Blocks
     register_block_type(__DIR__ . '/blocks/gewerbe'); // Registrierung des "Gewerbe"-Blocks
+    register_block_type(__DIR__ . '/blocks/teammitglieder'); // Registrierung des "Teammitglieder"-Blocks
 }
 add_action('init', 'register_blocks');
 
@@ -128,6 +129,22 @@ require_once(plugin_dir_path(__FILE__) . '/functions/css-variables.php'); // Dyn
 require_once(plugin_dir_path(__FILE__) . '/functions/load-styles.php'); // Stylesheets laden
 require_once(plugin_dir_path(__FILE__) . '/functions/load-acf-fields.php'); // ACF-Felder laden
 require_once(plugin_dir_path(__FILE__) . '/functions/breadcrumbs.php');
+
+
+add_action('acf/init', 'register_team_member_block');
+function register_team_member_block() {
+    if( function_exists('acf_register_block_type') ) {
+        acf_register_block_type(array(
+            'name'              => 'teammitglieder',
+            'title'             => __('Teammitglied anzeigen'),
+            'description'       => __('Zeigt ein Teammitglied basierend auf einer Auswahl im ACF-Feld an.'),
+            'render_template'   => get_template_directory() . '/blocks/teammitglieder/team-members.php',
+            'category'          => 'widgets',
+            'icon'              => 'admin-users',
+            'keywords'          => array( 'team', 'member', 'anzeige' ),
+        ));
+    }
+}
 
 
 
@@ -182,4 +199,30 @@ if( function_exists('acf_add_options_page') ) {
 }
 
 
+//REGISTER TEAMMITGLIEDER CATEGORY
+function auto_create_category_based_on_post_title( $post_id ) {
+    // Verhindern, dass der Code beim automatischen Speichern von WordPress ausführt
+    if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return $post_id;
+    
+    // Überprüfen, ob der Post ein "teammitglieder" Post-Typ ist
+    if ( get_post_type( $post_id ) == 'teammitglieder' ) {
+        // Holen des Posttitels
+        $title = get_the_title( $post_id );
+        $category_name = sanitize_title( $title ); // Kategorie Name basierend auf dem Titel
+        
+        // Überprüfen, ob die Kategorie schon existiert
+        if ( ! term_exists( $category_name, 'category' ) ) {
+            // Kategorie erstellen, falls noch nicht vorhanden
+            wp_create_term( $category_name, 'category' );
+        }
+
+        // Kategorie dem Post zuweisen
+        $term = get_term_by( 'name', $category_name, 'category' );
+        wp_set_post_categories( $post_id, array( $term->term_id ) );
+    }
+
+    return $post_id;
+}
+
+add_action( 'save_post', 'auto_create_category_based_on_post_title' );
 

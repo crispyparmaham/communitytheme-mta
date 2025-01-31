@@ -7,7 +7,7 @@
     "keywords": ["liste", "grid", "links", "custom", "teammitglieder"],
     "acf": {
         "mode": "preview",
-        "renderTemplate": "team-member.php"
+        "renderTemplate": "team-members.php"
     },
     "align": "full"
   }
