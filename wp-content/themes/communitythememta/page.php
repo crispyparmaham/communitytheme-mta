@@ -7,14 +7,14 @@
 			<img src="<?php echo esc_url( $headerImage ); ?>" alt="<?php the_title_attribute(); ?>">
 		<?php else : ?>
 			<?xml version="1.0" encoding="UTF-8"?>
-<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 2600 500">
+<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 2600 350">
   <!-- Generator: Adobe Illustrator 29.2.1, SVG Export Plug-In . SVG Version: 2.1.0 Build 116)  -->
   <defs>
     <clipPath id="clippath">
-      <rect class="st111" width="2600" height="500"/>
+      <rect class="st111" width="2600" height="350"/>
     </clipPath>
   </defs>
-  <rect class="st111" width="2600" height="500"/>
+  <rect class="st111" width="2600" height="350"/>
   <g class="st182">
     <g>
       <polygon class="st203" points="1308.6 1183.5 1793.7 994.2 1915.7 1222.9 1308.6 1183.5"/>

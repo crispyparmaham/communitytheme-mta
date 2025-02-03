@@ -9,7 +9,6 @@
 			<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/mta-communitytheme-bg-thumbnail.jpg"
 				alt="Standard-Hintergrundbild der MTA-Community">
 		<?php endif; ?>
-
 	</section>
 	<section class="inner-max-width">
 		<?php custom_breadcrumbs(); ?>

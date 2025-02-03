@@ -2,8 +2,8 @@
 :root {
     /* PRIMARY COLORS */
     --color-foreground: hsl(0, 0%, 0%);
-    --color-background: hsl(0, 0%, 57%);
-    --color-accent: hsl(0, 74%, 36%);
+    --color-background: hsl(0, 0%, 56%);
+    --color-accent: hsl(0, 71%, 35%);
 
     /* COLOR SHADES */
     --foreground-01: hsl(0, 0%, 0%);
@@ -12,17 +12,17 @@
     --foreground-04: hsl(0, 0%, 18%);
     --foreground-05: hsl(0, 0%, 27%);
 
-    --background-01: hsl(0, 0%, 66%);
-    --background-02: hsl(0, 0%, 75%);
-    --background-03: hsl(0, 0%, 84%);
-    --background-04: hsl(0, 0%, 93%);
+    --background-01: hsl(0, 0%, 65%);
+    --background-02: hsl(0, 0%, 74%);
+    --background-03: hsl(0, 0%, 83%);
+    --background-04: hsl(0, 0%, 92%);
     --background-05: hsl(0, 0%, 100%);
 
-    --accent-01: hsl(0, 74%, 45%);
-    --accent-02: hsl(0, 74%, 54%);
-    --accent-03: hsl(0, 74%, 63%);
-    --accent-04: hsl(0, 74%, 72%);
-    --accent-05: hsl(0, 74%, 81%);
+    --accent-01: hsl(0, 71%, 44%);
+    --accent-02: hsl(0, 71%, 53%);
+    --accent-03: hsl(0, 71%, 62%);
+    --accent-04: hsl(0, 71%, 71%);
+    --accent-05: hsl(0, 71%, 80%);
     
     /* FONT SIZES */
     --headline-xs: clamp(18px, 3vw, 21.6px);
