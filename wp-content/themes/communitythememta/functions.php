@@ -1,55 +1,8 @@
 <?php 
 
-// === ENQUEUE SCRIPTS === //
 function theme_enqueue_scripts() {
     // Pfad zu den Skripten mit get_template_directory_uri() (für Themes)
-    wp_enqueue_script(
-        'termin-block-js',
-        get_template_directory_uri() . '/blocks/termine/index.js',
-        [], 
-        '1.0.0', 
-        false
-    );
-
-    wp_enqueue_script(
-        'verein-block-js',
-        get_template_directory_uri() . '/blocks/vereine/index.js',
-        [], 
-        '1.0.0', 
-        false 
-    );
-
-    wp_enqueue_script(
-        'verein-block-js',
-        get_template_directory_uri() . '/blocks/tourismus/index.js',
-        [], 
-        '1.0.0', 
-        false 
-    );
-
-    wp_enqueue_script(
-        'gewerbe-block-js',
-        get_template_directory_uri() . '/blocks/gewerbe/index.js',
-        [], 
-        '1.0.0', 
-        false 
-    );
-
-    wp_enqueue_script(
-        'posts-block-js',
-        get_template_directory_uri() . '/blocks/posts/index.js',
-        [], 
-        '1.0.0', 
-        false 
-    );
-
-    wp_enqueue_script(
-        'team-member-block-js',
-        get_template_directory_uri() . '/blocks/teammitglieder/index.js',
-        [], 
-        '1.0.0', 
-        false 
-    );
+    
 
     wp_enqueue_script(
         'accordeon-js',

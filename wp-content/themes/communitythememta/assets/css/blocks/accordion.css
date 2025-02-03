@@ -89,8 +89,9 @@
   display: block;
   block-size: 0;
   overflow: hidden;
-  /* transition: block-size 1s, content-visibility 1s;
-  transition-behavior: allow-discrete; */
+  /* transition: block-size 1s, content-visibility 1s;*/
+  transition-behavior: allow-discrete;
+  transition: block-size 1s;
 }
 
 .accordion-collapse.open {
