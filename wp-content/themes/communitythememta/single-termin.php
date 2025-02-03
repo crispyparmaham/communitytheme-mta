@@ -5,11 +5,11 @@ get_header();
 <main class="main-container">
 	<!-- Termin-Header: Bild und Titel -->
 	<section class="header-img-wrap">
-		<?php if ( has_post_thumbnail() ) : ?>
-			<?php $headerImage = get_the_post_thumbnail_url( null, 'full' ); ?>
-			<img src="<?php echo esc_url( $headerImage ); ?>" alt="<?php the_title_attribute(); ?>">
-		<?php else : ?>
-			<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/mta-communitytheme-bg-thumbnail.jpg"
+		<?php if (has_post_thumbnail()): ?>
+			<?php $headerImage = get_the_post_thumbnail_url(null, 'full'); ?>
+			<img src="<?php echo esc_url($headerImage); ?>" alt="<?php the_title_attribute(); ?>">
+		<?php else: ?>
+			<img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/mta-communitytheme-bg-thumbnail.jpg"
 				alt="Standard-Hintergrundbild der MTA-Community">
 		<?php endif; ?>
 	</section>
@@ -18,9 +18,9 @@ get_header();
 		<div class="page-start-text">
 			<h1><?php the_title(); ?></h1>
 			<?php
-			$startText = get_field( 'einleitungstext' );
+			$startText = get_field('einleitungstext');
 			?>
-			<?php if ( $startText ) : ?>
+			<?php if ($startText): ?>
 				<p class=""><?php echo $startText; ?></p>
 			<?php endif; ?>
 		</div>
@@ -29,33 +29,34 @@ get_header();
 	<div class="main-content">
 		<article class="left-content-column termin-single-container">
 			<?php
-			if ( have_posts() ) :
-				while ( have_posts() ) :
+			if (have_posts()):
+				while (have_posts()):
 					the_post();
 
 					// Termin-Daten aus den Custom Fields abrufen
-					$strasse = get_field( 'strasse' );
-					$hausnummer = get_field( 'hausnummer' );
-					$plz = get_field( 'plz' );
-					$ort = get_field( 'ort' );
-					$adresse = trim( "$strasse $hausnummer, $plz $ort" ) ?: false;
+					$strasse = get_field('strasse');
+					$hausnummer = get_field('hausnummer');
+					$plz = get_field('plz');
+					$ort = get_field('ort');
+					$adresse = trim("$strasse $hausnummer, $plz $ort") ?: false;
 
-					$startdatum = get_field( 'startdatum' );
-					$enddatum = get_field( 'enddatum' );
-					$time = trim( get_field( 'uhrzeit' ) );
-					$more_days = get_field( 'more_days' );
-					$startdatum_formatted = $startdatum ? date_i18n( "d. F Y", strtotime( $startdatum ) ) : '';
-					$enddatum_formatted = $enddatum ? date_i18n( "d. F Y", strtotime( $enddatum ) ) : '';
+					$startdatum = get_field('startdatum');
+					$enddatum = get_field('enddatum');
+					$time = trim(get_field('uhrzeit'));
+					$more_days = get_field('more_days');
+					$startdatum_formatted = $startdatum ? date_i18n("d. F Y", strtotime($startdatum)) : '';
+					$enddatum_formatted = $enddatum ? date_i18n("d. F Y", strtotime($enddatum)) : '';
 					?>
 
 					<!-- Termin-Inhalt -->
-					<article id="post-<?php the_ID(); ?>" <?php post_class( 'termin-detail' ); ?>>
+
+					<article id="post-<?php the_ID(); ?>" <?php post_class('termin-detail'); ?>>
 						<div class="termin-info-wrap">
 
 							<!-- Adresse -->
-							<?php if ( $adresse ) : ?>
+							<?php if ($adresse): ?>
 								<p class="termin-adresse">
-									<strong>Adresse:</strong> <?php echo esc_html( $adresse ); ?>
+									<strong>Adresse:</strong> <?php echo esc_html($adresse); ?>
 								</p>
 							<?php endif; ?>
 
@@ -64,9 +65,9 @@ get_header();
 								<strong>Datum:</strong>
 								<?php echo $more_days ? "Vom $startdatum_formatted bis $enddatum_formatted" : $startdatum_formatted; ?>
 							</p>
-							<?php if ( ! $more_days ) : ?>
+							<?php if (!$more_days): ?>
 								<p class="termin-zeit">
-									<strong>Uhrzeit:</strong> <?php echo esc_html( $time ); ?> Uhr
+									<strong>Uhrzeit:</strong> <?php echo esc_html($time); ?> Uhr
 								</p>
 							<?php endif; ?>
 						</div>
@@ -78,7 +79,7 @@ get_header();
 					</article>
 
 				<?php endwhile;
-			else :
+			else:
 				echo '<p>Leider konnte dieser Termin nicht gefunden werden.</p>';
 			endif;
 			?>
@@ -87,27 +88,37 @@ get_header();
 		<aside class="right-content-column">
 			<div class="scroll-container">
 				<?php
-				if ( have_posts() ) :
-					while ( have_posts() ) :
+				if (have_posts()):
+					while (have_posts()):
 						the_post();
 
 						// Termin-Daten aus den Custom Fields abrufen
-						$name = get_field( 'vor-_nachname' );
-						$phone = get_field( 'telefonnummer' );
-						$mail = get_field( 'mail' );
+						$name = get_field('vor-_nachname');
+						$phone = get_field('telefonnummer');
+						$mail = get_field('mail');
 
 						?>
 
 						<!-- Termin-Kontakt -->
-						<article class="termin-cta-wrap">
-                            <h3>Ansprechpartner</h3>
-                            <span><?php echo $name; ?></span>
-                            <span class="termin-cta-link">Tel.: <a href="tel:<?php echo $phone; ?>"><?php echo $phone; ?></a></span>
-                            <span class="termin-cta-link">E-Mail: <a href="mailto:<?php echo $mail; ?>"><?php echo $mail; ?></a></span>
-						</article>
+						<?php if ($phone || $mail || $name): ?>
+							<article class="termin-cta-wrap">
+								<h3>Ansprechpartner</h3>
+								<?php if ($name): ?>
+									<span><?php echo $name; ?></span>
+								<?php endif; ?>
+								<?php if ($phone): ?>
+									<span class="termin-cta-link">Tel.: <a
+											href="tel:<?php echo $phone; ?>"><?php echo $phone; ?></a></span>
+								<?php endif; ?>
+								<?php if ($mail): ?>
+									<span class="termin-cta-link">E-Mail: <a
+											href="mailto:<?php echo $mail; ?>"><?php echo $mail; ?></a></span>
+								<?php endif; ?>
+							</article>
+						<?php endif; ?>
 
 					<?php endwhile;
-				else :
+				else:
 					echo '<p>Leider konnte dieser Termin nicht gefunden werden.</p>';
 				endif;
 				?>

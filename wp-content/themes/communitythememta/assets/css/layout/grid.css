@@ -64,10 +64,14 @@
   text-transform: uppercase;
 }
 
+.home .header-img-wrap img {
+  height: 550px;
+}
+
 .header-img-wrap img {
   width: 100%;
   max-width: 100%;
-  height: 650px;
+  height: 450px;
   object-fit: cover;
 }
 
@@ -82,12 +86,16 @@
 .main-container .page-start-text h1 {
   color: var(--foreground-01);
   font-size: var(--headline-xl);
-  margin-bottom: 1rem;
   font-weight: 500;
+}
+
+.main-container .page-start-text h1:has(+ p) {
+  margin-bottom: 1rem;
 }
 
 /* Media Queries */
 @media (max-width: 992px) {
+  .home .header-img-wrap img,
   .header-img-wrap img {
     height: 300px;
   }

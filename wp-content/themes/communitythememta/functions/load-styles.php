@@ -11,7 +11,7 @@ function load_stylesheet() {
         'header' => '/assets/css/layout/header.css',
         'footer' => '/assets/css/layout/footer.css',
         'sidebar' => '/assets/css/layout/sidebar.css',
-        'theme' => '/assets/css/layout/theme.css',
+        'theme' => '/assets/css/theme/theme.css',
         'search' => '/assets/css/layout/search.css',
         'button' => '/assets/css/utils/button.css',
         'links' => '/assets/css/utils/links.css',
@@ -33,4 +33,4 @@ function load_stylesheet() {
     }
 }
 add_action('wp_enqueue_scripts', 'load_stylesheet');
-
+add_action('enqueue_block_editor_assets', 'load_stylesheet');

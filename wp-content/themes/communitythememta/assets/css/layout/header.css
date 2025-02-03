@@ -12,6 +12,15 @@
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
+.admin-bar .main-header {
+  top: 32px;
+}
+@media screen and (max-width: 782px) {
+  .admin-bar .main-header {
+    top: 46px;
+  }
+}
+
 .logo-wrap {
   padding: 0 0 1.25rem 0;
 }
@@ -108,7 +117,11 @@
   text-decoration: none;
   color: var(--foreground-01);
   font-size: 1rem;
-  opacity: 0.5;
+  opacity: 0.75;
+}
+.main-header nav.head-menu ul li a:hover,
+.main-header nav.head-menu ul li a:focus {
+  opacity: 1;
 }
 
 @media (min-width: 992px) {
