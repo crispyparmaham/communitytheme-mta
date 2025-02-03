@@ -65,7 +65,7 @@
   background-color: var(--background-03);
   color: var(--foreground-01);
   text-decoration: none;
-  opacity: 0.6;
+  opacity: 1;
   margin-top: 0.5rem;
   padding: 0.25rem 0.5rem;
   border-radius: var(--border-radius-s);

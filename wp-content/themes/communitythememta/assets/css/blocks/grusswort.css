@@ -17,6 +17,7 @@
   width: 100%;
   max-height: 500px;
   object-fit: cover;
+  border-radius: var(--border-radius-s);
 }
 
 /* Styling für den Grußwort-Text */

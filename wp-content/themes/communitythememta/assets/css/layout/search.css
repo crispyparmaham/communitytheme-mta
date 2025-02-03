@@ -20,12 +20,22 @@
   border: 2px solid var(--background-02);
   border-radius: 100px;
   width: 260px;
+  font-family: var(--font-family-text);
   transition: all 0.3s ease;
 }
 
 .search-field:focus {
   border-color: var(--accent-01);
   outline: none;
+}
+
+.search-field::placeholder {
+  font-family: var(--font-family-text);
+}
+
+input[type='search' i]::-webkit-search-cancel-button {
+  margin-right: 1.25rem;
+  color: var(--foreground-01);
 }
 
 /* Button (für das Such-Icon) */

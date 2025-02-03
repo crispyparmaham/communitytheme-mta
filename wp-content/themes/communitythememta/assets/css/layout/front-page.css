@@ -12,18 +12,21 @@
   width: 100%;
 }
 
-.gallery-img-wrap img:first-child {
-  width: 35%;
+.gallery-img-wrap img {
   height: auto;
   object-fit: cover;
+}
+
+.gallery-img-wrap img:first-child {
+  width: 35%;
   margin-right: 0.5rem;
+  border-radius: 0 var(--border-radius-m) var(--border-radius-m) 0;
 }
 
 .gallery-img-wrap img:last-child {
   width: 65%;
-  height: auto;
-  object-fit: cover;
   margin-left: 0.5rem;
+  border-radius: var(--border-radius-m) 0 0 var(--border-radius-m);
 }
 
 /*MEDIA QUERIES*/

@@ -10,7 +10,8 @@
   border: 1px solid var(--background-03);
   overflow: hidden;
   transition: transform 0.3s ease;
-  background-color: var(--background-04);
+  background-color: var(--background-05);
+  border-radius: var(--border-radius-m);
 }
 
 .post-content {
@@ -19,9 +20,12 @@
   padding: 1.875rem;
 }
 
-.post-title {
+.post-content .post-title {
   font-size: var(--headline-s);
   margin-bottom: 0.3125rem;
+}
+.post-content .post-title a {
+  text-decoration: none;
 }
 
 .post-meta {
@@ -47,5 +51,9 @@
 }
 
 .post-content .post-link:hover {
-  background-color: var(--accent-03);
+  background-color: var(--foreground-01);
+}
+
+.wp-block-image img {
+  border-radius: var(--border-radius-m);
 }

@@ -28,7 +28,7 @@
             <div class="post-item" role="listitem">
                 <div class="post-content">
                     <h3 class="post-title">
-                        <?php echo esc_html($post_title); ?>
+                    <a href="<?php echo esc_url($post_link); ?>"><?php echo esc_html($post_title); ?></a>
                     </h3>
                     <div class="post-meta">
                         <span class="post-date"><?php echo get_the_date(); ?></span>
@@ -36,7 +36,7 @@
                     <p class="post-excerpt">
                         <?php echo esc_html($excerpt); ?>
                     </p>
-                    <a class="post-link" href="<?php echo esc_url($post_link); ?>" title="<?php echo esc_attr($post_title); ?>">weiterlesen</a>
+                    <a class="post-link" href="<?php echo esc_url($post_link); ?>" title="<?php echo esc_attr($post_title); ?>">Weiterlesen</a>
                 </div>
             </div>
     <?php
