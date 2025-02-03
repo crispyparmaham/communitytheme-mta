@@ -1,7 +1,7 @@
 /* Styling für die Datenfelder */
 .daten-fakten {
   position: relative;
-  margin-bottom: 30px;
+  margin-bottom: 1.875rem;
 }
 
 .coordinates {
@@ -17,7 +17,7 @@
 
 .daten {
   margin-bottom: 120px;
-  padding: 40px;
+  padding: 2.5rem;
   background-color: var(--background-04);
   position: relative;
 }
@@ -35,14 +35,14 @@
 }
 
 .data-item .label {
-  font-size: 20px;
+  font-size: 1.25rem;
 }
 
 .daten .value {
   font-weight: bold;
-  font-size: 32px;
+  font-size: 2rem;
   position: relative;
-  margin-left: 40px;
+  margin-left: 2.5rem;
 }
 
 /* Die Icon-Grafik als Hintergrundbild */
@@ -80,7 +80,7 @@
 .einwohner-gemeinderat {
   display: flex;
   justify-content: space-between;
-  margin-top: 20px;
+  margin-top: 1.25rem;
 }
 
 .einwohner-grid,
@@ -92,27 +92,27 @@
 .gemeinderat-grid h4 {
   font-size: var(--headline-xs);
   color: var(--foreground-01);
-  margin-bottom: 40px;
+  margin-bottom: 2.5rem;
 }
 
 /* Styling für Tabellen */
 .ortsteil-tabelle table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 20px;
+  margin-top: 1rem;
 }
 
 /* Grundstyle für die Tabelle */
 .ortsteil-tabelle th,
 .ortsteil-tabelle td {
-  padding: 16px;
+  padding: 1rem;
   text-align: left;
 }
 
 /* Grundstyle für die Tabelle */
 .ortsteil-tabelle th,
 .ortsteil-tabelle td {
-  padding: 16px;
+  padding: 1rem;
   text-align: left;
 }
 
@@ -151,7 +151,7 @@
   }
 
   .gemeinderat-grid {
-    margin-top: 50px;
+    margin-top: 3.125rem;
   }
 
   .coordinates {
@@ -162,7 +162,7 @@
 @media (max-width: 850px) {
   .daten .inner-wrap {
     grid-template-columns: repeat(2, 50%);
-    row-gap: 30px;
+    row-gap: 1.875rem;
   }
 
   .coordinates {

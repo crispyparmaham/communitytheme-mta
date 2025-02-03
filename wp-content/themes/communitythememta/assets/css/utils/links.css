@@ -1,0 +1,11 @@
+a {
+  color: var(--color-foreground);
+  text-decoration-style: underline;
+  text-underline-offset: 0.3rem;
+  -webkit-text-decoration-skip: objects;
+  text-decoration-color: var(--color-foreground);
+  transition: ease all 400ms;
+}
+a:hover {
+  text-decoration-thickness: 0.1rem;
+}

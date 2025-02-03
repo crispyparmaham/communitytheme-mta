@@ -1,13 +1,13 @@
 .team-members {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-  padding: 20px;
+  gap: 1.25rem;
+  padding: 1.25rem;
 }
 
 .team-member {
   background-color: #f9f9f9;
-  border-radius: 10px;
+  border-radius: var(--border-radius-l);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -26,35 +26,40 @@
 }
 
 .team-member-info {
-  padding: 15px;
+  padding: 1rem;
   text-align: center;
 }
 
 .team-member-name {
   font-size: 1.5rem;
   font-weight: bold;
-  margin: 10px 0;
+  margin: 0.5rem 0;
   color: #333;
 }
 
 .team-member-position {
   font-size: 1.1rem;
   color: #666;
-  margin-bottom: 10px;
+  margin-bottom: 0.5rem;
 }
 
 .team-member-phone,
 .team-member-email {
   font-size: 0.9rem;
   color: #555;
-  margin: 5px 0;
+  margin: 0.3125rem 0;
 }
 
 .team-member-email a {
-  color: #0073e6;
-  text-decoration: none;
+  color: var(--foreground-01);
+  text-decoration-style: underline;
+  text-underline-offset: 0.3rem;
+  -webkit-text-decoration-skip: objects;
+  text-decoration-color: var(--color-foreground);
+  transition: ease all 400ms;
 }
 
 .team-member-email a:hover {
   text-decoration: underline;
+  text-decoration-thickness: 0.1rem;
 }

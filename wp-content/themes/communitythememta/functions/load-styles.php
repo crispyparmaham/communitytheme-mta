@@ -14,6 +14,7 @@ function load_stylesheet() {
         'theme' => '/assets/css/layout/theme.css',
         'search' => '/assets/css/layout/search.css',
         'button' => '/assets/css/utils/button.css',
+        'links' => '/assets/css/utils/links.css',
         'typography' => '/assets/css/utils/typography.css',
         'termine' => '/assets/css/blocks/termin.css',
         'vereine' => '/assets/css/blocks/accordion.css',

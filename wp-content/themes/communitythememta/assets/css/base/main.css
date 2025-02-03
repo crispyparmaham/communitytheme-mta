@@ -7,9 +7,10 @@
 body {
   font-size: var(--body-text-size);
   line-height: 1.5;
-  font-family: 'Fira Sans', sans-serif;
+  font-family: var(--font-family-text);
   background-color: var(--background-04);
   margin: 0;
+  overflow-x: hidden;
 }
 
 .st0 {

@@ -1,41 +1,39 @@
-
 :root {
-    /* PRIMARY COLORS */
-    --color-foreground: hsl(0, 0%, 0%);
-    --color-background: hsl(0, 0%, 56%);
-    --color-accent: hsl(0, 71%, 35%);
+  /* PRIMARY COLORS */
+  --color-foreground: hsl(0, 0%, 0%);
+  --color-background: hsl(0, 0%, 59.6%);
+  --color-accent: hsl(0, 71%, 38.6%);
 
-    /* COLOR SHADES */
-    --foreground-01: hsl(0, 0%, 0%);
-    --foreground-02: hsl(0, 0%, 0%);
-    --foreground-03: hsl(0, 0%, 9%);
-    --foreground-04: hsl(0, 0%, 18%);
-    --foreground-05: hsl(0, 0%, 27%);
+  /* COLOR SHADES */
+  --foreground-01: hsl(0, 0%, 0%);
+  --foreground-02: hsl(0, 0%, 3.6%);
+  --foreground-03: hsl(0, 0%, 12.6%);
+  --foreground-04: hsl(0, 0%, 21.6%);
+  --foreground-05: hsl(0, 0%, 30.6%);
 
-    --background-01: hsl(0, 0%, 65%);
-    --background-02: hsl(0, 0%, 74%);
-    --background-03: hsl(0, 0%, 83%);
-    --background-04: hsl(0, 0%, 92%);
-    --background-05: hsl(0, 0%, 100%);
+  --background-01: hsl(0, 0%, 68.6%);
+  --background-02: hsl(0, 0%, 77.6%);
+  --background-03: hsl(0, 0%, 86.6%);
+  --background-04: hsl(0, 0%, 95.6%);
+  --background-05: hsl(0, 0%, 100%);
 
-    --accent-01: hsl(0, 71%, 44%);
-    --accent-02: hsl(0, 71%, 53%);
-    --accent-03: hsl(0, 71%, 62%);
-    --accent-04: hsl(0, 71%, 71%);
-    --accent-05: hsl(0, 71%, 80%);
-    
-    /* FONT SIZES */
-    --headline-xs: clamp(18px, 3vw, 21.6px);
-    --headline-s: clamp(21.6px, 3.5vw, 25.2px);
-    --headline-m: clamp(28.8px, 4vw, 36px);
-    --headline-l: clamp(36px, 5vw, 46.8px);
-    --headline-xl: clamp(39.6px, 6vw, 54px);
-    --headline-xxl: clamp(46.8px, 8vw, 57.6px);
-    --body-text-size: 18px;
+  --accent-01: hsl(0, 71%, 47.6%);
+  --accent-02: hsl(0, 71%, 56.6%);
+  --accent-03: hsl(0, 71%, 65.6%);
+  --accent-04: hsl(0, 71%, 74.6%);
+  --accent-05: hsl(0, 71%, 83.6%);
 
-    /* GRID WIDTH */
-    --inner-content-width: 1400px;
-    --inner-header-width: 1400px;
-    --inner-footer-width: 1400px;
+  /* FONT SIZES */
+  --headline-xs: clamp(18px, 3vw, 21.6px);
+  --headline-s: clamp(21.6px, 3.5vw, 25.2px);
+  --headline-m: clamp(28.8px, 4vw, 36px);
+  --headline-l: clamp(36px, 5vw, 46.8px);
+  --headline-xl: clamp(39.6px, 6vw, 54px);
+  --headline-xxl: clamp(46.8px, 8vw, 57.6px);
+  --body-text-size: 18px;
 
+  /* GRID WIDTH */
+  --inner-content-width: 1400px;
+  --inner-header-width: 1400px;
+  --inner-footer-width: 1400px;
 }

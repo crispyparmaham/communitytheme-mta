@@ -25,12 +25,12 @@
   flex-direction: column;
   justify-content: center;
   width: 60%;
-  padding: 60px;
+  padding: 3.75rem;
 }
 
 .gruswort-container .content h3 {
   font-size: var(--headline-s);
-  margin-bottom: 20px;
+  margin-bottom: 1rem;
   line-height: 1.2;
 }
 
@@ -43,7 +43,7 @@
 
   .gruswort-container .portrait {
     width: 100%;
-    margin-bottom: 60px;
+    margin-bottom: 3.75rem;
   }
 
   .gruswort-container .content {
@@ -55,7 +55,7 @@
 @media (max-width: 768px) {
   .gruswort-container {
     grid-template-columns: 1fr;
-    gap: 10px;
+    gap: 0.5rem;
   }
 
   .gruswort-container .content h2 {

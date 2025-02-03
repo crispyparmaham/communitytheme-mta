@@ -1,30 +1,28 @@
 .accordion {
   width: 100%;
-  border-radius: 8px;
 }
 
 .accordion-item {
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.5rem;
 }
 
 .accordion-header {
-  background-color: var(--background-04);
-  font-size: 18px;
+  background-color: var(--background-05);
   font-weight: bold;
   text-align: left;
   cursor: pointer;
-  border: none;
+  border-bottom: var(--background-03) 1px solid;
   width: 100%;
 }
 
 .accordion-header h4 {
   margin-bottom: 0;
   font-size: var(--headline-xs);
-  color: var(--foreground-04);
+  color: var(--foreground-01);
 }
 
 .accordion-button {
-  padding: 18px 22px;
+  padding: 1.125rem 1.35rem;
   background: none;
   color: inherit;
   font: inherit;
@@ -42,40 +40,44 @@
 .accordion-body {
   display: flex;
   background-color: var(--background-05);
-  font-size: 16px;
+  font-size: 1rem;
 }
 
 .accordion-body .image-description-container {
   width: 50%;
 }
 
+.accordion-body .image-wrap {
+  padding: 1rem 1rem 0 1rem;
+}
+
 .accordion-body img {
   width: 100%;
   height: auto;
   object-fit: cover;
+  border-radius: var(--border-radius-s);
 }
 
 .accordion-body .description {
-  padding: 20px;
+  padding: 1rem;
 }
 
 .contact-wrap {
   max-width: 50%;
-  padding: 50px;
+  padding: 3.125rem;
 }
 
 .contact-wrap p {
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 1.6;
-  margin: 5px 0;
+  margin: 0.3125rem 0;
 }
 
 .contact-wrap .inner {
-  margin-bottom: 20px;
+  margin-bottom: 1rem;
 }
 
 .accordion-body a {
-  color: #007bff;
   text-decoration: none;
 }
 
@@ -84,13 +86,15 @@
 }
 
 .accordion-collapse {
-  display: none;
+  display: block;
+  block-size: 0;
   overflow: hidden;
-  transition: max-height 0.3s ease-out;
+  /* transition: block-size 1s, content-visibility 1s;
+  transition-behavior: allow-discrete; */
 }
 
 .accordion-collapse.open {
-  display: block;
+  block-size: auto;
 }
 
 .accordion-button:focus {
@@ -106,8 +110,11 @@
   right: 0;
   top: 0;
   bottom: 0;
-  background-color: var(--background-02);
-  color: var(--foreground-05);
+  background-color: var(--background-05);
+  color: var(--foreground-01);
+  border-radius: 0 var(--border-radius-s) var(--border-radius-s) 0;
+  font-size: 2.4rem;
+  font-weight: var(--font-weight-text);
 }
 
 .social-link-wrap {
@@ -117,13 +124,13 @@
 .social-link {
   display: flex;
   align-items: center;
-  margin-right: 24px;
+  margin-right: 1.5rem;
 }
 
 .social-link img {
-  width: 20px;
-  height: 20px;
-  margin-right: 10px;
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.5rem;
 }
 
 @media (max-width: 768px) {
@@ -140,11 +147,11 @@
   }
 
   .accordion-header h4 {
-    font-size: 16px;
+    font-size: 1rem;
   }
 
   .contact-wrap {
     max-width: 100%;
-    padding: 20px;
+    padding: 1rem;
   }
 }

@@ -1,8 +1,8 @@
 .breadcrumbs {
   width: fit-content;
-  font-size: 16px;
-  margin: 20px 0;
-  padding: 6px 12px;
+  font-size: 1rem;
+  margin: 1.25rem 0;
+  padding: 0.375rem 0.75rem;
   border-radius: var(--border-radius-s);
   background-color: var(--background-05);
 }

@@ -13,7 +13,7 @@
 }
 
 .logo-wrap {
-  padding: 0 0 20px 0;
+  padding: 0 0 1.25rem 0;
 }
 
 .logo-wrap img {
@@ -21,7 +21,7 @@
 }
 
 .logo-wrap img.scrolled {
-  width: 60px !important;
+  width: 3.75rem !important;
 }
 
 .header-inner-wrap {
@@ -30,7 +30,7 @@
   display: flex;
   flex-direction: row;
   margin: 0 auto;
-  padding: 20px 20px 0 20px;
+  padding: 1.25rem 1.25rem 0 1.25rem;
 }
 
 .menu-wrap {
@@ -56,12 +56,12 @@
 }
 
 .header-greeting {
-  font-size: 22px;
+  font-size: 1.375rem;
   display: inline-block;
-  margin-left: 15px;
-  margin-bottom: 15px;
+  margin-left: 1rem;
+  margin-bottom: 1rem;
   color: var(--foreground-05);
-  padding-bottom: 5px;
+  padding-bottom: 0.3125rem;
   border-bottom: 1px solid var(--background-03);
 }
 
@@ -96,7 +96,7 @@
 
 .main-header nav.head-menu ul li {
   display: inline-block;
-  margin: 0 12px;
+  margin: 0 0.75rem;
 }
 
 .main-header nav ul li a {
@@ -107,15 +107,15 @@
 .main-header nav.head-menu ul li a {
   text-decoration: none;
   color: var(--foreground-01);
-  font-size: 16px;
+  font-size: 1rem;
   opacity: 0.5;
 }
 
 @media (min-width: 992px) {
   .main-header nav ul li {
     display: inline-block;
-    margin: 0 16px;
-    padding-bottom: 20px;
+    margin: 0 1rem;
+    padding-bottom: 1.25rem;
     position: relative;
   }
 
@@ -124,7 +124,7 @@
     display: block;
     background: var(--color-accent);
     width: 0;
-    height: 5px;
+    height: 0.3125rem;
     transition: all 0.2s ease;
     position: absolute;
     bottom: 0;
@@ -189,7 +189,7 @@
   .header-inner-wrap {
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
+    padding: 1.25rem;
   }
 
   .logo-wrap {
@@ -218,7 +218,7 @@
     transform: translateX(-100%);
     transition: all 0.3s ease;
     z-index: 999;
-    padding: 20px 0;
+    padding: 1.25rem 0;
     width: 50vw;
     background-color: var(--background-05);
   }
@@ -229,7 +229,7 @@
   }
 
   #menu-main-menu {
-    margin-bottom: 15px;
+    margin-bottom: 1rem;
   }
 
   .main-menu {
@@ -239,7 +239,7 @@
 
   .head-menu {
     order: 2;
-    margin-top: 40px;
+    margin-top: 2.5rem;
   }
 
   .hamburger-menu {
@@ -257,7 +257,7 @@
 
   .main-header nav ul li,
   .main-header nav.head-menu ul li {
-    margin: 6px 24px;
+    margin: 0.375rem 1.5rem;
   }
 
   .hamburger-menu.active .hamburger-icon:nth-child(1) {
