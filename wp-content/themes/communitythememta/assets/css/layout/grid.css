@@ -59,6 +59,7 @@
   width: 100%;
   max-width: var(--inner-content-width);
   position: absolute;
+  z-index: 9;
   bottom: 120px;
   padding: 0 1.5rem;
   text-transform: uppercase;
@@ -128,6 +129,10 @@
   width: calc(60% - 1rem);
 }
 
+.col-xs-12 {
+  width: 100%;
+}
+
 @media (min-width: 768px) {
   .col-sm-2 {
     width: calc(13% - 1rem);
@@ -135,5 +140,9 @@
 
   .col-sm-10 {
     width: calc(87% - 1rem);
+  }
+
+  .col-sm-10 {
+    width: 100%;
   }
 }

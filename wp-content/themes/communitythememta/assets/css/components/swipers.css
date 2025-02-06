@@ -27,6 +27,26 @@
   width: 100%;
 }
 
+#start-header .top-image-swiper .swiper-slide {
+  height: calc(var(--vh, 1vh) * 65);
+  min-height: 400px;
+}
+
+@media (max-width: 992px) {
+  .top-image-swiper .swiper-slide {
+    height: 300px;
+  }
+  #start-header .top-image-swiper .swiper-slide {
+    height: calc(var(--vh, 1vh) * 50);
+    min-height: 300px;
+  }
+}
+@media (max-width: 650px) {
+  .top-image-swiper .swiper-slide {
+    height: 200px;
+  }
+}
+
 .top-image-swiper .top-image-swiper__image-wrapper {
   position: relative;
   overflow: hidden;

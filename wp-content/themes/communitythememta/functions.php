@@ -35,7 +35,7 @@ function theme_enqueue_scripts() {
         get_template_directory_uri() . '/assets/js/accordeon.js',
         [], 
         '1.0.2',
-        false
+        true
     );
 
     wp_enqueue_script(
@@ -43,7 +43,7 @@ function theme_enqueue_scripts() {
         get_template_directory_uri() . '/assets/js/mobile-menu.js',
         [],
         '1.0.3',
-        false
+        true
     );
 
     wp_enqueue_script(
@@ -51,7 +51,7 @@ function theme_enqueue_scripts() {
         get_template_directory_uri() . '/assets/js/header.js',
         [],
         '1.0.2',
-        false
+        true
     );
 
     
@@ -60,7 +60,14 @@ function theme_enqueue_scripts() {
         get_template_directory_uri() . '/assets/js/sliders.js',
         ['swiper-bundle'],
         '1.0.0',
-        false
+        true
+    );
+    wp_enqueue_script(
+        'main-js',
+        get_template_directory_uri() . '/assets/js/main.js',
+        [],
+        '1.0.1',
+        true
     );
 
 
@@ -70,7 +77,7 @@ function theme_enqueue_scripts() {
         get_template_directory_uri() . '/assets/js/morethanadsmasterpiece.min.js',
         [],
         '1.0.0',
-        false
+        true
     );
    
     

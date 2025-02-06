@@ -7,6 +7,7 @@
 
 ?>
 
+
 <main class="main-container">
 	<section class="header-img-wrap">
 		<?php if ( $slider && !empty($slider) ) : ?>
