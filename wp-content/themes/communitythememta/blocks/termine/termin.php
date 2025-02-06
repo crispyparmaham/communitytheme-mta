@@ -46,7 +46,10 @@
             $hausnummer = get_field('hausnummer', $post->ID);
             $plz = get_field('plz', $post->ID);
             $ort = get_field('ort', $post->ID);
-            $adresse = trim("$strasse $hausnummer, $plz $ort") ?: false;
+            $adresseParts = array_filter([$strasse . ' ' . $hausnummer, $plz . ' ' . $ort], function ($value) {
+                return trim($value) !== '';
+            });
+            $adresse = !empty($adresseParts) ? implode(', ', $adresseParts) : '';
             $adresslink = $adresse ? 'https://www.google.com/maps/search/?api=1&query=' . urlencode("$strasse $hausnummer $plz $ort") : '';
 
             // Termin-Daten
