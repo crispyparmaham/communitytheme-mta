@@ -227,6 +227,22 @@ add_action( 'acf/include_fields', function () {
 				'media_upload' => 1,
 				'delay' => 0,
 			),
+			array(
+				'key' => 'field_87827922332',
+				'label' => 'Slider',
+				'name' => 'page_slider',
+				'aria-label' => '',
+				'type' => 'gallery',
+				'instructions' => 'Ersetzt die Bilder des Haupt-Sliders auf der Seite. Wenn leer, werden die Bilder des Hauptsliders geladen.',
+				'required' => 0,
+				'conditional_logic' => 0,
+				'wrapper' => array(
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'return_format' => 'array',
+			),
 		),
 		'location' => array(
 			array(
