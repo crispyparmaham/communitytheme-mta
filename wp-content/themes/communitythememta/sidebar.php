@@ -7,5 +7,5 @@
     endif;
     ?>
 
-    <?php get_template_part('components/termin-lsiting-simple-in-sidebar'); ?>
+    <?php get_template_part('components/termin-listing-simple-in-sidebar'); ?>
 </aside>
