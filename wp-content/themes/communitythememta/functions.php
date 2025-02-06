@@ -146,7 +146,11 @@ if( function_exists('acf_add_options_page') ) {
         'menu_title'    => 'Theme Settings',
         'menu_slug'     => 'theme-settings',
         'capability'    => 'edit_posts',
+        'position'      => '2.1',
+        'icon_url'      => 'dashicons-admin-generic',
         'redirect'      => false,
+        'update_button' => __('Theme Einstellungen speichern', 'acf'),
+        'updated_message' => __("Theme Einstellungen gespeichert", 'acf'),
     ));
 
 }
