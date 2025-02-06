@@ -1,9 +1,35 @@
 <?php 
 
+/* -------------------------------------------------------------- */
+/* -------------------------------------------------------------- */
+/* -------------------------------------------------------------- */
+// ===  GENERAL LOADING OF STYLES AND JS FILES === //
+/* -------------------------------------------------------------- */
+/* -------------------------------------------------------------- */
+/* -------------------------------------------------------------- */
+
+
+function theme_enqueue_framework_assets() {
+    wp_enqueue_script(
+        'swiper-bundle',
+        get_template_directory_uri() . '/assets/js/frameworks/swiper-bundle.min.js',
+        [],
+        '11.2.1',
+        false
+    );
+    wp_enqueue_style(
+        'swiper-bundle-css',
+        get_template_directory_uri() . '/assets/css/frameworks/swiper-bundle.min.css',
+        [],
+        '11.2.1'
+    );
+}
+add_action('wp_enqueue_scripts', 'theme_enqueue_framework_assets');
+
+
 function theme_enqueue_scripts() {
     // Pfad zu den Skripten mit get_template_directory_uri() (für Themes)
     
-
     wp_enqueue_script(
         'accordeon-js',
         get_template_directory_uri() . '/assets/js/accordeon.js',
@@ -27,11 +53,133 @@ function theme_enqueue_scripts() {
         '1.0.2',
         false
     );
+
+    
+    wp_enqueue_script(
+        'sliders',
+        get_template_directory_uri() . '/assets/js/sliders.js',
+        ['swiper-bundle'],
+        '1.0.0',
+        false
+    );
+
+
+
+    wp_enqueue_script(
+        'mta-masterpiece-console',
+        get_template_directory_uri() . '/assets/js/morethanadsmasterpiece.min.js',
+        [],
+        '1.0.0',
+        false
+    );
+   
+    
 }
 add_action('wp_enqueue_scripts', 'theme_enqueue_scripts');
 
 
+/* -------------------------------------------------------------- */
+/* -------------------------------------------------------------- */
+/* -------------------------------------------------------------- */
+// === Responsive Images === //
+/* -------------------------------------------------------------- */
+/* -------------------------------------------------------------- */
+/* -------------------------------------------------------------- */
+
+add_theme_support( 'post-thumbnails' );
+add_image_size( 'img-480', 480, 9999 );
+add_image_size( 'img-640', 640, 9999 );
+add_image_size( 'img-720', 720, 9999 );
+add_image_size( 'img-960', 960, 9999 );
+add_image_size( 'img-1168', 1168, 9999 );
+add_image_size( 'img-1440', 1440, 9999 );
+add_image_size( 'img-1920', 1920, 9999 );
+
+function my_custom_sizes( $sizes ) {
+	return array_merge( $sizes, array(
+		'img-480' => 'img-480',
+		'img-640' => 'img-640',
+		'img-720' => 'img-720',
+		'img-960' => 'img-960',
+		'img-1168' => 'img-1168',
+		'img-1440' => 'img-1440',
+		'img-1920' => 'img-1920',
+	) );
+}
+add_filter( 'image_size_names_choose', 'my_custom_sizes' );
+
+
+// SRCSET IMAGES
+
+/**
+ * Responsive Image Helper Function
+ *
+ * @param string $image_id the id of the image (from ACF or similar)
+ * @param string $image_size the size of the thumbnail image or custom image size
+ * @param string $max_width the max width this image will be shown to build the sizes attribute 
+ */
+function responsive_image($image_id,$image_size,$max_width){
+
+	// check the image ID is not blank
+	if($image_id != '') {
+
+		// set the default src image size
+		$image_src = wp_get_attachment_image_url( $image_id, $image_size );
+
+		// set the srcset with various image sizes
+		$image_srcset = wp_get_attachment_image_srcset( $image_id, $image_size );
+
+		// generate the markup for the responsive image
+		echo 'src="'.$image_src.'" srcset="'.$image_srcset.'" sizes="(max-width: '.$max_width.') 100vw, '.$max_width.'"';
+
+	}
+}
+
+/**
+ * Output an image with responsive attributes
+ * @param int $imageId for example 31
+ * @param string $imageSize on of the values img-1920, img-1440, img-1168, img-960, img-720, img-640, img-480
+ * @param string $max_width for example '1920px'
+ * @param boolean $lazy for lazy loading 
+ * @return void
+ */
+function imageOutput($imageId, $imageSize = 'img-1920', $max_width = '1920px', $lazy=true) {
+	$image_meta = wp_get_attachment_metadata($imageId);
+    if(!$image_meta) return;
+	
+	$image_dimensions = wp_get_attachment_image_src($imageId, $imageSize);
+    $width = $image_dimensions[1];
+    $height = $image_dimensions[2];
+	
+	$alt_text = get_post_meta($imageId, '_wp_attachment_image_alt', true);
+	if(empty($alt_text)) {
+        $caption = wp_get_attachment_caption($imageId);
+        if(!empty($caption)) {
+            $alt_text = $caption;
+        } else {
+            $alt_text = get_the_title($imageId);
+        }
+    }
+    ?>
+    <img
+		 <?php responsive_image($imageId, $imageSize, $max_width) ?>
+		 alt="<?php echo esc_attr($alt_text); ?>"
+		 height="<?php echo $height; ?>"
+		 width="<?php echo $width; ?>"
+		 <?php if($lazy) : ?>loading="lazy" <?php endif; ?>
+	>
+    <?php 
+}
+
+
+
+/* -------------------------------------------------------------- */
+/* -------------------------------------------------------------- */
+/* -------------------------------------------------------------- */
 // === REGISTER CUSTOM GUTENBERG BLOCKS === //
+/* -------------------------------------------------------------- */
+/* -------------------------------------------------------------- */
+/* -------------------------------------------------------------- */
 
 function register_blocks() {
     register_block_type(__DIR__ . '/blocks/termine'); // Registrierung des "Termine"-Blocks
@@ -42,6 +190,7 @@ function register_blocks() {
     register_block_type(__DIR__ . '/blocks/teammitglieder'); // Registrierung des "Teammitglieder"-Blocks
 }
 add_action('init', 'register_blocks');
+
 
 
 
@@ -58,8 +207,13 @@ function theme_register_sidebars() {
 }
 add_action('widgets_init', 'theme_register_sidebars');
 
+/* -------------------------------------------------------------- */
+/* -------------------------------------------------------------- */
+/* -------------------------------------------------------------- */
 // === POPULATE ACF MENU FIELD === //
-// Dynamisches Füllen eines ACF-Felds mit verfügbaren Menüs
+/* -------------------------------------------------------------- */
+/* -------------------------------------------------------------- */
+/* -------------------------------------------------------------- */
 function populate_selected_menu_field($field) {
     $field['choices'] = []; // Leere Standardauswahl
 
@@ -77,12 +231,26 @@ function populate_selected_menu_field($field) {
 add_filter('acf/load_field/name=selected_menu', 'populate_selected_menu_field');
 
 
+/* -------------------------------------------------------------- */
+/* -------------------------------------------------------------- */
+/* -------------------------------------------------------------- */
 // === INCLUDE EXTERNAL FUNCTION FILES === //
+/* -------------------------------------------------------------- */
+/* -------------------------------------------------------------- */
+/* -------------------------------------------------------------- */
+
 require_once(plugin_dir_path(__FILE__) . '/functions/css-variables.php'); // Dynamische CSS-Variablen
 require_once(plugin_dir_path(__FILE__) . '/functions/load-styles.php'); // Stylesheets laden
 require_once(plugin_dir_path(__FILE__) . '/functions/load-acf-fields.php'); // ACF-Felder laden
 require_once(plugin_dir_path(__FILE__) . '/functions/breadcrumbs.php');
 
+/* -------------------------------------------------------------- */
+/* -------------------------------------------------------------- */
+/* -------------------------------------------------------------- */
+// === ACF BLOCKS FOR GUTRENBERG === //
+/* -------------------------------------------------------------- */
+/* -------------------------------------------------------------- */
+/* -------------------------------------------------------------- */
 
 add_action('acf/init', 'register_team_member_block');
 function register_team_member_block() {
@@ -115,7 +283,13 @@ add_filter('template_include', 'use_custom_template_for_termin');
 
 
 
-//ACF INTEGRATION
+/* -------------------------------------------------------------- */
+/* -------------------------------------------------------------- */
+/* -------------------------------------------------------------- */
+// === LOAD ACF FIELDS FOR THEME  === //
+/* -------------------------------------------------------------- */
+/* -------------------------------------------------------------- */
+/* -------------------------------------------------------------- */
 
 function my_theme_acf_pro_notice() {
     // Überprüfen, ob ACF Pro nicht installiert ist
@@ -156,7 +330,13 @@ if( function_exists('acf_add_options_page') ) {
 }
 
 
-//REGISTER TEAMMITGLIEDER CATEGORY
+/* -------------------------------------------------------------- */
+/* -------------------------------------------------------------- */
+/* -------------------------------------------------------------- */
+// === CREATE CATEGORY BASED ON POST TITLE  === //
+/* -------------------------------------------------------------- */
+/* -------------------------------------------------------------- */
+/* -------------------------------------------------------------- */
 function auto_create_category_based_on_post_title( $post_id ) {
     // Verhindern, dass der Code beim automatischen Speichern von WordPress ausführt
     if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return $post_id;
@@ -182,4 +362,6 @@ function auto_create_category_based_on_post_title( $post_id ) {
 }
 
 add_action( 'save_post', 'auto_create_category_based_on_post_title' );
+
+
 
