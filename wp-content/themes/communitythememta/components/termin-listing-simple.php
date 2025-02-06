@@ -1,5 +1,5 @@
-<div class="termin-list-start" role="list">
-    <?php
+<div class="termin-listing-simple">
+<?php
     // === INITIALISIERUNG === //
     global $post;
 
@@ -27,19 +27,12 @@
         ],
     ];
 
-    $query = new WP_Query($args);
+    $custom_query = new WP_Query($args);
 
     // === POSTS LOOP === //
-    if ($query->have_posts()) :
-        while ($query->have_posts()) :
-            $query->the_post();
-
-            // Post-Daten
-            $post_image = get_post_thumbnail_id();
-            $post_image_array = wp_get_attachment_image_src($post_image, 'post-listing');
-            $post_image_width = $post_image_array ? $post_image_array[1] : 310;
-            $post_image_height = $post_image_array ? $post_image_array[2] : 200;
-            $placeholder_image = get_field('platzhalter_bild_termine', 'option')['id'];
+    if ($custom_query->have_posts()) :
+        while ($custom_query->have_posts()) :
+            $custom_query->the_post();
 
             // Adresse
             $strasse = get_field('strasse', $post->ID);
@@ -54,15 +47,12 @@
             $enddatum = get_field('enddatum', $post->ID);
             $time = trim(get_field('uhrzeit', $post->ID));
             $more_days = get_field('more_days', $post->ID);
-            $date_icon = get_field('date_icon', 'option') ?: 'dashicons-calendar-alt';
-            $time_icon = get_field('time_icon', 'option') ?: 'dashicons-clock';
 
             $startdatum_formatted = $startdatum ? date_i18n("d. F Y", strtotime($startdatum)) : '';
             $enddatum_formatted = $enddatum ? date_i18n("d. F Y", strtotime($enddatum)) : '';
     ?>
             <!-- === POST ITEM === -->
             <div id="child-<?php the_ID(); ?>" class="child-page-list-item post-item-startseite post-listing-item termin-item"
-                data-search-term="<?php echo esc_attr(implode(' ', wp_list_pluck(get_the_category(), 'slug'))); ?>"
                 role="listitem">
 
                 <!-- Kategorien -->
@@ -76,35 +66,12 @@
                     echo '</ul>';
                 endif; ?>
 
-                <!-- Bild -->
-                <div class="post-listing-item-image <?php echo $post_image ? '' : 'is-empty-post-image'; ?>">
-                    <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-                        <?php
-                        if ($post_image) {
-                            echo wp_get_attachment_image($post_image, 'post-listing', false, [
-                                'width' => $post_image_width,
-                                'height' => $post_image_height,
-                                'alt' => esc_attr(get_post_meta($post_image, '_wp_attachment_image_alt', true) ?: get_the_title($post_image)),
-                                'loading' => 'lazy',
-                            ]);
-                        } else {
-                            echo wp_get_attachment_image($placeholder_image, 'post-listing', false, [
-                                'width' => $post_image_width,
-                                'height' => $post_image_height,
-                                'alt' => esc_attr(get_post_meta($placeholder_image, '_wp_attachment_image_alt', true) ?: get_the_title($placeholder_image)),
-                                'loading' => 'lazy',
-                            ]);
-                        }
-                        ?>
-                    </a>
-                </div>
-
                 <!-- Text -->
                 <div class="listing-text-wrap post-listing-item-text">
                     <h3 class="post-listings-item-heading">
-                        <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" aria-label="Mehr über <?php the_title(); ?> lesen">
+            
                             <?php the_title(); ?>
-                        </a>
+                   
                     </h3>
 
                     <!-- Adresse -->
@@ -119,13 +86,11 @@
                     <!-- Termin-Infos -->
                     <div class="termin-info-wrap">
                         <span class="termin-info <?php echo $more_days ? 'no-margin-right' : ''; ?>">
-                            <span class="termin-icon dashicons <?php echo esc_attr($date_icon); ?>" aria-hidden="true"></span>
                             <?php echo $more_days ? 'Vom ' : ''; ?>
                             <?php echo esc_html($startdatum_formatted); ?>
                         </span>
                         <?php if (!$more_days) : ?>
                             <span class="post-listing-item-info-time termin-info">
-                                <span class="termin-icon dashicons <?php echo esc_attr($time_icon); ?>" aria-hidden="true"></span>
                                 <?php echo esc_html($time); ?> Uhr
                             </span>
                         <?php else : ?>
@@ -134,44 +99,17 @@
                             </span>
                         <?php endif; ?>
                     </div>
-
-                    <!-- Excerpt -->
-                    <?php if (function_exists('custom_field_excerpt') && !empty(custom_field_excerpt())) : ?>
-                        <span class="post-excerpt" aria-label="Zusammenfassung von <?php the_title(); ?>">
-                            <?php echo custom_field_excerpt(); ?>
-                        </span>
-                    <?php endif; ?>
+                    <a class="termin-link" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" aria-label="Mehr über <?php the_title(); ?> lesen" class="post-link">zum Termin</a>
                 </div>
             </div>
     <?php 
-        endwhile; ?>
-        <?php
-        $total_pages = $query->max_num_pages;
-        if ($total_pages > 1): ?>
-            <div class="mta-ct-pagination"><?php endif; ?>
-            <?php
-            if ($total_pages > 1) {
-
-                $current_page = max(1, get_query_var('paged'));
-
-                echo paginate_links(array(
-                    'base' => get_pagenum_link(1) . '%_%',
-                    'format' => '/page/%#%',
-                    'current' => $current_page,
-                    'total' => $total_pages,
-                    'prev_text' => __('Vorherige Seite'),
-                    'next_text' => __('Nächste Seite'),
-                    'add_args' => array()
-                ));
-            }
-            ?>
-            <?php if ($total_pages > 1): ?>
-            </div><?php endif; ?>
-
-    <?php else : ?>
+        endwhile;
+    else : 
+    ?>
         <h3 class="hsmall" aria-live="polite">Aktuell gibt es leider keine geplanten Termine</h3>
     <?php 
     endif;
     wp_reset_postdata(); 
     ?>
+
 </div>

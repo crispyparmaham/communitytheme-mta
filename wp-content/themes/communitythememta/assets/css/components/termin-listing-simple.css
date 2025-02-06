@@ -1,0 +1,45 @@
+.termin-listing-simple .termin-item {
+  display: flex;
+  align-items: center;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--background-03);
+}
+
+.termin-listing-simple .post-listings-item-heading {
+  margin-bottom: 0;
+  font-size: 1.125rem;
+  font-weight: 500;
+  text-decoration: none;
+  color: var(--foreground-01);
+}
+
+.termin-listing-simple .adresse a {
+  font-size: 0.9375rem;
+  color: var(--foreground-01);
+  text-decoration: none;
+  opacity: 0.6;
+}
+
+.termin-listing-simple .termin-info-wrap {
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: 1rem;
+  color: var(--foreground-03);
+}
+
+.termin-listing-simple .termin-link {
+  display: inline-block;
+  font-size: 0.9375rem;
+  background-color: var(--background-03);
+  color: var(--foreground-01);
+  text-decoration: none;
+  opacity: 1;
+  margin-top: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--border-radius-s);
+}
+
+.termin-listing-simple .termin-link:hover {
+  background-color: #000;
+  color: #fff;
+}

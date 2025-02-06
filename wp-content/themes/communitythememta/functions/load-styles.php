@@ -17,6 +17,7 @@ function load_stylesheet() {
         'links' => '/assets/css/utils/links.css',
         'typography' => '/assets/css/utils/typography.css',
         'termine' => '/assets/css/blocks/termin.css',
+        'termin-listing-simple' => '/assets/css/components/termin-listing-simple.css',
         'vereine' => '/assets/css/blocks/accordion.css',
         'daten' => '/assets/css/blocks/daten.css',
         'grusswort' => '/assets/css/blocks/grusswort.css',

@@ -99,7 +99,7 @@
 }
 
 .accordion-button:focus {
-  outline: none;
+  outline-color: var(--color-accent);
 }
 
 .accordion-icon {

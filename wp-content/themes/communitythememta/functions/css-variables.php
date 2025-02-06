@@ -65,7 +65,6 @@ function hex_to_hsl( $hex ) {
 function generate_hsl_shades($h, $s, $l) {
     $shades = [];
     for ($i = 1; $i <= 6; $i++) {
-        $factor = $i * 0.1;
         $newL = min(100, max(0, $l + ($i - 2.6) * 9)); // Schattierungen zwischen 0% und 100%
         $shades[] = "hsl({$h}, {$s}%, {$newL}%)";
     }
