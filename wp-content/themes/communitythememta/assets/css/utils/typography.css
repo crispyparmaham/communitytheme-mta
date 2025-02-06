@@ -33,17 +33,17 @@ h1.wp-block-heading {
 }
 
 h2.wp-block-heading {
-  font-size: var(--headline-l);
-  line-height: 1.2;
-}
-
-h3.wp-block-heading {
   font-size: var(--headline-m);
   line-height: 1.2;
 }
 
-h4.wp-block-heading {
+h3.wp-block-heading {
   font-size: var(--headline-s);
+  line-height: 1.2;
+}
+
+h4.wp-block-heading {
+  font-size: var(--headline-xs);
   line-height: 1.2;
 }
 

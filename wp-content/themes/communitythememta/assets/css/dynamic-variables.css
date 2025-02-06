@@ -1,23 +1,41 @@
 
 :root {
     /* PRIMARY COLORS */
+    --color-foreground-values: 0, 0%, 0%;
     --color-foreground: hsl(0, 0%, 0%);
+    --color-background-values: 0, 0%, 59.6%;
     --color-background: hsl(0, 0%, 59.6%);
+    --color-accent-values: 0, 71%, 38.6%;
     --color-accent: hsl(0, 71%, 38.6%);
 
     /* COLOR SHADES */
+    --foreground-01-values: 0, 0%, 0%;
+    --foreground-02-values: 0, 0%, 3.6%;
+    --foreground-03-values: 0, 0%, 12.6%;
+    --foreground-04-values: 0, 0%, 21.6%;
+    --foreground-05-values: 0, 0%, 30.6%;
     --foreground-01: hsl(0, 0%, 0%);
     --foreground-02: hsl(0, 0%, 3.6%);
     --foreground-03: hsl(0, 0%, 12.6%);
     --foreground-04: hsl(0, 0%, 21.6%);
     --foreground-05: hsl(0, 0%, 30.6%);
 
+    --background-01-values: 0, 0%, 68.6%;
+    --background-02-values: 0, 0%, 77.6%;
+    --background-03-values: 0, 0%, 86.6%;
+    --background-04-values: 0, 0%, 95.6%;
+    --background-05-values: 0, 0%, 100%;
     --background-01: hsl(0, 0%, 68.6%);
     --background-02: hsl(0, 0%, 77.6%);
     --background-03: hsl(0, 0%, 86.6%);
     --background-04: hsl(0, 0%, 95.6%);
     --background-05: hsl(0, 0%, 100%);
 
+    --accent-01-values: 0, 71%, 47.6%;
+    --accent-02-values: 0, 71%, 56.6%;
+    --accent-03-values: 0, 71%, 65.6%;
+    --accent-04-values: 0, 71%, 74.6%;
+    --accent-05-values: 0, 71%, 83.6%;
     --accent-01: hsl(0, 71%, 47.6%);
     --accent-02: hsl(0, 71%, 56.6%);
     --accent-03: hsl(0, 71%, 65.6%);

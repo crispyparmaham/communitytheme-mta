@@ -70,6 +70,12 @@ function theme_enqueue_scripts() {
         true
     );
 
+    wp_enqueue_style(
+        'dashicons-frontend',
+        '/wp-includes/css/dashicons.min.css?ver=6.7.1',
+        [],
+        '1.0.0'
+    );
 
 
     wp_enqueue_script(

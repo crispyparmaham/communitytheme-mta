@@ -66,7 +66,7 @@ function generate_hsl_shades($h, $s, $l) {
     $shades = [];
     for ($i = 1; $i <= 6; $i++) {
         $newL = min(100, max(0, $l + ($i - 2.6) * 9)); // Schattierungen zwischen 0% und 100%
-        $shades[] = "hsl({$h}, {$s}%, {$newL}%)";
+        $shades[] = "{$h}, {$s}%, {$newL}%";
     }
     return $shades;
 }
@@ -115,28 +115,46 @@ function generate_dynamic_css() {
     $css_content = "
 :root {
     /* PRIMARY COLORS */
-    --color-foreground: {$primaryShades[0]};
-    --color-background: {$secondaryShades[0]};
-    --color-accent: {$tertiaryShades[0]};
+    --color-foreground-values: {$primaryShades[0]};
+    --color-foreground: hsl({$primaryShades[0]});
+    --color-background-values: {$secondaryShades[0]};
+    --color-background: hsl({$secondaryShades[0]});
+    --color-accent-values: {$tertiaryShades[0]};
+    --color-accent: hsl({$tertiaryShades[0]});
 
     /* COLOR SHADES */
-    --foreground-01: {$primaryShades[1]};
-    --foreground-02: {$primaryShades[2]};
-    --foreground-03: {$primaryShades[3]};
-    --foreground-04: {$primaryShades[4]};
-    --foreground-05: {$primaryShades[5]};
+    --foreground-01-values: {$primaryShades[1]};
+    --foreground-02-values: {$primaryShades[2]};
+    --foreground-03-values: {$primaryShades[3]};
+    --foreground-04-values: {$primaryShades[4]};
+    --foreground-05-values: {$primaryShades[5]};
+    --foreground-01: hsl({$primaryShades[1]});
+    --foreground-02: hsl({$primaryShades[2]});
+    --foreground-03: hsl({$primaryShades[3]});
+    --foreground-04: hsl({$primaryShades[4]});
+    --foreground-05: hsl({$primaryShades[5]});
 
-    --background-01: {$secondaryShades[1]};
-    --background-02: {$secondaryShades[2]};
-    --background-03: {$secondaryShades[3]};
-    --background-04: {$secondaryShades[4]};
-    --background-05: {$secondaryShades[5]};
+    --background-01-values: {$secondaryShades[1]};
+    --background-02-values: {$secondaryShades[2]};
+    --background-03-values: {$secondaryShades[3]};
+    --background-04-values: {$secondaryShades[4]};
+    --background-05-values: {$secondaryShades[5]};
+    --background-01: hsl({$secondaryShades[1]});
+    --background-02: hsl({$secondaryShades[2]});
+    --background-03: hsl({$secondaryShades[3]});
+    --background-04: hsl({$secondaryShades[4]});
+    --background-05: hsl({$secondaryShades[5]});
 
-    --accent-01: {$tertiaryShades[1]};
-    --accent-02: {$tertiaryShades[2]};
-    --accent-03: {$tertiaryShades[3]};
-    --accent-04: {$tertiaryShades[4]};
-    --accent-05: {$tertiaryShades[5]};
+    --accent-01-values: {$tertiaryShades[1]};
+    --accent-02-values: {$tertiaryShades[2]};
+    --accent-03-values: {$tertiaryShades[3]};
+    --accent-04-values: {$tertiaryShades[4]};
+    --accent-05-values: {$tertiaryShades[5]};
+    --accent-01: hsl({$tertiaryShades[1]});
+    --accent-02: hsl({$tertiaryShades[2]});
+    --accent-03: hsl({$tertiaryShades[3]});
+    --accent-04: hsl({$tertiaryShades[4]});
+    --accent-05: hsl({$tertiaryShades[5]});
     
     /* FONT SIZES */
     --headline-xs: {$headlineXS};
