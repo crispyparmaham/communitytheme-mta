@@ -33,7 +33,7 @@ body {
   }
 
   to {
-    transform: translateY(-100px);
+    transform: translateY(100px);
     opacity: 0;
   }
 }
@@ -52,9 +52,9 @@ body {
 
 /* Apply the custom animation to the old and new page states */
 ::view-transition-old(root) {
-  animation: 0.8s ease-in-out both move-out;
+  animation: 1s ease both move-out;
 }
 
 ::view-transition-new(root) {
-  animation: 0.3s ease-in-out both move-in;
+  animation: 1s ease both move-in;
 }

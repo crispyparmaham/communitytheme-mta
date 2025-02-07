@@ -22,7 +22,7 @@
 }
 
 .accordion-button {
-  padding: 1.125rem 1.35rem;
+  padding: 1.125rem 1.35rem 1.125rem 0.125rem;
   background: none;
   color: inherit;
   font: inherit;
@@ -48,7 +48,7 @@
 }
 
 .accordion-body .image-wrap {
-  padding: 1rem 1rem 0 1rem;
+  padding: 1rem 1rem 0 0.125rem;
 }
 
 .accordion-body img {

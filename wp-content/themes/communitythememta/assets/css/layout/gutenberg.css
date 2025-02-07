@@ -1,0 +1,7 @@
+.left-content-column:has(figure:first-child) > figure:first-child {
+  margin-top: 0;
+}
+
+.wp-block-group.has-background {
+  padding: 1.5rem;
+}

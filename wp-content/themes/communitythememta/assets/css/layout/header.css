@@ -37,9 +37,10 @@
   transition: all 0.3s ease;
   display: block;
 }
-
-.logo-wrap img.scrolled {
-  width: 6rem !important;
+@media (min-width: 992px) {
+  .logo-wrap img.scrolled {
+    width: 6rem !important;
+  }
 }
 
 .header-inner-wrap {
@@ -371,9 +372,10 @@
 }
 
 /* TOP HEADER ROW */
-
-.main-header.scrolled {
-  margin-top: calc(var(--headerTopRowHeight) * -1);
+@media (min-width: 992px) {
+  .main-header.scrolled {
+    margin-top: calc(var(--headerTopRowHeight) * -1);
+  }
 }
 
 .top-header-row {
