@@ -31,7 +31,7 @@
 .termin-list-start .post-listings-item-heading a {
   font-size: 1.375rem;
   margin-bottom: 0;
-  color: var(--foreground-05);
+  color: var(--foreground-01);
   text-decoration: none;
 }
 
@@ -90,6 +90,10 @@
   margin-right: 0.5rem;
 }
 
+.termin-info-wrap .dashicons {
+  color: var(--color-accent);
+}
+
 .termin-infos-wrap .op-6 {
   margin-right: 0.3125rem;
 }
@@ -143,6 +147,7 @@
 
   .termin-list-start .post-listing-item-image img {
     max-height: 150px;
+    border-radius: var(--border-radius-s);
   }
 
   .termin-list-start .termin-info {
