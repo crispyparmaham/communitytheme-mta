@@ -28,7 +28,7 @@
     ];
 
     $query = new WP_Query($args);
-    $community_name = get_bloginfo('name');
+    $gemeindeName = get_field('gemeindename', 'option');
 
     // === POSTS LOOP === //
     if ($query->have_posts()):
@@ -52,7 +52,7 @@
                 return trim($value) !== '';
             });
             $adresse = !empty($adresseParts) ? implode(', ', $adresseParts) : '';
-            $adresslink = $adresse ? 'https://www.google.com/maps/search/?api=1&query=' . urlencode("$strasse $hausnummer $plz $ort $community_name") : '';
+            $adresslink = $adresse ? 'https://www.google.com/maps/search/?api=1&query=' . urlencode("$strasse $hausnummer $plz $ort $gemeindeName") : '';
 
             // Termin-Daten
             $organizer = get_field('organisator', $post->ID);

@@ -3,6 +3,8 @@
     // === INITIALISIERUNG === //
     global $post;
 
+    $gemeindeName = get_field('gemeindename', 'option');
+
     // Aktuelles Datum und Pagination-Einstellungen
     $today = date('Ymd');
     $count = get_option('posts_per_page', 4);
@@ -41,7 +43,7 @@
                 return trim($value) !== '';
             });
             $adresse = !empty($adresseParts) ? implode(', ', $adresseParts) : '';
-            $adresslink = $adresse ? 'https://www.google.com/maps/search/?api=1&query=' . urlencode("$strasse $hausnummer $plz $ort") : '';
+            $adresslink = $adresse ? 'https://www.google.com/maps/search/?api=1&query=' . urlencode("$strasse $hausnummer $plz $ort $gemeindeName") : '';
 
             // Termin-Daten
             $startdatum = get_field('startdatum', $post->ID);

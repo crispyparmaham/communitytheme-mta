@@ -14,16 +14,17 @@ if ( $query->have_posts() ) :
 		<?php
 		while ( $query->have_posts() ) :
 			$query->the_post();
+			
+			$post_id = get_the_ID();
 
 			// ACF-Felder abrufen
-			$association_img = get_field( 'association_img' );
-			$desc = get_field( 'desc' );
-			$contact = get_field( 'contact' );
-			$website = get_field( 'website' );
-			$email = get_field( 'e-mail' );
+			$association_img = get_field( 'association_img', $post_id );
+			$desc = get_field( 'desc', $post_id );
+			$contact = get_field( 'contact',$post_id );
+			$website = get_field( 'website' , $post_id);
+			$email = get_field( 'e-mail' , $post_id);
 
 			// Einzigartige IDs für Akkordeon
-			$post_id = get_the_ID();
 			$heading_id = 'heading-' . $post_id;
 			$collapse_id = 'collapse-' . $post_id;
 			?>

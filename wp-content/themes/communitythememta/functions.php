@@ -378,3 +378,23 @@ add_action( 'save_post', 'auto_create_category_based_on_post_title' );
 
 
 
+
+/**
+ * REDIRECT LINKS
+ */
+add_action('template_redirect', 'custom_redirect_function');
+function custom_redirect_function() {
+    $redirects = [
+        'termin' => 'aktuelles/#termine-veranstaltungen',
+    ];
+
+    // Get current requested path
+    $current_path = trim($_SERVER['REQUEST_URI'], '/');
+
+    foreach ($redirects as $old_slug => $new_slug) {
+        if ($current_path === trim($old_slug, '/')) {
+            wp_redirect(home_url($new_slug), 301);
+            exit;
+        }
+    }
+}
