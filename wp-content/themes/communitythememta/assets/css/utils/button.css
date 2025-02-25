@@ -5,3 +5,7 @@
 .wp-block-button__link:hover {
   background-color: var(--foreground-01);
 }
+
+.wp-block-file__button {
+  padding: 0.5rem 1rem;
+}

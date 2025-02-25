@@ -34,7 +34,7 @@ function load_stylesheet() {
 
     // Schleife durch das Stylesheet-Array und enqueue jedes Stylesheet
     foreach ($styles as $handle => $path) {
-        wp_register_style($handle, get_template_directory_uri() . $path, [], false, 'all');
+        wp_register_style($handle, get_template_directory_uri() . $path, [], null, 'all');
         wp_enqueue_style($handle);
     }
 }

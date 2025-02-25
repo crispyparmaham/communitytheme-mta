@@ -4,6 +4,8 @@ $args = array(
     'post_type' => 'gewerbe',
     'posts_per_page' => -1,
     'post_status' => 'publish',
+    'orderby' => 'title',
+    'order' => 'ASC',
 );
 
 $query = new WP_Query( $args );
@@ -47,7 +49,8 @@ if ( $query->have_posts() ) :
                                         alt="<?php echo esc_attr( $association_img['alt'] ); ?>" class="img-fluid" />
                                 </div>
                             <?php endif; ?>
-
+                            
+                           
                             <?php if ( $desc ) : ?>
                                 <div class="description">
                                     <p><?php echo wp_kses_post( $desc ); ?></p>
@@ -58,6 +61,7 @@ if ( $query->have_posts() ) :
 
                         <?php if ( $contact ) : ?>
 							<div class="contact-wrap">
+                                <strong><?php the_title() ?></strong>
 								<div class="inner"><?php echo wp_kses_post( $contact ); ?></div>
 								<div class="social-link-wrap">
 									<?php if ( $website ) : ?>
