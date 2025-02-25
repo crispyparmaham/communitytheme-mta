@@ -9,7 +9,7 @@ Technical Requirements:
 - Composer
 
 Wordpress Plugins:
-- [https://www.advancedcustomfields.com/](ACF PRO)
+- [https://www.advancedcustomfields.com/](Advanced Custom Fields)
 - [https://yoast.com/wordpress/plugins/seo/#utm_content=plugin-info&utm_term=plugin-homepage&shortlink=1uj](Yoast SEO Plugin)
 - [https://wordpress.org/plugins/simple-custom-post-order/](Simple Custom Post Order)
 
@@ -23,7 +23,7 @@ ddev start
 ddev composer install
 ```
 
-### Install the Database
+### Install the Database & Content
 If there is content for an existing project, you can import the database by running the following command:
 
 ```bash
@@ -31,6 +31,10 @@ ddev ssh
 wp db import database.sql
 ```
 You can put the `database.sql` file in the root of the project while importing. Please don't forget to remove it afterwards! 
+
+#### Install Content (Images etc.)
+If there are images existing, you can ask for the `uploads` folder and copy the contents to the `wp-content` folder.
+
 
 ### Hand over the databse to another developer
 If you want to hand over the database to another developer, you can export the database by running the following command:
@@ -65,7 +69,7 @@ The production environment is running on the `main` branch. When we want to depl
 There is no live production environment of MTA. The live production pages are the communitities that are running the theme. 
 
 ## How to update the theme
-We are using a wp update server to update the theme. You can find the update server [here](https://update-server.morethanads.de/index.php). 
+We are using the [https://github.com/YahnisElsts/wp-update-server?tab=readme-ov-file](wp update server) to update the theme. You can find the update server [here](https://update-server.morethanads.de/index.php). 
 The theme update can be checked here: [https://update-server.morethanads.de/index.php?action=get_metadata&slug=communitythememta](https://update-server.morethanads.de/index.php?action=get_metadata&slug=communitythememta)
 
 ### How the theme update works
