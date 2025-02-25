@@ -37,6 +37,7 @@ if ( $query->have_posts() ) :
 				</div>
 				<div id="<?php echo esc_attr( $collapse_id ); ?>" class="accordion-collapse">
 					<div class="accordion-body">
+						<?php if ( $association_img || $desc ) : ?>
 						<div class="image-description-container">
 							<?php if ( $association_img ) : ?>
 								<div class="image-wrap">
@@ -51,6 +52,7 @@ if ( $query->have_posts() ) :
 								</div>
 							<?php endif; ?>
 						</div>
+						<?php endif; ?>
 
 						<?php if ( $contact ) : ?>
 							<div class="contact-wrap">

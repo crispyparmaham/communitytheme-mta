@@ -1,0 +1,35 @@
+#infrastruktur {
+  background-color: var(--background-04);
+}
+
+.infrastructure-listing {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+.infrastructure-listing .infrastructure-item {
+  width: 100%;
+}
+@media (min-width: 768px) {
+  .infrastructure-listing .infrastructure-item {
+    width: calc(50% - 1rem);
+  }
+}
+
+.infrastructure-image-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--border-radius-s);
+  padding-bottom: 56.25%;
+  margin-bottom: 1rem;
+}
+
+.infrastructure-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+}

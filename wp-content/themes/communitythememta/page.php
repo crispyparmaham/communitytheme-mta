@@ -29,14 +29,17 @@
 
 	<div class="main-content">
 		<article class="left-content-column">
+			<div class="left-content-column-content-wrapper">
+
 			<?php if ( have_posts() ) : ?>
 				<?php while ( have_posts() ) :
-					the_post(); ?>
-					<?php the_content(); ?>
+						the_post(); ?>
+						<?php the_content(); ?>
 				<?php endwhile; ?>
 			<?php else : ?>
-				<p>Keine Inhalte gefunden. Bitte versuchen Sie es später erneut.</p>
+						<p>Keine Inhalte gefunden. Bitte versuchen Sie es später erneut.</p>
 			<?php endif; ?>
+			</div>
 		</article>
 
 		<aside class="right-content-column">

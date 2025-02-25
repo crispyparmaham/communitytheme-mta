@@ -24,12 +24,12 @@
             // Beitragstitel und Link
             $post_title = get_the_title();
             $post_link = get_permalink();
-
+            $post_thumbnail = get_post_thumbnail_id();
             // Beitragsauszug
             $excerpt = wp_trim_words(get_the_excerpt(), 30, '...');
             ?>
             <!-- === Beitrag-Item === -->
-            <div class="post-item" role="listitem">
+            <div class="post-item <?php if($post_thumbnail) { echo 'has-thumbnail'; } ?>" role="listitem">
                 <div class="post-content">
                     <h3 class="post-title">
                         <a href="<?php echo esc_url($post_link); ?>"><?php echo esc_html($post_title); ?></a>
@@ -43,6 +43,12 @@
                     <a class="post-link" href="<?php echo esc_url($post_link); ?>"
                         title="<?php echo esc_attr($post_title); ?>">Weiterlesen</a>
                 </div>
+                <?php if($post_thumbnail) : ?>
+                <div class="post-thumbnail">
+                    <?php imageOutput($post_thumbnail, 'img-640', '600px'); ?>
+                </div>
+                <?php endif; ?>
+
             </div>
         <?php endwhile; ?>
         <?php

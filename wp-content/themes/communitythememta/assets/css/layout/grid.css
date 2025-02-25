@@ -41,6 +41,11 @@
   border-radius: var(--border-radius-s);
 }
 
+.left-content-column-content-wrapper {
+  position: sticky;
+  top: calc(50px + var(--headerHeight));
+}
+
 .right-content-column {
   flex: 3;
   height: auto;

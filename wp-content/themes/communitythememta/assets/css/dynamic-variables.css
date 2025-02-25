@@ -3,8 +3,8 @@
     /* PRIMARY COLORS */
     --color-foreground-values: 0, 0%, 0%;
     --color-foreground: hsl(0, 0%, 0%);
-    --color-background-values: 0, 0%, 59.6%;
-    --color-background: hsl(0, 0%, 59.6%);
+    --color-background-values: 0, 0%, 60.6%;
+    --color-background: hsl(0, 0%, 60.6%);
     --color-accent-values: 0, 71%, 38.6%;
     --color-accent: hsl(0, 71%, 38.6%);
 
@@ -20,15 +20,15 @@
     --foreground-04: hsl(0, 0%, 21.6%);
     --foreground-05: hsl(0, 0%, 30.6%);
 
-    --background-01-values: 0, 0%, 68.6%;
-    --background-02-values: 0, 0%, 77.6%;
-    --background-03-values: 0, 0%, 86.6%;
-    --background-04-values: 0, 0%, 95.6%;
+    --background-01-values: 0, 0%, 69.6%;
+    --background-02-values: 0, 0%, 78.6%;
+    --background-03-values: 0, 0%, 87.6%;
+    --background-04-values: 0, 0%, 96.6%;
     --background-05-values: 0, 0%, 100%;
-    --background-01: hsl(0, 0%, 68.6%);
-    --background-02: hsl(0, 0%, 77.6%);
-    --background-03: hsl(0, 0%, 86.6%);
-    --background-04: hsl(0, 0%, 95.6%);
+    --background-01: hsl(0, 0%, 69.6%);
+    --background-02: hsl(0, 0%, 78.6%);
+    --background-03: hsl(0, 0%, 87.6%);
+    --background-04: hsl(0, 0%, 96.6%);
     --background-05: hsl(0, 0%, 100%);
 
     --accent-01-values: 0, 71%, 47.6%;

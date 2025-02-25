@@ -265,6 +265,78 @@ add_action( 'acf/include_fields', function () {
 	) );
 
 	acf_add_local_field_group( array(
+		'key' => 'group_67bdbe575be56',
+		'title' => 'Infrastruktur',
+		'fields' => array(
+			array(
+				'key' => 'field_67bdbe580bd2d',
+				'label' => 'Bild',
+				'name' => 'image',
+				'aria-label' => '',
+				'type' => 'image',
+				'instructions' => '',
+				'required' => 0,
+				'conditional_logic' => 0,
+				'wrapper' => array(
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'return_format' => 'array',
+				'library' => 'all',
+				'min_width' => '',
+				'min_height' => '',
+				'min_size' => '',
+				'max_width' => '',
+				'max_height' => '',
+				'max_size' => '',
+				'mime_types' => '',
+				'allow_in_bindings' => 0,
+				'preview_size' => 'medium',
+			),
+			array(
+				'key' => 'field_67bdbe740bd2e',
+				'label' => 'Beschreibung',
+				'name' => 'description',
+				'aria-label' => '',
+				'type' => 'wysiwyg',
+				'instructions' => '',
+				'required' => 0,
+				'conditional_logic' => 0,
+				'wrapper' => array(
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'default_value' => '',
+				'allow_in_bindings' => 0,
+				'tabs' => 'all',
+				'toolbar' => 'full',
+				'media_upload' => 1,
+				'delay' => 0,
+			),
+		),
+		'location' => array(
+			array(
+				array(
+					'param' => 'post_type',
+					'operator' => '==',
+					'value' => 'infrastruktur',
+				),
+			),
+		),
+		'menu_order' => 0,
+		'position' => 'normal',
+		'style' => 'default',
+		'label_placement' => 'top',
+		'instruction_placement' => 'label',
+		'hide_on_screen' => '',
+		'active' => true,
+		'description' => '',
+		'show_in_rest' => 0,
+	) );
+
+	acf_add_local_field_group( array(
 		'key' => 'group_6799ff5989381',
 		'title' => 'Startseite',
 		'fields' => array(
@@ -913,11 +985,11 @@ add_action( 'acf/include_fields', function () {
 			),
 			array(
 				'key' => 'field_613778f75c7a5',
-				'label' => 'Verein / Organisation / Firma',
-				'name' => 'verein',
+				'label' => 'Veranstalter',
+				'name' => 'organisator',
 				'aria-label' => '',
 				'type' => 'text',
-				'instructions' => '',
+				'instructions' => 'Verein / Organisation / Firma',
 				'required' => 0,
 				'conditional_logic' => 0,
 				'wrapper' => array(
@@ -1025,26 +1097,6 @@ add_action( 'acf/include_fields', function () {
 				'display_format' => 'd.m.Y',
 				'return_format' => 'Ymd',
 				'first_day' => 1,
-			),
-			array(
-				'key' => 'field_61377a175c7b5',
-				'label' => 'Veranstaltungs-Beschreibung',
-				'name' => 'beschreibung',
-				'aria-label' => '',
-				'type' => 'wysiwyg',
-				'instructions' => '',
-				'required' => 0,
-				'conditional_logic' => 0,
-				'wrapper' => array(
-					'width' => '',
-					'class' => '',
-					'id' => '',
-				),
-				'default_value' => '',
-				'tabs' => 'all',
-				'toolbar' => 'full',
-				'media_upload' => 1,
-				'delay' => 0,
 			),
 			array(
 				'key' => 'field_613779c15c7ae',
@@ -1972,6 +2024,55 @@ add_action( 'init', function () {
 			'feeds' => false,
 		),
 		'delete_with_user' => false,
+		'publicly_queryable' => false,
+	) );
+
+	// REGISTER INFRASTRUCTIRE
+	register_post_type( 'infrastruktur', array(
+		'labels' => array(
+			'name' => 'Infrastruktur',
+			'singular_name' => 'Infrastruktur',
+			'menu_name' => 'Infrastruktur',
+			'all_items' => 'Alle Infrastruktur-Daten',
+			'edit_item' => 'Infrastruktur bearbeiten',
+			'view_item' => 'Infrastruktur anzeigen',
+			'view_items' => 'Infrastruktur anzeigen',
+			'add_new_item' => 'Neu hinzufügen: Infrastruktur',
+			'add_new' => 'Neu hinzufügen: Infrastruktur',
+			'new_item' => 'Neuer Inhaltstyp Infrastruktur',
+			'parent_item_colon' => 'Infrastruktur, übergeordnet:',
+			'search_items' => 'Infrastruktur suchen',
+			'not_found' => 'Infrastruktur konnte nicht gefunden werden',
+			'not_found_in_trash' => 'Infrastruktur konnte nicht im Papierkorb gefunden werden',
+			'archives' => 'Infrastruktur-Archive',
+			'attributes' => 'Infrastruktur-Attribute',
+			'insert_into_item' => 'In Infrastruktur einfügen',
+			'uploaded_to_this_item' => 'Zu dieser Infrastruktur hochgeladen',
+			'filter_items_list' => 'Infrastruktur-Liste filtern',
+			'filter_by_date' => 'Infrastruktur nach Datum filtern',
+			'items_list_navigation' => 'Infrastruktur-Listen-Navigation',
+			'items_list' => 'Infrastruktur-Liste',
+			'item_published' => 'Infrastruktur wurde veröffentlicht.',
+			'item_published_privately' => 'Infrastruktur wurde privat veröffentlicht.',
+			'item_reverted_to_draft' => 'Infrastruktur wurde auf Entwurf zurückgesetzt.',
+			'item_scheduled' => 'Infrastruktur wurde geplant.',
+			'item_updated' => 'Infrastruktur wurde aktualisiert.',
+			'item_link' => 'Infrastruktur-Link',
+			'item_link_description' => 'Ein Link zu einem Inhaltstyp Infrastruktur',
+		),
+		'public' => true,
+		'show_in_rest' => true,
+		'menu_icon' => 'dashicons-admin-home',
+		'supports' => array(
+			0 => 'title',
+			2 => 'custom-fields',
+		),
+		'has_archive' => 'verein',
+		'rewrite' => array(
+			'feeds' => false,
+		),
+		'delete_with_user' => false,
+		'publicly_queryable' => false,
 	) );
 
 	// REGISTER CPT TOURISMUS
@@ -2019,6 +2120,7 @@ add_action( 'init', function () {
 			'feeds' => false,
 		),
 		'delete_with_user' => false,
+		'publicly_queryable' => false,
 	) );
 
 	// REGISTER CPT Gewerbe
@@ -2066,54 +2168,9 @@ add_action( 'init', function () {
 			'feeds' => false,
 		),
 		'delete_with_user' => false,
+		'publicly_queryable' => false,
 	) );
 
 
-	// REGISTER CPT Teammitglieder
-	register_post_type( 'teammitglieder', array(
-		'labels' => array(
-			'name' => 'Teammitglieder',
-			'singular_name' => 'Teammitglieder',
-			'menu_name' => 'Teammitglieder',
-			'all_items' => 'Alle Teammitglieder',
-			'edit_item' => 'Teammitglieder bearbeiten',
-			'view_item' => 'Teammitglieder anzeigen',
-			'add_new_item' => 'Neu hinzufügen: Teammitglieder',
-			'add_new' => 'Neu hinzufügen: Teammitglieder',
-			'new_item' => 'Neue Teammitglieder',
-			'parent_item_colon' => 'Teammitglieder, übergeordnet:',
-			'search_items' => 'Teammitglieder suchen',
-			'not_found' => 'Teammitglieder konnten nicht gefunden werden',
-			'not_found_in_trash' => 'Teammitglieder konnten nicht im Papierkorb gefunden werden',
-			'archives' => 'Teammitglieder-Archive',
-			'attributes' => 'Teammitglieder-Attribute',
-			'insert_into_item' => 'In Teammitglieder einfügen',
-			'uploaded_to_this_item' => 'Zu dieser Teammitglieder hochgeladen',
-			'filter_items_list' => 'Teammitglieder-Liste filtern',
-			'filter_by_date' => 'Teammitglieder nach Datum filtern',
-			'items_list_navigation' => 'Teammitglieder-Listen-Navigation',
-			'items_list' => 'Teammitglieder-Liste',
-			'item_published' => 'Teammitglieder wurde veröffentlicht.',
-			'item_published_privately' => 'Teammitglieder wurde privat veröffentlicht.',
-			'item_reverted_to_draft' => 'Teammitglieder wurde auf Entwurf zurückgesetzt.',
-			'item_scheduled' => 'Teammitglieder wurde geplant.',
-			'item_updated' => 'Teammitglieder wurde aktualisiert.',
-			'item_link' => 'Teammitglieder-Link',
-			'item_link_description' => 'Ein Link zu einem Inhaltstyp Teammitglieder',
-		),
-		'public' => true,
-		'show_in_rest' => true,
-		'menu_icon' => 'dashicons-groups',  // Icon für Teammitglieder
-		'supports' => array(
-			0 => 'title',
-			1 => 'thumbnail',
-			2 => 'custom-fields',
-		),
-		'has_archive' => false,
-		'rewrite' => array(
-			'feeds' => false,
-		),
-		'delete_with_user' => false,
-	) );
 } );
 

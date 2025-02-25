@@ -6,7 +6,7 @@ $termine_query = new WP_Query([
 
 if ($termine_query->have_posts()): ?>
     <div id="termine" class="sidebar-block" role="list">
-        <h4 class="sidebar-heading">Termine</h4>
+        <h4 class="sidebar-heading">Anstehende Termine</h4>
         <?php get_template_part('components/termin-listing-simple'); ?>
     </div>
 <?php 

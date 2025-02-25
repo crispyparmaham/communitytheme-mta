@@ -12,9 +12,7 @@
     // WP_Query-Argumente für "Termin"-Posts
     $args = [
         'post_type' => 'termin',
-        'posts_per_page' => $count,
-        'paged' => $paged,
-        'offset' => $offset,
+        'posts_per_page' => 3,
         'orderby' => 'meta_value',
         'order' => 'ASC',
         'meta_key' => 'startdatum',
@@ -53,6 +51,10 @@
 
             $startdatum_formatted = $startdatum ? date_i18n("d. F Y", strtotime($startdatum)) : '';
             $enddatum_formatted = $enddatum ? date_i18n("d. F Y", strtotime($enddatum)) : '';
+
+            $termin_content = get_the_content($post->ID);
+            $termin_description = get_field('beschreibung', $post->ID);
+
             ?>
             <!-- === POST ITEM === -->
             <div id="child-<?php the_ID(); ?>" class="child-page-list-item post-item-startseite post-listing-item termin-item"
@@ -92,25 +94,47 @@
                         <span class="termin-info <?php echo $more_days ? 'no-margin-right' : ''; ?>">
                             <?php echo $more_days ? 'Vom ' : ''; ?>
                             <?php echo esc_html($startdatum_formatted); ?>
+                            <?php if($more_days) : ?>
+                                bis zum <?php echo esc_html($enddatum_formatted); ?>
+                            <?php endif; ?>
                         </span>
                         <?php if (!$more_days): ?>
+                            <span class="separator">|</span>
                             <span class="post-listing-item-info-time termin-info">
                                 <?php echo esc_html($time); ?> Uhr
                             </span>
-                        <?php else: ?>
-                            <span class="post-listing-item-info-date-end no-padding-left">
-                                bis zum <?php echo esc_html($enddatum_formatted); ?>
-                            </span>
                         <?php endif; ?>
                     </div>
+                    <?php if($termin_content || $termin_description) :?>
                     <a class="termin-link" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"
                         aria-label="Mehr über <?php the_title(); ?> lesen" class="post-link">zum Termin</a>
+                    <?php endif; ?>
                 </div>
+               
             </div>
+        <?php endwhile; ?>
+
         <?php
-        endwhile;
-    else:
+        $args = [
+            'post_type' => 'termin',
+            'posts_per_page' => -1,
+            'meta_query' => [
+                [
+                    'key' => 'startdatum',
+                    'compare' => '>=',
+                    'value' => $today,
+                    'type' => 'DATE'
+                ],
+            ],
+        ];
+        $termine_query = new WP_Query($args);
+        $total_termine = $termine_query->found_posts;
+    
+        if ($total_termine > 3):
         ?>
+        <a href="/aktuelles/#termine-veranstaltungen" class="mt-3 block">Alle Termine ansehen</a>
+        <?php endif; ?>
+    <?php else: ?>
         <h3 class="hsmall" aria-live="polite">Aktuell gibt es leider keine geplanten Termine</h3>
     <?php
     endif;

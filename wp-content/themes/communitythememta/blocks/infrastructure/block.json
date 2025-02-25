@@ -1,0 +1,13 @@
+{
+    "name": "infrastructure",
+    "title": "Infrastruktur",
+    "description": "Die Infrastruktur der Gemeinde",
+    "category": "community-blocks",
+    "icon": "grid-view",
+    "keywords": ["infrastruktur", "feuerwehr", "gemeindehaus", "custom", "kirche", "kita", "schule"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "infrastructure.php"
+    },
+    "align": "full"
+  }

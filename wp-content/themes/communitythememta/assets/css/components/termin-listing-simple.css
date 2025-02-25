@@ -21,10 +21,16 @@
 }
 
 .termin-listing-simple .termin-info-wrap {
-  flex-direction: column;
+  flex-direction: row;
   align-items: flex-start;
+  gap: 0.5rem;
   font-size: 1rem;
   color: var(--foreground-03);
+  margin-top: 0.5rem;
+}
+
+.termin-listing-simple .termin-info-wrap .termin-info {
+  margin-right: 0;
 }
 
 .termin-listing-simple .termin-link {

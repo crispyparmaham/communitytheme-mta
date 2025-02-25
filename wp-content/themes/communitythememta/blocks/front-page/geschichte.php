@@ -1,24 +1,23 @@
-<div class="geschichte-main inner-max-width">
-    <?php
-    // Hauptinhalt "Geschichte der Gemeinde" abrufen
-    $geschichte_der_gemeinde = get_field('geschichte_der_gemeinde', 'option');
+<?php
+$history = get_field('geschichte_der_gemeinde', 'option');
+$sidebar_history = get_field('sidebar_geschichte', 'option');
+$logo = get_field('logo', 'option');
 
-    if ($geschichte_der_gemeinde) :
-    ?>
+?>
+<div class="geschichte-main inner-max-width">
+<?php if ($history) : ?>
         <div class="geschichte-content">
-            <?php echo wp_kses_post($geschichte_der_gemeinde); ?>
+            <?php echo wp_kses_post($history); ?>
         </div>
     <?php endif; ?>
 
     <aside class="geschichte-sidebar">
     <?php
-    $sidebar_geschichte = get_field('sidebar_geschichte', 'option');
-    $logo = get_field('logo', 'option');
-    if ($sidebar_geschichte) :
+    if ($sidebar_history) :
     ?>
         <div class="sidebar-content">
             <img src="<?php echo esc_url($logo['url']); ?>" alt="<?php echo esc_attr($logo['alt']); ?>">
-            <?php echo wp_kses_post($sidebar_geschichte); ?>
+            <?php echo wp_kses_post($sidebar_history); ?>
         </div>
     <?php endif; ?>
 </aside>
