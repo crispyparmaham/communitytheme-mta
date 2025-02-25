@@ -9,9 +9,9 @@ Technical Requirements:
 - Composer
 
 Wordpress Plugins:
-- [https://www.advancedcustomfields.com/](Advanced Custom Fields)
-- [https://yoast.com/wordpress/plugins/seo/#utm_content=plugin-info&utm_term=plugin-homepage&shortlink=1uj](Yoast SEO Plugin)
-- [https://wordpress.org/plugins/simple-custom-post-order/](Simple Custom Post Order)
+- [Advanced Custom Fields](https://www.advancedcustomfields.com/)
+- [Yoast SEO](https://yoast.com/wordpress/plugins/seo/#utm_content=plugin-info&utm_term=plugin-homepage&shortlink=1uj)
+- [Simple Custom Post Order](https://wordpress.org/plugins/simple-custom-post-order/)
 
 ## How to install 
 We use DDEV for local development. You can install DDEV by following the instructions [here](https://ddev.readthedocs.io/en/stable/).
@@ -69,7 +69,7 @@ The production environment is running on the `main` branch. When we want to depl
 There is no live production environment of MTA. The live production pages are the communitities that are running the theme. 
 
 ## How to update the theme
-We are using the [https://github.com/YahnisElsts/wp-update-server?tab=readme-ov-file](wp update server) to update the theme. You can find the update server [here](https://update-server.morethanads.de/index.php). 
+We are using the [wp update server](https://github.com/YahnisElsts/wp-update-server?tab=readme-ov-file) to update the theme. You can find the update server [here](https://update-server.morethanads.de/index.php). 
 The theme update can be checked here: [https://update-server.morethanads.de/index.php?action=get_metadata&slug=communitythememta](https://update-server.morethanads.de/index.php?action=get_metadata&slug=communitythememta)
 
 ### How the theme update works
