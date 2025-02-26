@@ -29,7 +29,7 @@ get_header();
 			$startText = get_field('einleitungstext');
 			?>
 			<?php if ($startText): ?>
-				<p class=""><?php echo $startText; ?></p>
+				<?php echo $startText; ?>
 			<?php endif; ?>
 		</div>
 	</section>

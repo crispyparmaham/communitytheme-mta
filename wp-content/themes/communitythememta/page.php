@@ -22,7 +22,7 @@
 			$startText = get_field( 'einleitungstext' );
 			?>
 			<?php if ( $startText ) : ?>
-				<p class=""><?php echo wp_kses_post($startText); ?></p>
+				<?php echo wp_kses_post($startText); ?>
 			<?php endif; ?>
 		</div>
 	</section>

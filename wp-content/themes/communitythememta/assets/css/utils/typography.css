@@ -63,3 +63,14 @@ h6.wp-block-heading {
   color: var(--foreground-01);
   margin-bottom: 3.5rem !important;
 }
+
+.page-start-text p,
+.left-content-column p {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.page-start-text p:last-child,
+.left-content-column p:last-child {
+  margin-bottom: 0;
+}
