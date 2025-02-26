@@ -396,10 +396,37 @@ add_action( 'save_post', 'auto_create_category_based_on_post_title' );
 
 
 
+/* -------------------------------------------------------------- */
+/* -------------------------------------------------------------- */
+/* -------------------------------------------------------------- */
+// ===  SET TERMIN POST TYPE TO NO INDEX IF IT HAS NO CONTENT === //
+/* -------------------------------------------------------------- */
+/* -------------------------------------------------------------- */
+/* -------------------------------------------------------------- */
 
-/**
- * REDIRECT LINKS
- */
+add_filter('wpseo_robots', 'custom_modify_noindex_for_termin');
+function custom_modify_noindex_for_termin($robots) {
+    if (is_singular('termin')) {
+        global $post;
+        if (!empty($post->post_content)) {
+            $robots_array = explode(', ', $robots);
+            $robots_array = array_diff($robots_array, ['noindex', 'nofollow']);
+            return implode(', ', $robots_array);
+        }
+    }
+    return $robots;
+}
+
+
+
+
+/* -------------------------------------------------------------- */
+/* -------------------------------------------------------------- */
+/* -------------------------------------------------------------- */
+// ===  REDIRECTION OF LINKS === //
+/* -------------------------------------------------------------- */
+/* -------------------------------------------------------------- */
+/* -------------------------------------------------------------- */
 add_action('template_redirect', 'custom_redirect_function');
 function custom_redirect_function() {
     $redirects = [
