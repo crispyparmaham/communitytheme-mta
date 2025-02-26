@@ -1,0 +1,13 @@
+{
+  "name": "beitragsliste-short",
+  "title": "Letzte 3 Beiträge als Liste",
+  "description": "Die neusten drei Beiträge als Liste",
+  "category": "community-blocks",
+  "icon": "grid-view",
+  "keywords": ["liste", "aufzählung", "links", "custom", "beiträge", "kürzlich", "recent"],
+  "acf": {
+      "mode": "preview",
+      "renderTemplate": "posts-recent.php"
+  },
+  "align": "full"
+}
