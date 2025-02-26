@@ -187,7 +187,7 @@ add_action( 'acf/include_fields', function () {
 				array(
 					'param' => 'options_page',
 					'operator' => '==',
-					'value' => 'theme-settings',
+					'value' => 'theme-settings-content',
 				),
 			),
 		),
@@ -753,7 +753,7 @@ add_action( 'acf/include_fields', function () {
 				array(
 					'param' => 'options_page',
 					'operator' => '==',
-					'value' => 'theme-settings',
+					'value' => 'theme-settings-frontpage',
 				),
 			),
 		),
@@ -1757,7 +1757,7 @@ add_action( 'acf/include_fields', function () {
 				array(
 					'param' => 'options_page',
 					'operator' => '==',
-					'value' => 'theme-settings',
+					'value' => 'theme-settings-colors',
 				),
 			),
 		),

@@ -344,20 +344,74 @@ function my_theme_acf_json_load_point( $paths ) {
 }
 
 
-if( function_exists('acf_add_options_page') ) {
+add_action('admin_menu', 'custom_theme_settings_menu');
 
+function custom_theme_settings_menu() {
+    add_menu_page(
+        'MTA Community Theme - Einstellungen',
+        'Theme Settings',
+        'manage_options',
+        'theme-settings', 
+        'custom_theme_settings_page', 
+        'dashicons-admin-generic',
+        2                         
+    );
+}
+
+function custom_theme_settings_page() {
+    ?>
+    <div class="wrap">
+        <h1><?php echo esc_html__('MTA Community Theme - Einstellungen', 'mta-community'); ?></h1>
+        <p><?php _e('Wählen Sie eine der folgenden Optionen:', 'mta-community'); ?></p>
+        <div style="margin-top: 20px;">
+            <a href="<?php echo admin_url('admin.php?page=theme-settings-frontpage'); ?>" class="button button-primary" style="margin-right: 10px;"><?php _e('Startseite bearbeiten', 'mta-community'); ?></a>
+            <a href="<?php echo admin_url('admin.php?page=theme-settings-content'); ?>" class="button button-primary" style="margin-right: 10px;"><?php _e('Allg. Content bearbeiten', 'mta-community'); ?></a>
+            <a href="<?php echo admin_url('admin.php?page=theme-settings-colors'); ?>" class="button button-primary"><?php _e('Farben & Einstellungen bearbeiten', 'mta-community'); ?></a>
+        </div>
+    </div>
+    <?php
+}
+
+
+
+
+if( function_exists('acf_add_options_page') ) {
     acf_add_options_page(array(
-        'page_title'    => 'Theme Settings',
-        'menu_title'    => 'Theme Settings',
-        'menu_slug'     => 'theme-settings',
+        'page_title'    => 'Startseite',
+        'menu_title'    => 'Startseite',
+        'menu_slug'     => 'theme-settings-frontpage',
+        'parent' => 'theme-settings',
         'capability'    => 'edit_posts',
         'position'      => '2.1',
         'icon_url'      => 'dashicons-admin-generic',
         'redirect'      => false,
-        'update_button' => __('Theme Einstellungen speichern', 'acf'),
-        'updated_message' => __("Theme Einstellungen gespeichert", 'acf'),
+        'update_button' => __('Startseite speichern', 'acf'),
+        'updated_message' => __("Startseite wurde gespeichert", 'acf'),
     ));
-
+    acf_add_options_page(array(
+        'page_title'    => 'Allgemeiner Content',
+        'menu_title'    => 'Allg. Content',
+        'menu_slug'     => 'theme-settings-content',
+        'parent' => 'theme-settings',
+        'capability'    => 'edit_posts',
+        'position'      => '2.1',
+        'icon_url'      => 'dashicons-admin-generic',
+        'redirect'      => false,
+        'update_button' => __('Allgemeiner Content speichern', 'acf'),
+        'updated_message' => __("Allgemeiner Content wurde gespeichert", 'acf'),
+    ));
+    acf_add_options_page(array(
+        'page_title'    => 'Farben & Einstellungen',
+        'menu_title'    => 'Farben & Einstellungen',
+        'menu_slug'     => 'theme-settings-colors',
+        'parent' => 'theme-settings',
+        'capability'    => 'edit_posts',
+        'position'      => '2.1',
+        'icon_url'      => 'dashicons-admin-generic',
+        'redirect'      => false,
+        'update_button' => __('Farben & Einstellungen speichern', 'acf'),
+        'updated_message' => __("Farben & Einstellungen wurde gespeichert", 'acf'),
+    ));    
 }
 
 
