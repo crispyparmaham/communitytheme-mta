@@ -598,7 +598,7 @@ add_action( 'acf/include_fields', function () {
 			),
 			array(
 				'key' => 'field_679a00981ed39',
-				'label' => 'Personen',
+				'label' => 'Mitglieder des Gemeinderates',
 				'name' => 'personen',
 				'aria-label' => '',
 				'type' => 'wysiwyg',

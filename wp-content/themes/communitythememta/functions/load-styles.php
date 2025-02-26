@@ -21,6 +21,7 @@ function load_stylesheet() {
         'spacings' => '/assets/css/utils/spacings.css',
         'termine' => '/assets/css/blocks/termin.css',
         'vereine' => '/assets/css/blocks/accordion.css',
+        'frontpage-aktuelles' => '/assets/css/blocks/frontpage-aktuelles.css',
         'daten' => '/assets/css/blocks/daten.css',
         'grusswort' => '/assets/css/blocks/grusswort.css',
         'geschichte' => '/assets/css/blocks/geschichte.css',

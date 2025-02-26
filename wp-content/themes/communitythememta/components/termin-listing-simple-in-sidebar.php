@@ -1,7 +1,16 @@
 <?php
+$today = date('Ymd');
 $termine_query = new WP_Query([
     'post_type' => 'termin',
-    'posts_per_page' => 1
+    'posts_per_page' => 1,
+    'meta_query' => [
+        [
+            'key' => 'startdatum',
+            'compare' => '>=',
+            'value' => $today,
+            'type' => 'DATE'
+        ],
+    ],
 ]);
 
 if ($termine_query->have_posts()): ?>

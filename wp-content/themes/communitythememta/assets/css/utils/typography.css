@@ -63,6 +63,11 @@ h6.wp-block-heading {
   color: var(--foreground-01);
   margin-bottom: 3.5rem !important;
 }
+@media (max-width: 992px) {
+  .section-heading {
+    margin-bottom: 2.5rem !important;
+  }
+}
 
 #grusswort p,
 .page-start-text p,

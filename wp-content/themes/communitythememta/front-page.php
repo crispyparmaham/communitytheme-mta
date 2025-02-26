@@ -43,6 +43,33 @@ $slider = $page_slider ? $page_slider : $main_slider;
 			<?php include get_template_directory() . '/blocks/front-page/daten.php'; ?>
 		</section>
 		<?php endif; ?>
+
+		<?php 
+		$communityName = get_field('gemeindename', 'option');
+		$today = date('Ymd');
+		$termine_query = new WP_Query([
+			'post_type' => 'termin',
+			'posts_per_page' => 1,
+			'meta_query' => [
+				[
+					'key' => 'startdatum',
+					'compare' => '>=',
+					'value' => $today,
+					'type' => 'DATE'
+				],
+			],
+		]);
+		if(wp_count_posts('post')->publish > 0 || $termine_query->have_posts()) :
+		?>
+		<section>
+			<h2 class="section-heading inner-max-width">Aktuelles & Termine in <?= $communityName ?></h2>
+			<?php include get_template_directory() . '/blocks/front-page/aktuelles.php'; ?>
+		</section>
+		<?php
+			endif;
+			wp_reset_postdata();
+		?>
+
 		<?php
 		$linkes_bild = get_field('linkes_bild', 'option');
 		$rechtes_bild = get_field('rechtes_bild', 'option');

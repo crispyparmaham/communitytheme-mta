@@ -1,0 +1,39 @@
+.aktuelles-termine-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.aktuelles-termine-wrapper .aktuelles {
+  width: calc(66.67% - 1rem);
+}
+
+.aktuelles-termine-wrapper .termine {
+  width: calc(33.33% - 1rem);
+}
+
+@media (max-width: 920px) {
+  .aktuelles-termine-wrapper .aktuelles {
+    width: 100%;
+  }
+
+  .aktuelles-termine-wrapper .termine {
+    width: 100%;
+  }
+}
+
+.aktuelles-termine-wrapper .aktuelles .post-grid {
+  margin-top: 0;
+}
+
+.aktuelles-termine-wrapper .termine .sidebar-block {
+  background-color: var(--background-04);
+  border-radius: var(--border-radius-m);
+}
+
+@media (max-width: 920px) {
+  .aktuelles-termine-wrapper .termine .sidebar-block {
+    border-left: none !important;
+  }
+}
