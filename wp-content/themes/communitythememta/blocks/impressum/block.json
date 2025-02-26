@@ -1,0 +1,13 @@
+{
+    "name": "impressum",
+    "title": "Impressum",
+    "description": "Das Impressum der Seite",
+    "category": "community-blocks",
+    "icon": "grid-view",
+    "keywords": ["impressum", "rechtliches"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "impressum.php"
+    },
+    "align": "full"
+  }

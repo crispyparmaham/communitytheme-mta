@@ -218,7 +218,9 @@ function register_blocks() {
     register_block_type(__DIR__ . '/blocks/posts'); // Registrierung des "Beitrags"-Blocks
     register_block_type(__DIR__ . '/blocks/tourismus'); // Registrierung des "Tourismus"-Blocks
     register_block_type(__DIR__ . '/blocks/gewerbe'); // Registrierung des "Gewerbe"-Blocks
-    register_block_type(__DIR__ . '/blocks/teammitglieder'); // Registrierung des "Teammitglieder"-Blocks
+    register_block_type(__DIR__ . '/blocks/impressum'); // Registrierung des "Teammitglieder"-Blocks
+    register_block_type(__DIR__ . '/blocks/privacy-policy'); // Registrierung des "Teammitglieder"-Blocks
+    register_block_type(__DIR__ . '/blocks/infrastructure'); // Registrierung des "Teammitglieder"-Blocks
 }
 add_action('init', 'register_blocks');
 
@@ -361,8 +363,8 @@ function custom_theme_settings_menu() {
 function custom_theme_settings_page() {
     ?>
     <div class="wrap">
-        <h1><?php echo esc_html__('MTA Community Theme - Einstellungen', 'mta-community'); ?></h1>
-        <p><?php _e('Wählen Sie eine der folgenden Optionen:', 'mta-community'); ?></p>
+        <h1><?php echo esc_html__('MTA Community Theme - Einstellungen', 'communitytheme'); ?></h1>
+        <p><?php _e('Wählen Sie eine der folgenden Optionen:', 'communitytheme'); ?></p>
         <div style="margin-top: 20px;">
             <a href="<?php echo admin_url('admin.php?page=theme-settings-frontpage'); ?>" class="button button-primary" style="margin-right: 10px;"><?php _e('Startseite bearbeiten', 'mta-community'); ?></a>
             <a href="<?php echo admin_url('admin.php?page=theme-settings-content'); ?>" class="button button-primary" style="margin-right: 10px;"><?php _e('Allg. Content bearbeiten', 'mta-community'); ?></a>

@@ -37,7 +37,7 @@ if ($query->have_posts()) :
                     <p class="team-member-phone">📞 <?php echo esc_html($team_phone); ?></p>
                 <?php endif; ?>
                 <?php if ($team_mail): ?>
-                    <p class="team-member-email">✉️ <a href="mailto:<?php echo esc_attr($team_mail); ?>"><?php echo esc_html($team_mail); ?></a></p>
+                    <p class="team-member-email">✉️ <a href="mailto:<?php echo esc_attr(antispambot($team_mail)); ?>"><?php echo esc_html($team_mail); ?></a></p>
                 <?php endif; ?>
             </div>
         </div>

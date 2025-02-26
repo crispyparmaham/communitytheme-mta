@@ -74,7 +74,7 @@ if ( $query->have_posts() ) :
 									<?php endif; ?>
 
 									<?php if ( $email ) : ?>
-										<a href="mailto:<?php echo esc_attr( $email ); ?>" class="social-link">
+										<a href="mailto:<?php echo esc_attr( antispambot($email) ); ?>" class="social-link">
 											<img src="/wp-content/themes/communitythememta/assets/images/icons/mail-icon.svg"
 												alt="E-Mail-Icon">
 											<p>E-Mail</p>

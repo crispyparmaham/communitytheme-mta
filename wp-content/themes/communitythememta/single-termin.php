@@ -123,7 +123,7 @@ get_header();
 							<?php endif; ?>
 							<?php if ($mail): ?>
 								<span class="termin-cta-link">E-Mail: <a
-										href="mailto:<?php echo $mail; ?>"><?php echo $mail; ?></a></span>
+										href="mailto:<?php echo antispambot($mail); ?>"><?php echo antispambot($mail); ?></a></span>
 							<?php endif; ?>
 						</article>
 					<?php endif; ?>

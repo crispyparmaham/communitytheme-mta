@@ -57,7 +57,10 @@ if ( $query->have_posts() ) :
 
 						<?php if ( $contact ) : ?>
 							<div class="contact-wrap">
-								<div class="inner"><?php echo wp_kses_post( $contact ); ?></div>
+								<div class="inner">
+								<strong><?php the_title(); ?></strong>	
+								<?php echo wp_kses_post( $contact ); ?>
+							</div>
 								<div class="social-link-wrap">
 									<?php if ( $website ) : ?>
 										<a href="<?php echo esc_url( $website ); ?>" target="_blank" rel="noopener noreferrer"
@@ -69,7 +72,7 @@ if ( $query->have_posts() ) :
 									<?php endif; ?>
 
 									<?php if ( $email ) : ?>
-										<a href="mailto:<?php echo esc_attr( $email ); ?>" class="social-link">
+										<a href="mailto:<?php echo esc_attr(antispambot( $email )); ?>" class="social-link">
 											<img src="/wp-content/themes/communitythememta/assets/images/icons/mail-icon.svg"
 												alt="E-Mail-Icon">
 											<p>E-Mail</p>

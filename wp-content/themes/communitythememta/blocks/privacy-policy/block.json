@@ -1,0 +1,13 @@
+{
+    "name": "privacy",
+    "title": "Datenschutzerklärung",
+    "description": "Die Datenschutzerklärung der Seite",
+    "category": "community-blocks",
+    "icon": "grid-view",
+    "keywords": ["datenschutz", "rechtliches", "privacy", "policy"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "privacy-policy.php"
+    },
+    "align": "full"
+  }

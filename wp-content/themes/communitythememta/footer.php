@@ -1,3 +1,7 @@
+<?php 
+    $privacyPolicyPage = get_privacy_policy_url();
+?>
+
 <?php wp_footer(); ?>
 
 <footer class="main-footer" role="contentinfo">
@@ -70,12 +74,12 @@
 
 		<div class="footer-bottom">
 			<div class="footer-copyright">
-				<span>&copy; <?php echo date( 'Y' ); ?> <?php bloginfo( 'name' ); ?></span>
+				<span>&copy; <?php echo date( 'Y' ); ?> <?php bloginfo( 'name' ); ?></span> | <span style="display: inline-block !important; opacity: 1 !important; visibility: visible !important;">made by <a style="display: inline-block !important; opacity: 1 !important; visibility: visible !important;" href="https://morethanads.de" target="_blank">more than ads</a></span>
 			</div>
 			<nav class="footer-policy" aria-label="Rechtliche Hinweise">
 				<ul>
 					<li><a href="/impressum" rel="nofollow" aria-label="<?php _e( 'Impressum', 'communitytheme' ); ?>"><?php _e( 'Impressum', 'communitytheme' ); ?></a></li>
-					<li><a href="/datenschutz" rel="nofollow" aria-label="<?php _e( 'Datenschutz', 'communitytheme' ); ?>"><?php _e( 'Datenschutz', 'communitytheme' ); ?></a></li>
+					<li><a href="<?= esc_url($privacyPolicyPage) ?>" rel="nofollow" aria-label="<?php _e( 'Datenschutz', 'communitytheme' ); ?>"><?php _e( 'Datenschutz', 'communitytheme' ); ?></a></li>
 				</ul>
 			</nav>
 		</div>
