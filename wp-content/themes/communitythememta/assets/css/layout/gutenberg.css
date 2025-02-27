@@ -1,7 +1,27 @@
+.block-editor__container * {
+  font-family: var(--font-family-text);
+}
+
+.block-editor__container h1,
+.block-editor__container h2,
+.block-editor__container h3,
+.block-editor__container h4,
+.block-editor__container h5,
+.block-editor__container h6 {
+  font-family: var(--font-family-heading);
+}
+
 .left-content-column:has(figure:first-child) > figure:first-child {
   margin-top: 0;
 }
 
 .wp-block-group.has-background {
   padding: 1.5rem;
+}
+
+hr,
+.wp-block-separator {
+  border-top: 1px solid;
+  border-color: var(--foreground-05);
+  margin: 2.5rem 0;
 }

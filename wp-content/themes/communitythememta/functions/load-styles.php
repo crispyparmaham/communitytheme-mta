@@ -41,3 +41,14 @@ function load_stylesheet() {
 }
 add_action('wp_enqueue_scripts', 'load_stylesheet');
 add_action('enqueue_block_editor_assets', 'load_stylesheet');
+
+
+function load_variables_in_block_editor() {
+    wp_enqueue_style(
+        'variables-style',
+		get_template_directory_uri() . '/assets/css/dynamic-variables.css',
+		[],
+		filemtime( get_template_directory() . '/assets/css/dynamic-variables.css' )
+	);
+}
+add_action('enqueue_block_editor_assets', 'load_variables_in_block_editor');
