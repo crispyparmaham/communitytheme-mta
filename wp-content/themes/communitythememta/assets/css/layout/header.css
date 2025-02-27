@@ -165,13 +165,17 @@
     bottom: 0;
   }
   .main-header nav.main-menu ul li.current-menu-item:after,
-  .main-header nav.main-menu ul li:hover:after {
+  .main-header nav.main-menu ul li:hover:after,
+  .main-header nav.main-menu ul li:focus:after,
+  .main-header nav.main-menu ul li:has(a:hover):after,
+  .main-header nav.main-menu ul li:has(a:focus):after {
     width: 100%;
   }
 }
 
 .main-header nav.main-menu ul li.current-menu-item a,
-.main-header nav ul li a:hover {
+.main-header nav ul a:hover,
+.main-header nav ul a:focus {
   color: var(--accent-01);
 }
 

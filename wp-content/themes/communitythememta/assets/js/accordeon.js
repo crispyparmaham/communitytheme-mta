@@ -35,7 +35,7 @@ class Accordion {
     const icon = accordionItem.querySelector('.accordion-icon');
 
     this.closeAllAccordions(accordionCollapse);
-    
+
     if (accordionCollapse.classList.contains('open')) {
       this.closeAccordion(accordionCollapse, icon);
     } else {
@@ -55,12 +55,21 @@ class Accordion {
     element.style.height = element.scrollHeight + 'px';
     element.classList.add('open');
     icon.textContent = '−';
+    this.setFocusable(element, true);
   }
 
   closeAccordion(element, icon) {
     element.style.height = '0';
     element.classList.remove('open');
     icon.textContent = '+';
+    this.setFocusable(element, false);
+  }
+
+  setFocusable(element, isFocusable) {
+    const links = element.querySelectorAll('a, button, input, textarea, select');
+    links.forEach(link => {
+      link.tabIndex = isFocusable ? 0 : -1;
+    });
   }
 }
 
