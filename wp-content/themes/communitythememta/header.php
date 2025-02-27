@@ -11,7 +11,7 @@ $gemeindeName = get_field('gemeindename', 'option');
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title><?php bloginfo('name'); ?><?php wp_title('|', true, 'left'); ?></title>
+	<title><?php wp_title('|', true, 'left'); ?></title>
 	<meta name="description" content="<?php bloginfo('description'); ?>">
 	<meta property="og:title" content="<?php wp_title(); ?>">
 	<meta property="og:description" content="<?php bloginfo('description'); ?>">

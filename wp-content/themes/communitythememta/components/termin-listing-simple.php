@@ -34,26 +34,7 @@
         while ($custom_query->have_posts()):
             $custom_query->the_post();
 
-            // Adresse
-            $strasse = get_field('strasse', $post->ID);
-            $hausnummer = get_field('hausnummer', $post->ID);
-            $plz = get_field('plz', $post->ID);
-            $ort = get_field('ort', $post->ID);
-            $adresseParts = array_filter([$strasse . ' ' . $hausnummer, $plz . ' ' . $ort], function ($value) {
-                return trim($value) !== '';
-            });
-            $adresse = !empty($adresseParts) ? implode(', ', $adresseParts) : '';
-            $adresslink = $adresse ? 'https://www.google.com/maps/search/?api=1&query=' . urlencode("$strasse $hausnummer $plz $ort $gemeindeName") : '';
-
-            // Termin-Daten
-            $startdatum = get_field('startdatum', $post->ID);
-            $enddatum = get_field('enddatum', $post->ID);
-            $time = trim(get_field('uhrzeit', $post->ID));
-            $more_days = get_field('more_days', $post->ID);
-
-            $startdatum_formatted = $startdatum ? date_i18n("d. F Y", strtotime($startdatum)) : '';
-            $enddatum_formatted = $enddatum ? date_i18n("d. F Y", strtotime($enddatum)) : '';
-
+            $termin_data = get_termin_data($post->ID);
             $termin_content = get_the_content($post->ID);
             $termin_description = get_field('beschreibung', $post->ID);
 
@@ -81,32 +62,9 @@
 
                     </h3>
 
-                    <!-- Adresse -->
-                    <?php if ($adresse): ?>
-                        <span class="post-listing-item-adresse adresse">
-                            <a href="<?php echo esc_url($adresslink); ?>" target="_blank"
-                                aria-label="Adresse von <?php the_title(); ?> in Google Maps anzeigen">
-                                <?php echo esc_html($adresse); ?>
-                            </a>
-                        </span>
-                    <?php endif; ?>
-
-                    <!-- Termin-Infos -->
-                    <div class="termin-info-wrap">
-                        <span class="termin-info <?php echo $more_days ? 'no-margin-right' : ''; ?>">
-                            <?php echo $more_days ? 'Vom ' : ''; ?>
-                            <?php echo esc_html($startdatum_formatted); ?>
-                            <?php if($more_days) : ?>
-                                bis zum <?php echo esc_html($enddatum_formatted); ?>
-                            <?php endif; ?>
-                        </span>
-                        <?php if (!$more_days): ?>
-                            <span class="separator">|</span>
-                            <span class="post-listing-item-info-time termin-info">
-                                <?php echo esc_html($time); ?> Uhr
-                            </span>
-                        <?php endif; ?>
-                    </div>
+                    <?php 
+                        echo get_termin_data_formatted_simple($termin_data);
+                    ?>
                     <?php if($termin_content || $termin_description) :?>
                     <a class="termin-link" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"
                         aria-label="Mehr über <?php the_title(); ?> lesen" class="post-link">zum Termin</a>

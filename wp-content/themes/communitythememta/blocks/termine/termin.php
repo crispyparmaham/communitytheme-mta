@@ -44,28 +44,9 @@
             $placeholder_image = get_field('platzhalter_bild_termine', 'option') ? get_field('platzhalter_bild_termine', 'option')['id'] : false;
 
             // Adresse
-            $strasse = get_field('strasse', $post->ID);
-            $hausnummer = get_field('hausnummer', $post->ID);
-            $plz = get_field('plz', $post->ID);
-            $ort = get_field('ort', $post->ID);
-            $adresseParts = array_filter([$strasse . ' ' . $hausnummer, $plz . ' ' . $ort], function ($value) {
-                return trim($value) !== '';
-            });
-            $adresse = !empty($adresseParts) ? implode(', ', $adresseParts) : '';
-            $adresslink = $adresse ? 'https://www.google.com/maps/search/?api=1&query=' . urlencode("$strasse $hausnummer $plz $ort $gemeindeName") : '';
-
-            // Termin-Daten
-            $organizer = get_field('organisator', $post->ID);
-            $startdatum = get_field('startdatum', $post->ID);
-            $enddatum = get_field('enddatum', $post->ID);
-            $time = trim(get_field('uhrzeit', $post->ID));
-            $more_days = get_field('more_days', $post->ID);
-            $date_icon = get_field('date_icon', 'option') ?: 'dashicons-calendar-alt';
-            $time_icon = get_field('time_icon', 'option') ?: 'dashicons-clock';
-
-            $startdatum_formatted = $startdatum ? date_i18n("d. F Y", strtotime($startdatum)) : '';
-            $enddatum_formatted = $enddatum ? date_i18n("d. F Y", strtotime($enddatum)) : '';
-
+            $termin_data = get_termin_data($post->ID);
+            $startdatum = $termin_data['startdatum'];
+            $enddatum = $termin_data['enddatum'];
             $post_thumbnail = get_post_thumbnail_id();
 
             $content = get_the_content();
@@ -109,51 +90,9 @@
                         <?php endif; ?>
                     </h3>
 
-                    <!-- Adresse -->
-                    <?php if ($adresse || $organizer): ?>
-                        <span class="post-listing-item-adresse adresse">
-                            <?php if ($organizer): ?>
-                                <?= $organizer ?>
-                            <?php endif; ?>
-                            <?php if ($adresse && $organizer): ?>
-                                <span class="separator">|</span>
-                            <?php endif; ?>
-                            <?php if ($adresse): ?>
-                                <a href="<?php echo esc_url($adresslink); ?>" target="_blank"
-                                    aria-label="Adresse von <?php the_title(); ?> in Google Maps anzeigen">
-                                    <?php echo esc_html($adresse); ?>
-                                </a>
-                            <?php endif; ?>
-                        </span>
-                    <?php endif; ?>
-
-                    <!-- Termin-Infos -->
-                    <div class="termin-info-wrap">
-                        <span class="termin-info <?php echo $more_days ? 'no-margin-right' : ''; ?>">
-                            <span class="termin-icon dashicons <?php echo esc_attr($date_icon); ?>" aria-hidden="true"></span>
-                            <?php echo $more_days ? 'Vom ' : ''; ?>
-                            <?php echo esc_html($startdatum_formatted); ?>
-                        </span>
-                        <?php if (!$more_days): ?>
-                            <?php if ($time): ?>
-                                <span class="post-listing-item-info-time termin-info">
-                                    <span class="termin-icon dashicons <?php echo esc_attr($time_icon); ?>" aria-hidden="true"></span>
-                                    <?php echo esc_html($time); ?> Uhr
-                                </span>
-                            <?php endif; ?>
-                        <?php else: ?>
-                            <span class="post-listing-item-info-date-end no-padding-left">
-                                bis zum <?php echo esc_html($enddatum_formatted); ?>
-                            </span>
-                        <?php endif; ?>
-                    </div>
-
-                    <!-- Excerpt -->
-                    <?php if (function_exists('custom_field_excerpt') && !empty(custom_field_excerpt())): ?>
-                        <span class="post-excerpt" aria-label="Zusammenfassung von <?php the_title(); ?>">
-                            <?php echo custom_field_excerpt(); ?>
-                        </span>
-                    <?php endif; ?>
+                    <?php 
+                        echo get_termin_data_formatted_with_icons($termin_data);
+                    ?>
 
                     <?php if ($content): ?>
                         <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"

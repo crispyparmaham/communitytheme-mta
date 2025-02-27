@@ -31,7 +31,7 @@ if ( $query->have_posts() ) :
             $heading_id = 'heading-' . $post_id;
             $collapse_id = 'collapse-' . $post_id;
             ?>
-            <div class="accordion-item">
+            <div class="accordion-item"  id="gewerbe-<?= $post_id ?>">
                 <div class="accordion-header" id="<?php echo esc_attr( $heading_id ); ?>">
                     <button class="accordion-button" type="button" aria-expanded="false"
                         aria-controls="<?php echo esc_attr( $collapse_id ); ?>" tabindex="0">

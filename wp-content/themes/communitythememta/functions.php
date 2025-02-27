@@ -276,6 +276,7 @@ require_once(plugin_dir_path(__FILE__) . '/functions/css-variables.php'); // Dyn
 require_once(plugin_dir_path(__FILE__) . '/functions/load-styles.php'); // Stylesheets laden
 require_once(plugin_dir_path(__FILE__) . '/functions/load-acf-fields.php'); // ACF-Felder laden
 require_once(plugin_dir_path(__FILE__) . '/functions/breadcrumbs.php');
+require_once(plugin_dir_path(__FILE__) . '/functions/termin-functionality.php');
 
 /* -------------------------------------------------------------- */
 /* -------------------------------------------------------------- */
@@ -499,3 +500,46 @@ function custom_redirect_function() {
         }
     }
 }
+
+/* -------------------------------------------------------------- */
+/* -------------------------------------------------------------- */
+/* -------------------------------------------------------------- */
+// ===  Make Search also search for custom fields === //
+/* -------------------------------------------------------------- */
+/* -------------------------------------------------------------- */
+/* -------------------------------------------------------------- */
+
+function modify_search_result_links($url, $post) {
+    // Modify links for specific post types
+    if ($post->post_type === 'verein') {
+        return site_url('/vereine/') . '#verein-' . $post->ID; // Optional: Add ID as an anchor
+    } elseif ($post->post_type === 'infrastruktur') {
+        return site_url('/') . '#infrastruktur';
+    } elseif ($post->post_type === 'gewerbe') {
+        return site_url('/gewerbe/') . '#gewerbe-' . $post->ID; // Optional: Add ID as an anchor
+    } elseif ($post->post_type === 'tourismus') {
+        return site_url('/tourismus/') . '#tourismus-' . $post->ID; // Optional: Add ID as an anchor
+    }
+
+    return $url; // Default for other post types
+}
+add_filter('post_type_link', 'modify_search_result_links', 10, 2);
+add_filter('get_permalink', 'modify_search_result_links', 10, 2);
+
+function modify_search_query($where, $query) {
+    if (!is_admin() && $query->is_search()) {
+        global $wpdb;
+        $search_term = esc_sql($query->get('s'));
+
+        $where .= " OR EXISTS (
+            SELECT 1 FROM $wpdb->postmeta 
+            WHERE $wpdb->postmeta.post_id = $wpdb->posts.ID 
+            AND $wpdb->postmeta.meta_value LIKE '%$search_term%'
+        )";
+
+        $where .= " AND $wpdb->posts.post_type != 'attachment'";
+        $where .= " AND $wpdb->posts.post_type != 'infrastruktur'";
+    }
+    return $where;
+}
+add_filter('posts_where', 'modify_search_query', 10, 2);

@@ -79,6 +79,7 @@ We have a github action that triggered when a new release on main branch is crea
 - Update the version number in the `style.css` file
 - Create a new release on github (merge development to main branch)
 – Update version number for enqueued scripts and styles in `functions.php`
+- Update all version of enqueued scripts and styles in `functions.php` to be sure that they are updated in the new release
 
 
 
