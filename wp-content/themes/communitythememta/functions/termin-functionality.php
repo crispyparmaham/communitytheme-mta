@@ -17,7 +17,7 @@ function get_termin_data($postId)
     $organizer = get_field('organisator', $postId);
     $startdatum = get_field('startdatum', $postId);
     $enddatum = get_field('enddatum', $postId);
-    $time = trim(get_field('uhrzeit', $postId));
+    $time = get_field('uhrzeit', $postId) ? trim(get_field('uhrzeit', $postId)) : '';
     $more_days = get_field('more_days', $postId);
     $date_icon = get_field('date_icon', 'option') ?: 'dashicons-calendar-alt';
     $time_icon = get_field('time_icon', 'option') ?: 'dashicons-clock';

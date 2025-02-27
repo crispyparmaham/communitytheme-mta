@@ -277,6 +277,8 @@ require_once(plugin_dir_path(__FILE__) . '/functions/load-styles.php'); // Style
 require_once(plugin_dir_path(__FILE__) . '/functions/load-acf-fields.php'); // ACF-Felder laden
 require_once(plugin_dir_path(__FILE__) . '/functions/breadcrumbs.php');
 require_once(plugin_dir_path(__FILE__) . '/functions/termin-functionality.php');
+require_once(plugin_dir_path(__FILE__) . '/capabilities/user-capabilities.php');
+require_once(plugin_dir_path(__FILE__) . '/capabilities/custom-dashboard.php');
 
 /* -------------------------------------------------------------- */
 /* -------------------------------------------------------------- */
@@ -352,12 +354,12 @@ add_action('admin_menu', 'custom_theme_settings_menu');
 function custom_theme_settings_menu() {
     add_menu_page(
         'MTA Community Theme - Einstellungen',
-        'Theme Settings',
+        'Theme',
         'manage_options',
         'theme-settings', 
         'custom_theme_settings_page', 
         'dashicons-admin-generic',
-        2                         
+        3                         
     );
 }
 
