@@ -133,6 +133,17 @@ function remove_dashboard_widgets() {
 }
 add_action('wp_dashboard_setup', 'remove_dashboard_widgets');
 
+function remove_yoast_columns($columns) {
+    unset($columns['wpseo-score']);         // SEO Score
+    unset($columns['wpseo-score-readability']);         // SEO Score
+    unset($columns['wpseo-links']);
+    unset($columns['wpseo-linked']);
+
+    return $columns;
+}
+add_filter('manage_edit-page_columns', 'remove_yoast_columns');
+
+
 function redirect_dashboard() {
     if (is_admin() && !defined('DOING_AJAX')) {
         $current_user = wp_get_current_user();
@@ -154,28 +165,15 @@ add_action('admin_init', 'redirect_dashboard');
 
 function redirect_frontpage_edit() {
     if (isset($_GET['post'], $_GET['action']) && $_GET['action'] === 'edit') {
-        error_log("✅ Edit action detected");
-
         $post_id = intval($_GET['post']);
         $front_page_id = get_option('page_on_front');
         $current_user = wp_get_current_user();
         $restricted_roles = ['community_admin', 'community_editor'];
-
-        error_log("🔍 Post ID being edited: $post_id");
-        error_log("🔍 Front Page ID: $front_page_id");
-
         if (array_intersect($restricted_roles, $current_user->roles)) {
-            error_log("✅ User is in a restricted role");
-
             if ($post_id === (int) $front_page_id) {
-                error_log("🚀 Redirecting: Front Page Edit Detected!");
                 wp_redirect(admin_url('admin.php?page=theme-settings-frontpage'));
                 exit;
-            } else {
-                error_log("⚠ Front page condition NOT met");
-            }
-        } else {
-            error_log("⚠ User does NOT have a restricted role");
+            } 
         }
     }
 }

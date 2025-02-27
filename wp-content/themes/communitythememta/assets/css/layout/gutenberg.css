@@ -25,3 +25,15 @@ hr,
   border-color: var(--foreground-05);
   margin: 2.5rem 0;
 }
+
+/* ADMIN STYLES */
+.editor-visual-editor__post-title-wrapper.edit-post-visual-editor__post-title-wrapper {
+  background-color: var(--background-04);
+  padding-bottom: 2rem;
+  padding-top: 4rem;
+  margin-top: 0 !important;
+  margin-bottom: 2rem;
+}
+.editor-visual-editor__post-title-wrapper.edit-post-visual-editor__post-title-wrapper h1 {
+  font-size: 3rem;
+}
