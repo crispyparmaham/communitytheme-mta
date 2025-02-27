@@ -62,6 +62,13 @@
                             case 'page':
                                 $button_text = "Zur Seite";
                                 break;
+                            case 'verein':
+                                $button_text = "Zum Verein";
+                                break;
+                            case 'gewerbe':
+                                $button_text = "Zum Gewerbe";
+                                break;
+                                
                         }
 
                         ?>
@@ -72,7 +79,7 @@
                             <div class="post-content">
                                 <span><?= $post_type_title ?></span>
                                 <h2 class="search-result-title">
-                                    <a href="<?php echo $permalink; ?>"><?php echo $post_title; ?></a>
+                                    <a href="<?php echo $post_link; ?>"><?php echo $post_title; ?></a>
                                 </h2>
                                 <?php if ($excerpt): ?>
                                     <div class="search-result-excerpt">

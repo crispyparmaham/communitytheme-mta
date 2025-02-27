@@ -31,6 +31,7 @@ function load_stylesheet() {
         'breadcrumbs' => '/assets/css/layout/breadcrumbs.css',
         'termin-listing-simple' => '/assets/css/components/termin-listing-simple.css',
         'swipers' => '/assets/css/components/swipers.css',
+        'pagination' => '/assets/css/layout/pagination.css',
     ];
 
     // Schleife durch das Stylesheet-Array und enqueue jedes Stylesheet

@@ -538,7 +538,15 @@ function modify_search_query($where, $query) {
         )";
 
         $where .= " AND $wpdb->posts.post_type != 'attachment'";
-        $where .= " AND $wpdb->posts.post_type != 'infrastruktur'";
+        $where .= " AND $wpdb->posts.post_type != 'revision'";
+        $where .= " AND $wpdb->posts.post_type != 'nav_menu_item'";
+        $where .= " AND $wpdb->posts.post_type != 'acf-field-group'";
+        $where .= " AND $wpdb->posts.post_type != 'acf-field'";
+        $where .= " AND $wpdb->posts.post_type != 'acf-post-type'";
+        $where .= " AND $wpdb->posts.post_type != 'teammitglieder'";
+        $where .= " AND $wpdb->posts.post_type != 'daten_fakten'";
+
+        $where .= " AND $wpdb->posts.post_status = 'publish'";
     }
     return $where;
 }

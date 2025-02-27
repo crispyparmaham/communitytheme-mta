@@ -1,0 +1,27 @@
+.pagination .nav-links {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+.pagination .nav-links .page-numbers {
+  padding: 0.375rem 0.75rem;
+}
+.pagination .nav-links a.page-numbers {
+  text-decoration: none;
+}
+.pagination .nav-links a.page-numbers:focus,
+.pagination .nav-links a.page-numbers:hover {
+  color: var(--accent-01);
+}
+.pagination .nav-links a.page-numbers:focus {
+  outline: 2px solid var(--accent-01);
+  border-radius: var(--border-radius-s);
+  color: var(--color-foreground-01);
+}
+
+.pagination .nav-links .page-numbers.current {
+  background-color: var(--accent-01);
+  padding: 0.375rem 0.75rem;
+  color: white;
+  border-radius: var(--border-radius-s);
+}
