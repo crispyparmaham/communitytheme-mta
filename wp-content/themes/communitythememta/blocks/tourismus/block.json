@@ -3,7 +3,7 @@
     "title": "Tourismusliste",
     "description": "Alle Tourismus Einrichtungen einer Gemeinde",
     "category": "community-blocks",
-    "icon": "grid-view",
+    "icon": "location-alt",
     "keywords": ["liste", "akkordeon", "links", "custom", "tourismus"],
     "acf": {
         "mode": "preview",

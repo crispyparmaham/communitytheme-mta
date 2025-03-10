@@ -2253,5 +2253,106 @@ add_action( 'init', function () {
 	) );
 
 
+
+	/** YOUTUBE FIELD BLOCK */
+	acf_add_local_field_group( array(
+		'key' => 'group_67cef5b322d92',
+		'title' => 'Block YT Video',
+		'fields' => array(
+			array(
+				'key' => 'field_67cef5b3691ed',
+				'label' => 'Youtube Video ID',
+				'name' => 'yt_video_id',
+				'aria-label' => '',
+				'type' => 'text',
+				'instructions' => 'Die ID des Youtube Videos. In der URL des Youtube Videos hinter v=HIER_DIE_ID',
+				'required' => 0,
+				'conditional_logic' => 0,
+				'wrapper' => array(
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'default_value' => '',
+				'maxlength' => '',
+				'allow_in_bindings' => 0,
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+			),
+		),
+		'location' => array(
+			array(
+				array(
+					'param' => 'block',
+					'operator' => '==',
+					'value' => 'acf/yt-video',
+				),
+			),
+		),
+		'menu_order' => 0,
+		'position' => 'normal',
+		'style' => 'default',
+		'label_placement' => 'top',
+		'instruction_placement' => 'label',
+		'hide_on_screen' => '',
+		'active' => true,
+		'description' => '',
+		'show_in_rest' => 0,
+	) );
+
+
+	/** YOUTUBE FIELD BLOCK */
+	acf_add_local_field_group( array(
+		'key' => 'group_67cef5b32fewf2d92',
+		'title' => 'Block Vimeo Video',
+		'fields' => array(
+			array(
+				'key' => 'field_67cef5bfwef3691ed',
+				'label' => 'Vimeo Video ID',
+				'name' => 'vimeo_video_id',
+				'aria-label' => '',
+				'type' => 'text',
+				'instructions' => 'Die ID des Vimeo Videos. In der URL des Vimeo Videos hinter /HIER_DIE_ID',
+				'required' => 0,
+				'conditional_logic' => 0,
+				'wrapper' => array(
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'default_value' => '',
+				'maxlength' => '',
+				'allow_in_bindings' => 0,
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+			),
+		),
+		'location' => array(
+			array(
+				array(
+					'param' => 'block',
+					'operator' => '==',
+					'value' => 'acf/vimeo-video',
+				),
+			),
+		),
+		'menu_order' => 0,
+		'position' => 'normal',
+		'style' => 'default',
+		'label_placement' => 'top',
+		'instruction_placement' => 'label',
+		'hide_on_screen' => '',
+		'active' => true,
+		'description' => '',
+		'show_in_rest' => 0,
+	) );
+
+	
+
+
 } );
+
+
 

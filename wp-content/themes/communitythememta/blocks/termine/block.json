@@ -3,7 +3,7 @@
   "title": "Terminliste",
   "description": "Alle Termine einer Gemeinde",
   "category": "community-blocks",
-  "icon": "grid-view",
+  "icon": "calendar-alt",
   "keywords": ["liste", "aufzählung", "links", "custom", "termine"],
   "acf": {
       "mode": "preview",
@@ -11,3 +11,4 @@
   },
   "align": "full"
 }
+

@@ -1,4 +1,4 @@
-.block-editor__container * {
+.block-editor__container .editor-visual-editor {
   font-family: var(--font-family-text);
 }
 

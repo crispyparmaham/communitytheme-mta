@@ -3,7 +3,7 @@
     "title": "Gewerbeliste",
     "description": "Alle Gewerbe einer Gemeinde",
     "category": "community-blocks",
-    "icon": "grid-view",
+    "icon": "businessperson",
     "keywords": ["liste", "akkordeon", "links", "custom", "gewerbe"],
     "acf": {
         "mode": "preview",

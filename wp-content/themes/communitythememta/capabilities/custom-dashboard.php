@@ -13,11 +13,9 @@ function custom_dashboard_page() {
 }
 add_action('admin_menu', 'custom_dashboard_page');
 
+require_once(get_template_directory() . '/dashboard/dashboard.php');
 function custom_dashboard_content() {
-    echo '<div class="wrap">';
-    echo '<h1>MTA Community Dashboard</h1>';
-    echo '<p>Hier werden wir Einstellungsmöglichkeiten hinzufügen.</p>';
-    echo '</div>';
+    dashboard_page();
 }
 
 

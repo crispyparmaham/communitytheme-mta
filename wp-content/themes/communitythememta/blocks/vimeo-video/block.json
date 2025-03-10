@@ -1,0 +1,13 @@
+{
+    "name": "vimeo-video",
+    "title": "Vimeo Video",
+    "description": "Datenschutzkonforme Einbindung von Vimeo Videos",
+    "category": "media",
+    "icon": "video-alt3",
+    "keywords": ["video", "vime", "vimeo", "viedeo", "mp4"],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "vimeo-video.php"
+    },
+    "align": "full"
+  }

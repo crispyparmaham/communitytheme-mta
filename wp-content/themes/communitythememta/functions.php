@@ -211,16 +211,33 @@ function imageOutput($imageId, $imageSize = 'img-1920', $max_width = '1920px', $
 /* -------------------------------------------------------------- */
 /* -------------------------------------------------------------- */
 /* -------------------------------------------------------------- */
-
+function register_mta_block_category($categories) {
+    return array_merge(
+        $categories,
+        [
+            [
+                'slug'  => 'community-blocks',
+                'title' => __('MTA Custom Blocks', 'morethanads'),
+            ],
+            [
+                'slug'  => 'community-privacy',
+                'title' => __('Impressum & Datenschutz', 'morethanads'),
+            ]
+        ]
+    );
+}
+add_filter('block_categories_all', 'register_mta_block_category', 10, 2);
 function register_blocks() {
     register_block_type(__DIR__ . '/blocks/termine'); // Registrierung des "Termine"-Blocks
     register_block_type(__DIR__ . '/blocks/vereine'); // Registrierung des "Vereine"-Blocks
     register_block_type(__DIR__ . '/blocks/posts'); // Registrierung des "Beitrags"-Blocks
     register_block_type(__DIR__ . '/blocks/tourismus'); // Registrierung des "Tourismus"-Blocks
     register_block_type(__DIR__ . '/blocks/gewerbe'); // Registrierung des "Gewerbe"-Blocks
-    register_block_type(__DIR__ . '/blocks/impressum'); // Registrierung des "Teammitglieder"-Blocks
-    register_block_type(__DIR__ . '/blocks/privacy-policy'); // Registrierung des "Teammitglieder"-Blocks
-    register_block_type(__DIR__ . '/blocks/infrastructure'); // Registrierung des "Teammitglieder"-Blocks
+    register_block_type(__DIR__ . '/blocks/impressum'); 
+    register_block_type(__DIR__ . '/blocks/privacy-policy'); 
+    register_block_type(__DIR__ . '/blocks/infrastructure'); 
+    register_block_type(__DIR__ . '/blocks/youtube-video'); 
+    register_block_type(__DIR__ . '/blocks/vimeo-video'); 
 }
 add_action('init', 'register_blocks');
 
@@ -272,13 +289,15 @@ add_filter('acf/load_field/name=selected_menu', 'populate_selected_menu_field');
 /* -------------------------------------------------------------- */
 /* -------------------------------------------------------------- */
 
-require_once(plugin_dir_path(__FILE__) . '/functions/css-variables.php'); // Dynamische CSS-Variablen
-require_once(plugin_dir_path(__FILE__) . '/functions/load-styles.php'); // Stylesheets laden
-require_once(plugin_dir_path(__FILE__) . '/functions/load-acf-fields.php'); // ACF-Felder laden
-require_once(plugin_dir_path(__FILE__) . '/functions/breadcrumbs.php');
-require_once(plugin_dir_path(__FILE__) . '/functions/termin-functionality.php');
-require_once(plugin_dir_path(__FILE__) . '/capabilities/user-capabilities.php');
-require_once(plugin_dir_path(__FILE__) . '/capabilities/custom-dashboard.php');
+require_once(get_template_directory() . '/functions/css-variables.php'); // Dynamische CSS-Variablen
+require_once(get_template_directory() . '/functions/load-styles.php'); // Stylesheets laden
+require_once(get_template_directory() . '/functions/load-acf-fields.php'); // ACF-Felder laden
+require_once(get_template_directory() . '/functions/breadcrumbs.php');
+require_once(get_template_directory() . '/functions/termin-functionality.php');
+require_once(get_template_directory() . '/functions/ma-youtube-videos.php');
+require_once(get_template_directory() . '/functions/ma-vimeo-videos.php');
+require_once(get_template_directory() . '/capabilities/user-capabilities.php');
+require_once(get_template_directory() . '/capabilities/custom-dashboard.php');
 
 /* -------------------------------------------------------------- */
 /* -------------------------------------------------------------- */
@@ -553,3 +572,68 @@ function modify_search_query($where, $query) {
     return $where;
 }
 add_filter('posts_where', 'modify_search_query', 10, 2);
+
+
+
+/* -------------------------------------------------------------- */
+/* -------------------------------------------------------------- */
+/* -------------------------------------------------------------- */
+// ===  Anonymous Tracking === //
+/* -------------------------------------------------------------- */
+/* -------------------------------------------------------------- */
+/* -------------------------------------------------------------- */
+function track_single_page_views() {
+    if (!is_admin() && is_singular()) { 
+        global $post;
+        $views = get_post_meta($post->ID, '_page_views', true);
+        $views = empty($views) ? 0 : $views;
+        update_post_meta($post->ID, '_page_views', $views + 1);
+    }
+}
+add_action('wp_head', 'track_single_page_views');
+
+
+/* -------------------------------------------------------------- */
+/* -------------------------------------------------------------- */
+/* -------------------------------------------------------------- */
+// ===  REMOVE GUTENBERG BLOCKS FOR USER ROLES === //
+/* -------------------------------------------------------------- */
+/* -------------------------------------------------------------- */
+/* -------------------------------------------------------------- */
+
+function restrict_gutenberg_blocks($allowed_blocks, $editor_context) {
+    $current_user = wp_get_current_user();
+    $restricted_roles = ['community_admin', 'community_editor'];
+
+    // If the user has one of the restricted roles, modify allowed blocks
+    if (array_intersect($restricted_roles, $current_user->roles)) {
+        $allowed_blocks = [
+            'core/paragraph',
+            'core/heading',
+            'core/list',
+            'core/image',
+            'core/gallery',
+            'core/quote',
+            'core/button',
+            'core/table',
+            'core/columns',
+            'core/group',
+            // CUSTOM BLOCKS
+            'acf/tourismus',
+            'acf/vereinsliste',
+            'acf/gewerbeliste',
+            'acf/tourismus',
+            'acf/impressum',
+            'acf/privacy',
+            'acf/infrastructure',
+            'acf/beitragsliste',
+            'acf/beitragsliste-short',
+            'acf/terminliste',
+            'acf/yt-video',
+            'acf/vimeo-video',
+        ];
+    }
+
+    return $allowed_blocks;
+}
+add_filter('allowed_block_types_all', 'restrict_gutenberg_blocks', 10, 2);

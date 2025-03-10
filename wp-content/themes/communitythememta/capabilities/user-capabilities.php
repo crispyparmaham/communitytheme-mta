@@ -151,10 +151,14 @@ function redirect_dashboard() {
 
         // Ensure the user has one of the restricted roles
         if (array_intersect($restricted_roles, $current_user->roles)) {
-            $current_screen = get_current_screen();
-            
-            // Only redirect if the user is on the default dashboard
-            if ($current_screen && $current_screen->base === 'dashboard') {
+            global $pagenow;
+
+            // Redirect if the user is on the default WordPress dashboard
+            if ($pagenow === 'index.php') {
+                wp_redirect(admin_url('admin.php?page=custom-dashboard'));
+                exit;
+            }
+            if ($pagenow === 'tools.php' || $pagenow === 'edit-comments.php') {
                 wp_redirect(admin_url('admin.php?page=custom-dashboard'));
                 exit;
             }
@@ -162,6 +166,7 @@ function redirect_dashboard() {
     }
 }
 add_action('admin_init', 'redirect_dashboard');
+
 
 function redirect_frontpage_edit() {
     if (isset($_GET['post'], $_GET['action']) && $_GET['action'] === 'edit') {

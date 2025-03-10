@@ -3,7 +3,7 @@
     "title": "Vereinsliste",
     "description": "Alle Vereine einer Gemeinde",
     "category": "community-blocks",
-    "icon": "grid-view",
+    "icon": "groups",
     "keywords": ["liste", "akkordeon", "links", "custom", "vereine"],
     "acf": {
         "mode": "preview",

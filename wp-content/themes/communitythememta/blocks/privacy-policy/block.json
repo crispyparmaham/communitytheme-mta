@@ -2,8 +2,8 @@
     "name": "privacy",
     "title": "Datenschutzerklärung",
     "description": "Die Datenschutzerklärung der Seite",
-    "category": "community-blocks",
-    "icon": "grid-view",
+    "category": "community-privacy",
+    "icon": "admin-page",
     "keywords": ["datenschutz", "rechtliches", "privacy", "policy"],
     "acf": {
         "mode": "preview",

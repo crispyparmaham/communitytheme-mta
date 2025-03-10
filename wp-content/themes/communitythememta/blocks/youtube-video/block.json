@@ -1,0 +1,13 @@
+{
+    "name": "yt-video",
+    "title": "Youtube Video",
+    "description": "Datenschutzkonforme Einbindung von Youtube Videos",
+    "category": "media",
+    "icon": "video-alt3",
+    "keywords": ["video", "youtube", "yt", "viedeo", "mp4"],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "youtube-video.php"
+    },
+    "align": "full"
+  }

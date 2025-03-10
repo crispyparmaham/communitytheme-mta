@@ -2,8 +2,8 @@
     "name": "impressum",
     "title": "Impressum",
     "description": "Das Impressum der Seite",
-    "category": "community-blocks",
-    "icon": "grid-view",
+    "category": "community-privacy",
+    "icon": "admin-page",
     "keywords": ["impressum", "rechtliches"],
     "acf": {
         "mode": "preview",
