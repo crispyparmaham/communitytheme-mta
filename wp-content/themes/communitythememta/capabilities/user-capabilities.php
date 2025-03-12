@@ -184,3 +184,49 @@ function redirect_frontpage_edit() {
 }
 add_action('load-post.php', 'redirect_frontpage_edit');
 
+
+
+/* -------------------------------------------------------------- */
+/* -------------------------------------------------------------- */
+/* -------------------------------------------------------------- */
+// ===  REMOVE GUTENBERG BLOCKS FOR USER ROLES === //
+/* -------------------------------------------------------------- */
+/* -------------------------------------------------------------- */
+/* -------------------------------------------------------------- */
+
+function restrict_gutenberg_blocks($allowed_blocks, $editor_context) {
+    $current_user = wp_get_current_user();
+    $restricted_roles = ['community_admin', 'community_editor'];
+
+    // If the user has one of the restricted roles, modify allowed blocks
+    if (array_intersect($restricted_roles, $current_user->roles)) {
+        $allowed_blocks = [
+            'core/paragraph',
+            'core/heading',
+            'core/list',
+            'core/image',
+            'core/gallery',
+            'core/quote',
+            'core/button',
+            'core/table',
+            'core/columns',
+            'core/group',
+            // CUSTOM BLOCKS
+            'acf/tourismus',
+            'acf/vereinsliste',
+            'acf/gewerbeliste',
+            'acf/tourismus',
+            'acf/impressum',
+            'acf/privacy',
+            'acf/infrastructure',
+            'acf/beitragsliste',
+            'acf/beitragsliste-short',
+            'acf/terminliste',
+            'acf/yt-video',
+            'acf/vimeo-video',
+        ];
+    }
+
+    return $allowed_blocks;
+}
+add_filter('allowed_block_types_all', 'restrict_gutenberg_blocks', 10, 2);

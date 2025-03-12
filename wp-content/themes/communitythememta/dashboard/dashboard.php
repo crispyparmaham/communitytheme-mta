@@ -23,11 +23,13 @@ function dashboard_page() {
 function dashboard_header() {
     $logged_in_user = wp_get_current_user();
     $logged_in_user_name = $logged_in_user->display_name;
+    $logged_in_user_firstname = $logged_in_user->first_name;
+    $showname = $logged_in_user_firstname ?: $logged_in_user_name;
     $theme_version = wp_get_theme()->get('Version');
     ?>
     <div class="mta-dashboard-header">
         <div>
-            <h1>Willkommen zurück, <?= $logged_in_user_name  ?>!</h1>
+            <h1>Willkommen zurück, <?= $showname  ?>!</h1>
             <p>Theme-Version: <?= $theme_version ?></p>
         </div>
     </div>

@@ -3,7 +3,7 @@
 // === ENQUEUE THEME STYLES === //
 function enqueue_theme_styles() {
 	// Haupt-Stylesheet
-	wp_enqueue_style( 'main-style', get_stylesheet_uri() );
+	wp_enqueue_style( 'main-style', get_stylesheet_uri() , [], THEME_VERSION);
 
 	// Variables CSS
 	wp_enqueue_style(

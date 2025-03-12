@@ -1,4 +1,6 @@
 <?php 
+define('THEME_VERSION', '1.0.0');
+
 
 /* -------------------------------------------------------------- */
 /* -------------------------------------------------------------- */
@@ -52,7 +54,7 @@ function theme_enqueue_scripts() {
         'accordeon-js',
         get_template_directory_uri() . '/assets/js/accordeon.js',
         [], 
-        '1.0.2',
+        THEME_VERSION,
         true
     );
 
@@ -60,7 +62,7 @@ function theme_enqueue_scripts() {
         'mobile-menu-js',
         get_template_directory_uri() . '/assets/js/mobile-menu.js',
         [],
-        '1.0.3',
+        THEME_VERSION,
         true
     );
 
@@ -68,7 +70,7 @@ function theme_enqueue_scripts() {
         'fixed-menu-js',
         get_template_directory_uri() . '/assets/js/header.js',
         [],
-        '1.0.2',
+        THEME_VERSION,
         true
     );
 
@@ -77,14 +79,14 @@ function theme_enqueue_scripts() {
         'sliders',
         get_template_directory_uri() . '/assets/js/sliders.js',
         ['swiper-bundle'],
-        '1.0.0',
+        THEME_VERSION,
         true
     );
     wp_enqueue_script(
         'main-js',
         get_template_directory_uri() . '/assets/js/main.js',
         [],
-        '1.0.1',
+        THEME_VERSION,
         true
     );
 
@@ -100,7 +102,7 @@ function theme_enqueue_scripts() {
         'mta-masterpiece-console',
         get_template_directory_uri() . '/assets/js/morethanadsmasterpiece.min.js',
         [],
-        '1.0.0',
+        THEME_VERSION,
         true
     );
    
@@ -592,48 +594,3 @@ function track_single_page_views() {
 }
 add_action('wp_head', 'track_single_page_views');
 
-
-/* -------------------------------------------------------------- */
-/* -------------------------------------------------------------- */
-/* -------------------------------------------------------------- */
-// ===  REMOVE GUTENBERG BLOCKS FOR USER ROLES === //
-/* -------------------------------------------------------------- */
-/* -------------------------------------------------------------- */
-/* -------------------------------------------------------------- */
-
-function restrict_gutenberg_blocks($allowed_blocks, $editor_context) {
-    $current_user = wp_get_current_user();
-    $restricted_roles = ['community_admin', 'community_editor'];
-
-    // If the user has one of the restricted roles, modify allowed blocks
-    if (array_intersect($restricted_roles, $current_user->roles)) {
-        $allowed_blocks = [
-            'core/paragraph',
-            'core/heading',
-            'core/list',
-            'core/image',
-            'core/gallery',
-            'core/quote',
-            'core/button',
-            'core/table',
-            'core/columns',
-            'core/group',
-            // CUSTOM BLOCKS
-            'acf/tourismus',
-            'acf/vereinsliste',
-            'acf/gewerbeliste',
-            'acf/tourismus',
-            'acf/impressum',
-            'acf/privacy',
-            'acf/infrastructure',
-            'acf/beitragsliste',
-            'acf/beitragsliste-short',
-            'acf/terminliste',
-            'acf/yt-video',
-            'acf/vimeo-video',
-        ];
-    }
-
-    return $allowed_blocks;
-}
-add_filter('allowed_block_types_all', 'restrict_gutenberg_blocks', 10, 2);

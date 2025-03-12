@@ -82,6 +82,14 @@ We have a github action that triggered when a new release on main branch is crea
 - Update all version of enqueued scripts and styles in `functions.php` to be sure that they are updated in the new release
 
 
+## User Roles and Permissions
+There are two user roles to edit the page. The `community_editor` and the `community_admin`. The `community_editor` can edit the page and the `community_admin` can edit the page and the user roles.
+
+<strong>Be sure that these users can see the content you add in the backend.</strong><br><br>
+This can be relevant for these things:
+- Custom Gutenberg Blocks with ACF
+- Custom Post Types
+- Custom Taxonomies
 
 
 

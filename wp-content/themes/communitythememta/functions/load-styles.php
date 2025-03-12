@@ -36,7 +36,7 @@ function load_stylesheet() {
 
     // Schleife durch das Stylesheet-Array und enqueue jedes Stylesheet
     foreach ($styles as $handle => $path) {
-        wp_register_style($handle, get_template_directory_uri() . $path, [], null, 'all');
+        wp_register_style($handle, get_template_directory_uri() . $path, [], THEME_VERSION, 'all');
         wp_enqueue_style($handle);
     }
 }
@@ -49,7 +49,8 @@ function load_variables_in_block_editor() {
         'variables-style',
 		get_template_directory_uri() . '/assets/css/dynamic-variables.css',
 		[],
-		filemtime( get_template_directory() . '/assets/css/dynamic-variables.css' )
+		filemtime( get_template_directory() . '/assets/css/dynamic-variables.css' ),
+        THEME_VERSION
 	);
 }
 add_action('enqueue_block_editor_assets', 'load_variables_in_block_editor');
