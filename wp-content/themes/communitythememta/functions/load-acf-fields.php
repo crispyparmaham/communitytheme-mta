@@ -2302,7 +2302,7 @@ add_action( 'init', function () {
 	) );
 
 
-	/** YOUTUBE FIELD BLOCK */
+	/** VIMEO FIELD BLOCK */
 	acf_add_local_field_group( array(
 		'key' => 'group_67cef5b32fewf2d92',
 		'title' => 'Block Vimeo Video',
@@ -2335,6 +2335,117 @@ add_action( 'init', function () {
 					'param' => 'block',
 					'operator' => '==',
 					'value' => 'acf/vimeo-video',
+				),
+			),
+		),
+		'menu_order' => 0,
+		'position' => 'normal',
+		'style' => 'default',
+		'label_placement' => 'top',
+		'instruction_placement' => 'label',
+		'hide_on_screen' => '',
+		'active' => true,
+		'description' => '',
+		'show_in_rest' => 0,
+	) );
+
+
+	/** EXTERNAL RESOURCES BLOCK */
+	acf_add_local_field_group( array(
+		'key' => 'group_67ceffwwf5we46b32fewf2d92',
+		'title' => 'Block Externe Quellen',
+		'fields' => array(
+			array(
+				'key' => 'field_67d2c305dcfff',
+				'label' => 'HTML',
+				'name' => 'html',
+				'aria-label' => '',
+				'type' => 'textarea',
+				'instructions' => '',
+				'required' => 0,
+				'conditional_logic' => 0,
+				'wrapper' => array(
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'default_value' => '',
+				'maxlength' => '',
+				'allow_in_bindings' => 0,
+				'rows' => '',
+				'placeholder' => '',
+				'new_lines' => '',
+			),
+			array(
+				'key' => 'field_67d2c335dd001',
+				'label' => 'Anzeige Headline',
+				'name' => 'headline',
+				'aria-label' => '',
+				'type' => 'text',
+				'instructions' => '',
+				'required' => 0,
+				'conditional_logic' => 0,
+				'wrapper' => array(
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'default_value' => 'Externe Quelle',
+				'maxlength' => '',
+				'allow_in_bindings' => 0,
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+			),
+			array(
+				'key' => 'field_67d2c31cdd000',
+				'label' => 'Anzeige Text',
+				'name' => 'text',
+				'aria-label' => '',
+				'type' => 'text',
+				'instructions' => '',
+				'required' => 0,
+				'conditional_logic' => 0,
+				'wrapper' => array(
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'default_value' => 'Bei Klick wird dieser Inhalt von externen Servern geladen.',
+				'maxlength' => '',
+				'allow_in_bindings' => 0,
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+			),
+			array(
+				'key' => 'field_67d2c35bdd002',
+				'label' => 'Button Text',
+				'name' => 'button',
+				'aria-label' => '',
+				'type' => 'text',
+				'instructions' => '',
+				'required' => 0,
+				'conditional_logic' => 0,
+				'wrapper' => array(
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'default_value' => 'Externen Inhalt laden',
+				'maxlength' => '',
+				'allow_in_bindings' => 0,
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+			),
+		),
+		'location' => array(
+			array(
+				array(
+					'param' => 'block',
+					'operator' => '==',
+					'value' => 'acf/external-resources',
 				),
 			),
 		),

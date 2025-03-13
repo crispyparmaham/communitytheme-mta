@@ -6,8 +6,8 @@ require_once(get_template_directory() . '/dashboard/components/dashboard-analyti
 
 add_action('admin_enqueue_scripts', 'enqueue_dashboard_styles');
 function enqueue_dashboard_styles() {
-    wp_enqueue_style('mta-dashboard', get_template_directory_uri() . '/dashboard/assets/dashboard.css');
-    wp_enqueue_style('mta-dashboard-fonts', get_template_directory_uri() . '/dashboard/assets/dashboard-fonts.css');
+    wp_enqueue_style('mta-dashboard', get_template_directory_uri() . '/dashboard/assets/dashboard.css', [], THEME_VERSION);
+    wp_enqueue_style('mta-dashboard-fonts', get_template_directory_uri() . '/dashboard/assets/dashboard-fonts.css', [], THEME_VERSION);
 }
 
 function dashboard_page() {

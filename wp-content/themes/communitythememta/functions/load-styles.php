@@ -25,6 +25,7 @@ function load_stylesheet() {
         'daten' => '/assets/css/blocks/daten.css',
         'grusswort' => '/assets/css/blocks/grusswort.css',
         'geschichte' => '/assets/css/blocks/geschichte.css',
+        'videos-external-resources' => '/assets/css/blocks/videos-external-resources.css',
         'posts' => '/assets/css/blocks/post.css',
         'infrastructure' => '/assets/css/blocks/infrastructure.css',
         'team-member' => '/assets/css/blocks/team-member.css',
@@ -50,7 +51,6 @@ function load_variables_in_block_editor() {
 		get_template_directory_uri() . '/assets/css/dynamic-variables.css',
 		[],
 		filemtime( get_template_directory() . '/assets/css/dynamic-variables.css' ),
-        THEME_VERSION
 	);
 }
 add_action('enqueue_block_editor_assets', 'load_variables_in_block_editor');

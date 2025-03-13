@@ -1,0 +1,17 @@
+{
+    "name": "external-resources",
+    "title": "Externe Quellen (iFrames)",
+    "description": "Datenschutzkonforme Einbindung von externen Quellen z.B. iFrames",
+    "category": "media",
+    "icon": "admin-links",
+    "keywords": ["iframe", "html", "extern", "quellen", "google", "entsorgung", "karte"],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "external-resources.php"
+    },
+    "style": [ "file:./external-resources.css" ],
+    "script": [ "file:./external-resources.js" ],
+    "align": "full"
+  }
+
+  

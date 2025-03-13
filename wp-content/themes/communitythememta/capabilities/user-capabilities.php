@@ -224,6 +224,7 @@ function restrict_gutenberg_blocks($allowed_blocks, $editor_context) {
             'acf/terminliste',
             'acf/yt-video',
             'acf/vimeo-video',
+            'acf/external-resources'
         ];
     }
 

@@ -68,6 +68,10 @@ The production environment is running on the `main` branch. When we want to depl
 
 There is no live production environment of MTA. The live production pages are the communitities that are running the theme. 
 
+## Enqueue styles and scripts
+If you enqueue new styles and scripts, use as version number always the global constant from `functions.php` like so `THEME_VERSION`. You do not need to include anything to do that. 
+If you are loading frameworks which were not developed by MTA, please use the current version of the framework as file version.
+
 ## How to update the theme
 We are using the [wp update server](https://github.com/YahnisElsts/wp-update-server?tab=readme-ov-file) to update the theme. You can find the update server [here](https://update-server.morethanads.de/index.php). 
 The theme update can be checked here: [https://update-server.morethanads.de/index.php?action=get_metadata&slug=communitythememta](https://update-server.morethanads.de/index.php?action=get_metadata&slug=communitythememta)
@@ -77,8 +81,8 @@ We have a github action that triggered when a new release on main branch is crea
 
 ### ToDos before creating a new release
 - Update the version number in the `style.css` file
+- Update the version number of the global constant `THEME_VERSION` in the `functions.php` file
 - Create a new release on github (merge development to main branch)
-– Update version number for enqueued scripts and styles in `functions.php`
 - Update all version of enqueued scripts and styles in `functions.php` to be sure that they are updated in the new release
 
 

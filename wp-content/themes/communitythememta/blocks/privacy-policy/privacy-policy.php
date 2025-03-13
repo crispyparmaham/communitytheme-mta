@@ -6,7 +6,6 @@ $phone = get_field('phone_number', 'option');
 $mail = get_field('mail_address', 'option');
 ?>
 <div class="privacy-policy">
-
     <h2>1. Datenschutz auf einen Blick</h2>
     <h3>Allgemeine Hinweise</h3>
     <p>Die folgenden Hinweise geben einen einfachen &Uuml;berblick dar&uuml;ber, was mit Ihren personenbezogenen Daten
@@ -76,14 +75,15 @@ $mail = get_field('mail_address', 'option');
         nicht m&ouml;glich.</p>
     <h3>Hinweis zur verantwortlichen Stelle</h3>
     <p>Die verantwortliche Stelle f&uuml;r die Datenverarbeitung auf dieser Website ist:</p>
+   
     <p>
         <strong> Gemeinde <?= $communityName; ?></strong><br>
         Bürgermeister: <?= $buergermeister; ?><br>
         <?= $zip; ?> <?= $communityName; ?><br>
     </p>
-
     <p>Telefon: <?= $phone; ?><br />
         E-Mail: <?= antispambot($mail); ?></p>
+
     <p>Verantwortliche Stelle ist die nat&uuml;rliche oder juristische Person, die allein oder gemeinsam mit anderen
         &uuml;ber die Zwecke und Mittel der Verarbeitung von personenbezogenen Daten (z.&nbsp;B. Namen, E-Mail-Adressen
         o. &Auml;.) entscheidet.</p>
@@ -269,6 +269,31 @@ $mail = get_field('mail_address', 'option');
         Informationen hierzu erhalten Sie vom Anbieter unter folgendem Link: <a
             href="https://www.dataprivacyframework.gov/participant/5780" target="_blank"
             rel="noopener noreferrer">https://www.dataprivacyframework.gov/participant/5780</a>.</p>
+    <h3>Vimeo ohne Tracking (Do-Not-Track)</h3>
+    <p>Diese Website nutzt Plugins des Videoportals Vimeo. Anbieter ist die Vimeo Inc., 555 West 18th Street, New York,
+        New York 10011, USA.</p>
+    <p>Wenn Sie eine unserer mit Vimeo-Videos ausgestatteten Seiten besuchen, wird eine Verbindung zu den Servern von
+        Vimeo hergestellt. Dabei wird dem Vimeo-Server mitgeteilt, welche unserer Seiten Sie besucht haben. Zudem
+        erlangt Vimeo Ihre IP-Adresse. Wir haben Vimeo jedoch so eingestellt, dass Vimeo Ihre Nutzeraktivit&auml;ten
+        nicht nachverfolgen und keine Cookies setzen wird.</p>
+    <p>Die Nutzung von Vimeo erfolgt im Interesse einer ansprechenden Darstellung unserer Online-Angebote. Dies stellt
+        ein berechtigtes Interesse im Sinne des Art. 6 Abs. 1 lit. f DSGVO dar. Sofern eine entsprechende Einwilligung
+        abgefragt wurde, erfolgt die Verarbeitung ausschlie&szlig;lich auf Grundlage von Art. 6 Abs. 1 lit. a DSGVO; die
+        Einwilligung ist jederzeit widerrufbar.</p>
+    <p>Die Daten&uuml;bertragung in die USA wird auf die Standardvertragsklauseln der EU-Kommission sowie nach Aussage
+        von Vimeo auf &bdquo;berechtigte Gesch&auml;ftsinteressen&ldquo; gest&uuml;tzt. Details finden Sie hier: <a
+            href="https://vimeo.com/privacy" target="_blank" rel="noopener noreferrer">https://vimeo.com/privacy</a>.
+    </p>
+    <p>Weitere Informationen zum Umgang mit Nutzerdaten finden Sie in der Datenschutzerkl&auml;rung von Vimeo unter: <a
+            href="https://vimeo.com/privacy" target="_blank" rel="noopener noreferrer">https://vimeo.com/privacy</a>.
+    </p>
+    <p>Das Unternehmen verf&uuml;gt &uuml;ber eine Zertifizierung nach dem &bdquo;EU-US Data Privacy Framework&ldquo;
+        (DPF). Der DPF ist ein &Uuml;bereinkommen zwischen der Europ&auml;ischen Union und den USA, der die Einhaltung
+        europ&auml;ischer Datenschutzstandards bei Datenverarbeitungen in den USA gew&auml;hrleisten soll. Jedes nach
+        dem DPF zertifizierte Unternehmen verpflichtet sich, diese Datenschutzstandards einzuhalten. Weitere
+        Informationen hierzu erhalten Sie vom Anbieter unter folgendem Link: <a
+            href="https://www.dataprivacyframework.gov/participant/5711" target="_blank"
+            rel="noopener noreferrer">https://www.dataprivacyframework.gov/participant/5711</a>.</p>
     <h3>Google Fonts (lokales Hosting)</h3>
     <p>Diese Seite nutzt zur einheitlichen Darstellung von Schriftarten so genannte Google Fonts, die von Google
         bereitgestellt werden. Die Google Fonts sind lokal installiert. Eine Verbindung zu Servern von Google findet
@@ -277,5 +302,58 @@ $mail = get_field('mail_address', 'option');
             target="_blank" rel="noopener noreferrer">https://developers.google.com/fonts/faq</a> und in der
         Datenschutzerkl&auml;rung von Google: <a href="https://policies.google.com/privacy?hl=de" target="_blank"
             rel="noopener noreferrer">https://policies.google.com/privacy?hl=de</a>.</p>
-
+    <h3>Google Maps</h3>
+    <p>Diese Seite nutzt den Kartendienst Google Maps. Anbieter ist die Google Ireland Limited (&bdquo;Google&ldquo;),
+        Gordon House, Barrow Street, Dublin 4, Irland. Mit Hilfe dieses Dienstes k&ouml;nnen wir Kartenmaterial auf
+        unserer Website einbinden.</p>
+    <p>Zur Nutzung der Funktionen von Google Maps ist es notwendig, Ihre IP-Adresse zu speichern. Diese Informationen
+        werden in der Regel an einen Server von Google in den USA &uuml;bertragen und dort gespeichert. Der Anbieter
+        dieser Seite hat keinen Einfluss auf diese Daten&uuml;bertragung. Wenn Google Maps aktiviert ist, kann Google
+        zum Zwecke der einheitlichen Darstellung der Schriftarten Google Fonts verwenden. Beim Aufruf von Google Maps
+        l&auml;dt Ihr Browser die ben&ouml;tigten Web Fonts in ihren Browsercache, um Texte und Schriftarten korrekt
+        anzuzeigen.</p>
+    <p>Die Nutzung von Google Maps erfolgt im Interesse einer ansprechenden Darstellung unserer Online-Angebote und an
+        einer leichten Auffindbarkeit der von uns auf der Website angegebenen Orte. Dies stellt ein berechtigtes
+        Interesse im Sinne von Art. 6 Abs. 1 lit. f DSGVO dar. Sofern eine entsprechende Einwilligung abgefragt wurde,
+        erfolgt die Verarbeitung ausschlie&szlig;lich auf Grundlage von Art. 6 Abs. 1 lit. a DSGVO und &sect; 25 Abs. 1
+        TDDDG, soweit die Einwilligung die Speicherung von Cookies oder den Zugriff auf Informationen im Endger&auml;t
+        des Nutzers (z.&nbsp;B. Device-Fingerprinting) im Sinne des TDDDG umfasst. Die Einwilligung ist jederzeit
+        widerrufbar.</p>
+    <p>Die Daten&uuml;bertragung in die USA wird auf die Standardvertragsklauseln der EU-Kommission gest&uuml;tzt.
+        Details finden Sie hier: <a href="https://privacy.google.com/businesses/gdprcontrollerterms/" target="_blank"
+            rel="noopener noreferrer">https://privacy.google.com/businesses/gdprcontrollerterms/</a> und <a
+            href="https://privacy.google.com/businesses/gdprcontrollerterms/sccs/" target="_blank"
+            rel="noopener noreferrer">https://privacy.google.com/businesses/gdprcontrollerterms/sccs/</a>.</p>
+    <p>Mehr Informationen zum Umgang mit Nutzerdaten finden Sie in der Datenschutzerkl&auml;rung von Google: <a
+            href="https://policies.google.com/privacy?hl=de" target="_blank"
+            rel="noopener noreferrer">https://policies.google.com/privacy?hl=de</a>.</p>
+    <p>Das Unternehmen verf&uuml;gt &uuml;ber eine Zertifizierung nach dem &bdquo;EU-US Data Privacy Framework&ldquo;
+        (DPF). Der DPF ist ein &Uuml;bereinkommen zwischen der Europ&auml;ischen Union und den USA, der die Einhaltung
+        europ&auml;ischer Datenschutzstandards bei Datenverarbeitungen in den USA gew&auml;hrleisten soll. Jedes nach
+        dem DPF zertifizierte Unternehmen verpflichtet sich, diese Datenschutzstandards einzuhalten. Weitere
+        Informationen hierzu erhalten Sie vom Anbieter unter folgendem Link: <a
+            href="https://www.dataprivacyframework.gov/participant/5780" target="_blank"
+            rel="noopener noreferrer">https://www.dataprivacyframework.gov/participant/5780</a>.</p>
+    <h3>Mapbox</h3>
+    <p>Wir haben Mapbox auf dieser Website eingebunden. Anbieter ist Mapbox, Inc. 740 15th Street NW, 5th Floor,
+        Washington, District of Columbia 20005, USA (nachfolgende &bdquo;Mapbox&ldquo;). Mit Hilfe dieses Dienstes
+        k&ouml;nnen wir Kartenmaterial auf unserer Website einbinden.</p>
+    <p>Zur Nutzung der Funktionen von Mapbox ist es notwendig, Ihre IP-Adresse, Ihre User Agent und noch weitere Daten
+        zu speichern. Diese Informationen werden in der Regel an einen Server von Microsoft in den USA &uuml;bertragen
+        und dort gespeichert. Der Anbieter dieser Seite hat keinen Einfluss auf diese Daten&uuml;bertragung.</p>
+    <p>Dies stellt seitens des Anbieters ein berechtigtes Interesse im Sinne von Art. 6 Abs. 1 lit. f DSGVO dar. Sofern
+        eine entsprechende Einwilligung abgefragt wurde, erfolgt die Verarbeitung ausschlie&szlig;lich auf Grundlage von
+        Art. 6 Abs. 1 lit. a DSGVO und &sect; 25 Abs. 1 TDDDG, soweit die Einwilligung die Speicherung von Cookies oder
+        den Zugriff auf Informationen im Endger&auml;t des Nutzers (z. B. Device-Fingerprinting) im Sinne des TDDDG
+        umfasst. Die Einwilligung ist jederzeit widerrufbar.</p>
+    <p>Weitere Details entnehmen Sie der Datenschutzerkl&auml;rung des Anbieters unter <a
+            href="https://www.mapbox.com/legal/privacy" target="_blank"
+            rel="noopener noreferrer">https://www.mapbox.com/legal/privacy</a>.</p>
+    <p>Das Unternehmen verf&uuml;gt &uuml;ber eine Zertifizierung nach dem &bdquo;EU-US Data Privacy Framework&ldquo;
+        (DPF). Der DPF ist ein &Uuml;bereinkommen zwischen der Europ&auml;ischen Union und den USA, der die Einhaltung
+        europ&auml;ischer Datenschutzstandards bei Datenverarbeitungen in den USA gew&auml;hrleisten soll. Jedes nach
+        dem DPF zertifizierte Unternehmen verpflichtet sich, diese Datenschutzstandards einzuhalten. Weitere
+        Informationen hierzu erhalten Sie vom Anbieter unter folgendem Link: <a
+            href="https://www.dataprivacyframework.gov/participant/5640" target="_blank"
+            rel="noopener noreferrer">https://www.dataprivacyframework.gov/participant/5640</a>.</p>
 </div>

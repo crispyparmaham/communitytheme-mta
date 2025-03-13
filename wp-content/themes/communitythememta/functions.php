@@ -89,6 +89,13 @@ function theme_enqueue_scripts() {
         THEME_VERSION,
         true
     );
+    wp_enqueue_script(
+        'external-resources-js',
+        get_template_directory_uri() . '/assets/js/external-resources.js',
+        [],
+        THEME_VERSION,
+        true
+    );
 
     wp_enqueue_style(
         'dashicons-frontend',
@@ -240,6 +247,7 @@ function register_blocks() {
     register_block_type(__DIR__ . '/blocks/infrastructure'); 
     register_block_type(__DIR__ . '/blocks/youtube-video'); 
     register_block_type(__DIR__ . '/blocks/vimeo-video'); 
+    register_block_type(__DIR__ . '/blocks/external-resources'); 
 }
 add_action('init', 'register_blocks');
 
@@ -298,6 +306,7 @@ require_once(get_template_directory() . '/functions/breadcrumbs.php');
 require_once(get_template_directory() . '/functions/termin-functionality.php');
 require_once(get_template_directory() . '/functions/ma-youtube-videos.php');
 require_once(get_template_directory() . '/functions/ma-vimeo-videos.php');
+require_once(get_template_directory() . '/functions/ma-external-resources.php');
 require_once(get_template_directory() . '/capabilities/user-capabilities.php');
 require_once(get_template_directory() . '/capabilities/custom-dashboard.php');
 
@@ -594,3 +603,35 @@ function track_single_page_views() {
 }
 add_action('wp_head', 'track_single_page_views');
 
+
+
+/* -------------------------------------------------------------- */
+/* -------------------------------------------------------------- */
+/* -------------------------------------------------------------- */
+// ===  Block all iframes === //
+/* -------------------------------------------------------------- */
+/* -------------------------------------------------------------- */
+/* -------------------------------------------------------------- */
+// function block_iframes_with_consent($content) {
+//     $pattern = '/<iframe.*?src=["\'](.*?)["\'].*?<\/iframe>/is';
+//     preg_match_all($pattern, $content, $matches);
+
+//     foreach ($matches[0] as $index => $iframe) {
+//         $src = esc_url($matches[1][$index]); // Extract and sanitize the iframe source
+
+//         $consent_text = "Um den Inhalt von <strong>$src</strong> zu laden, musst du deine Zustimmung erteilen.";
+//         $consent_wrapped = '[ma-content-consent message="' . esc_attr($consent_text) . '"]' . $iframe . '[/ma-content-consent]';
+
+//         // Replace iframe with the wrapped shortcode
+//         $content = str_replace($iframe, $consent_wrapped, $content);
+//     }
+
+//     // Ensure shortcodes are executed in all content areas
+//     return do_shortcode($content);
+// }
+
+// // Apply filter to posts, widgets, and excerpts
+// add_filter('the_content', 'block_iframes_with_consent'); 
+// add_filter('widget_text', 'block_iframes_with_consent');  
+// add_filter('widget_text_content', 'block_iframes_with_consent'); 
+// add_filter('the_excerpt', 'block_iframes_with_consent');    
