@@ -40,7 +40,7 @@
 .accordion-body {
   display: flex;
   background-color: var(--background-05);
-  font-size: 1rem;
+  font-size: var(--body-text-size);
 }
 
 .accordion-body .image-description-container {
@@ -68,7 +68,7 @@
 }
 
 .contact-wrap p {
-  font-size: 1rem;
+  font-size: var(--body-text-size);
   line-height: 1.6;
   margin: 0.3125rem 0;
 }
@@ -120,6 +120,7 @@
 
 .social-link-wrap {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .social-link {
@@ -148,7 +149,7 @@
   }
 
   .accordion-header h4 {
-    font-size: 1rem;
+    font-size: var(--body-text-size);
   }
 
   .contact-wrap {

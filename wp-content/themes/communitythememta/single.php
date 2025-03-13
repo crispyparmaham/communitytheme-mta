@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<main class="main-container">
+<main class="main-container" aria-label="Haupt Inhaltsbereich">
 	<section class="header-img-wrap">
 		<?php if ( has_post_thumbnail() ) : ?>
 			<?php $headerImage = get_the_post_thumbnail_url( null, 'full' ); ?>

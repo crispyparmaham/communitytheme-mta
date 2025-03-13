@@ -3,7 +3,7 @@ get_header();
 ?>
 
 <?php $headerImage = get_the_post_thumbnail_url(null, 'full'); ?>
-<main class="main-container">
+<main class="main-container" aria-label="Haupt Inhaltsbereich">
 	<!-- Termin-Header: Bild und Titel -->
 	<section class="header-img-wrap header-img-wrap-termin">
 		<?php if ($headerImage): ?>

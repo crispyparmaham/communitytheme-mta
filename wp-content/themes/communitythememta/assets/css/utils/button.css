@@ -1,7 +1,7 @@
 .wp-block-button__link {
   background-color: var(--accent-01);
   font-family: var(--font-family);
-  font-size: 1rem;
+  font-size: var(--body-text-size);
   border: 0;
   transition: ease all 400ms;
   border-radius: var(--border-radius-s);

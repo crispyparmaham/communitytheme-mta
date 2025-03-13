@@ -22,16 +22,22 @@ $gemeindeName = get_field('gemeindename', 'option');
 
 <body <?php body_class(); ?>>
 
-	<header class="main-header">
+	<header class="main-header" aria-label="Kopfbereich">
 		<div class="top-header-row">
 			<div class="top-header-inner-wrap">
 				<span class="header-greeting">
 					Willkommen in der Gemeinde
 					<span><?php echo $gemeindeName; ?></span>
 				</span>
+				<div class="top-header-inner-wrap__right">
+				<?php
+				get_template_part('components/accessibility-select');
+				?>
+				
 				<?php
 				get_template_part('components/top-menu-header');
 				?>
+				</div>
 			</div>
 		</div>
 		<div class="header-inner-wrap">

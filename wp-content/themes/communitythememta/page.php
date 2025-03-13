@@ -8,7 +8,7 @@
 ?>
 
 
-<main class="main-container">
+<main class="main-container" aria-label="Haupt Inhaltsbereich">
 	<section class="header-img-wrap">
 		<?php if ( $slider && !empty($slider) ) : ?>
 			<?php get_template_part( 'components/top-slider' ); ?>

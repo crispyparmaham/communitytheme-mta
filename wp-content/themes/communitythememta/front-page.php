@@ -6,7 +6,7 @@ $slider = $page_slider ? $page_slider : $main_slider;
 
 ?>
 
-<main class="main-container">
+<main class="main-container" aria-label="Haupt Inhaltsbereich"> 
 	<?php if ($slider && !empty($slider)): ?>
 	<section id="start-header" class="header-img-wrap" role="banner">
 			<?php get_template_part('components/top-slider'); ?>

@@ -24,7 +24,7 @@
   flex-direction: row;
   align-items: flex-start;
   gap: 0.5rem;
-  font-size: 1rem;
+  font-size: var(--body-text-size);
   color: var(--foreground-03);
   margin-top: 0.5rem;
 }

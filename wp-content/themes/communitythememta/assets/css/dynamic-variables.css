@@ -1,59 +1,57 @@
-
 :root {
-    /* PRIMARY COLORS */
-    --color-foreground-values: 0, 0%, 0%;
-    --color-foreground: hsl(0, 0%, 0%);
-    --color-background-values: 0, 0%, 60.6%;
-    --color-background: hsl(0, 0%, 60.6%);
-    --color-accent-values: 0, 71%, 38.6%;
-    --color-accent: hsl(0, 71%, 38.6%);
+  /* PRIMARY COLORS */
+  --color-foreground-values: 0, 0%, 0%;
+  --color-foreground: hsl(0, 0%, 0%);
+  --color-background-values: 0, 0%, 60.6%;
+  --color-background: hsl(0, 0%, 60.6%);
+  --color-accent-values: 0, 71%, 38.6%;
+  --color-accent: hsl(0, 71%, 38.6%);
 
-    /* COLOR SHADES */
-    --foreground-01-values: 0, 0%, 0%;
-    --foreground-02-values: 0, 0%, 3.6%;
-    --foreground-03-values: 0, 0%, 12.6%;
-    --foreground-04-values: 0, 0%, 21.6%;
-    --foreground-05-values: 0, 0%, 30.6%;
-    --foreground-01: hsl(0, 0%, 0%);
-    --foreground-02: hsl(0, 0%, 3.6%);
-    --foreground-03: hsl(0, 0%, 12.6%);
-    --foreground-04: hsl(0, 0%, 21.6%);
-    --foreground-05: hsl(0, 0%, 30.6%);
+  /* COLOR SHADES */
+  --foreground-01-values: 0, 0%, 0%;
+  --foreground-02-values: 0, 0%, 3.6%;
+  --foreground-03-values: 0, 0%, 12.6%;
+  --foreground-04-values: 0, 0%, 21.6%;
+  --foreground-05-values: 0, 0%, 30.6%;
+  --foreground-01: hsl(0, 0%, 0%);
+  --foreground-02: hsl(0, 0%, 3.6%);
+  --foreground-03: hsl(0, 0%, 12.6%);
+  --foreground-04: hsl(0, 0%, 21.6%);
+  --foreground-05: hsl(0, 0%, 30.6%);
 
-    --background-01-values: 0, 0%, 69.6%;
-    --background-02-values: 0, 0%, 78.6%;
-    --background-03-values: 0, 0%, 87.6%;
-    --background-04-values: 0, 0%, 96.6%;
-    --background-05-values: 0, 0%, 100%;
-    --background-01: hsl(0, 0%, 69.6%);
-    --background-02: hsl(0, 0%, 78.6%);
-    --background-03: hsl(0, 0%, 87.6%);
-    --background-04: hsl(0, 0%, 96.6%);
-    --background-05: hsl(0, 0%, 100%);
+  --background-01-values: 0, 0%, 69.6%;
+  --background-02-values: 0, 0%, 78.6%;
+  --background-03-values: 0, 0%, 87.6%;
+  --background-04-values: 0, 0%, 96.6%;
+  --background-05-values: 0, 0%, 100%;
+  --background-01: hsl(0, 0%, 69.6%);
+  --background-02: hsl(0, 0%, 78.6%);
+  --background-03: hsl(0, 0%, 87.6%);
+  --background-04: hsl(0, 0%, 96.6%);
+  --background-05: hsl(0, 0%, 100%);
 
-    --accent-01-values: 0, 71%, 47.6%;
-    --accent-02-values: 0, 71%, 56.6%;
-    --accent-03-values: 0, 71%, 65.6%;
-    --accent-04-values: 0, 71%, 74.6%;
-    --accent-05-values: 0, 71%, 83.6%;
-    --accent-01: hsl(0, 71%, 47.6%);
-    --accent-02: hsl(0, 71%, 56.6%);
-    --accent-03: hsl(0, 71%, 65.6%);
-    --accent-04: hsl(0, 71%, 74.6%);
-    --accent-05: hsl(0, 71%, 83.6%);
-    
-    /* FONT SIZES */
-    --headline-xs: clamp(18px, 3vw, 21.6px);
-    --headline-s: clamp(21.6px, 3.5vw, 25.2px);
-    --headline-m: clamp(28.8px, 4vw, 36px);
-    --headline-l: clamp(36px, 5vw, 46.8px);
-    --headline-xl: clamp(39.6px, 6vw, 54px);
-    --headline-xxl: clamp(46.8px, 8vw, 57.6px);
-    --body-text-size: 18px;
+  --accent-01-values: 0, 71%, 47.6%;
+  --accent-02-values: 0, 71%, 56.6%;
+  --accent-03-values: 0, 71%, 65.6%;
+  --accent-04-values: 0, 71%, 74.6%;
+  --accent-05-values: 0, 71%, 83.6%;
+  --accent-01: hsl(0, 71%, 47.6%);
+  --accent-02: hsl(0, 71%, 56.6%);
+  --accent-03: hsl(0, 71%, 65.6%);
+  --accent-04: hsl(0, 71%, 74.6%);
+  --accent-05: hsl(0, 71%, 83.6%);
 
-    /* GRID WIDTH */
-    --inner-content-width: 1400px;
-    --inner-header-width: 1400px;
-    --inner-footer-width: 1400px;
+  /* FONT SIZES */
+  --body-text-size: 1rem;
+  --headline-xs: clamp(var(--body-text-size), 3vw, calc(var(--body-text-size) * 1.2));
+  --headline-s: clamp(calc(var(--body-text-size) * 1.2), 3.5vw, calc(var(--body-text-size) * 1.4));
+  --headline-m: clamp(calc(var(--body-text-size) * 1.6), 4vw, calc(var(--body-text-size) * 2));
+  --headline-l: clamp(calc(var(--body-text-size) * 2), 5vw, calc(var(--body-text-size) * 2.6));
+  --headline-xl: clamp(calc(var(--body-text-size) * 2.2), 6vw, calc(var(--body-text-size) * 3.16666));
+  --headline-xxl: clamp(calc(var(--body-text-size) * 2.6), 8vw, calc(var(--body-text-size) * 3.2));
 
+  /* GRID WIDTH */
+  --inner-content-width: 1400px;
+  --inner-header-width: 1400px;
+  --inner-footer-width: 1400px;
 }

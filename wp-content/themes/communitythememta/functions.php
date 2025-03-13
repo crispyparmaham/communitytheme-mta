@@ -90,8 +90,8 @@ function theme_enqueue_scripts() {
         true
     );
     wp_enqueue_script(
-        'external-resources-js',
-        get_template_directory_uri() . '/assets/js/external-resources.js',
+        'accessibility-js',
+        get_template_directory_uri() . '/assets/js/accessibility.js',
         [],
         THEME_VERSION,
         true
@@ -612,26 +612,28 @@ add_action('wp_head', 'track_single_page_views');
 /* -------------------------------------------------------------- */
 /* -------------------------------------------------------------- */
 /* -------------------------------------------------------------- */
-// function block_iframes_with_consent($content) {
-//     $pattern = '/<iframe.*?src=["\'](.*?)["\'].*?<\/iframe>/is';
-//     preg_match_all($pattern, $content, $matches);
 
-//     foreach ($matches[0] as $index => $iframe) {
-//         $src = esc_url($matches[1][$index]); // Extract and sanitize the iframe source
 
-//         $consent_text = "Um den Inhalt von <strong>$src</strong> zu laden, musst du deine Zustimmung erteilen.";
-//         $consent_wrapped = '[ma-content-consent message="' . esc_attr($consent_text) . '"]' . $iframe . '[/ma-content-consent]';
+function block_iframes_with_consent($content) {
+    $pattern = '/<iframe.*?src=["\'](.*?)["\'].*?<\/iframe>/is';
+    preg_match_all($pattern, $content, $matches);
 
-//         // Replace iframe with the wrapped shortcode
-//         $content = str_replace($iframe, $consent_wrapped, $content);
-//     }
+    foreach ($matches[0] as $index => $iframe) {
+        $src = esc_url($matches[1][$index]); // Extract and sanitize the iframe source
 
-//     // Ensure shortcodes are executed in all content areas
-//     return do_shortcode($content);
-// }
+        $consent_text = "Um den Inhalt von <strong>$src</strong> zu laden, musst du deine Zustimmung erteilen.";
+        $consent_wrapped = '[ma-content-consent message="' . esc_attr($consent_text) . '"]' . $iframe . '[/ma-content-consent]';
 
-// // Apply filter to posts, widgets, and excerpts
-// add_filter('the_content', 'block_iframes_with_consent'); 
-// add_filter('widget_text', 'block_iframes_with_consent');  
-// add_filter('widget_text_content', 'block_iframes_with_consent'); 
-// add_filter('the_excerpt', 'block_iframes_with_consent');    
+        // Replace iframe with the wrapped shortcode
+        $content = str_replace($iframe, $consent_wrapped, $content);
+    }
+
+    // Ensure shortcodes are executed in all content areas
+    return do_shortcode($content);
+}
+
+// Apply filter to posts, widgets, and excerpts
+add_filter('the_content', 'block_iframes_with_consent'); 
+add_filter('widget_text', 'block_iframes_with_consent');  
+add_filter('widget_text_content', 'block_iframes_with_consent'); 
+add_filter('the_excerpt', 'block_iframes_with_consent');    

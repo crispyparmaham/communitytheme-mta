@@ -64,6 +64,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
   z-index: 10;
 }
 
@@ -119,7 +121,7 @@
 .main-header nav.head-menu ul li a {
   text-decoration: none;
   color: var(--foreground-01);
-  font-size: 1rem;
+  font-size: var(--body-text-size);
   opacity: 0.75;
 }
 .main-header nav.head-menu ul li a:hover,
@@ -185,8 +187,8 @@
   display: none;
   flex-direction: column;
   justify-content: space-between;
-  width: 30px;
-  height: 22px;
+  width: 42px;
+  height: 24px;
   background: transparent;
   border: none;
   cursor: pointer;
@@ -393,12 +395,16 @@
   width: 100%;
   margin: 0 auto;
   padding: 0 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .top-header-row .header-greeting {
   color: rgba(255, 255, 255, 0.8);
   border-bottom: none;
-  font-size: 1rem;
+  font-size: var(--body-text-size);
   margin: 0;
 }
 

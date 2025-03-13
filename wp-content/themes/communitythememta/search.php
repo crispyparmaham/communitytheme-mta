@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<main class="main-container">
+<main class="main-container" aria-label="Haupt Inhaltsbereich">
     <!-- Termin-Header: Bild und Titel -->
     <section class="header-img-wrap">
         <?php if (has_post_thumbnail()): ?>
