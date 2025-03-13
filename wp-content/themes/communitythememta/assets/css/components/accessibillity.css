@@ -30,3 +30,84 @@
 .accessibility-select-wrapper .acc-button:hover > img {
   transform: scale(1.1);
 }
+
+.contrast-bw {
+  --foreground: 0, 0%, 0%;
+  --background: 0, 0%, 100%;
+  --borders: 0, 0%, 50%;
+  --accent: 0, 0%, 0%;
+
+  --foreground-01-values: var(--foreground);
+  --foreground-02-values: var(--foreground);
+  --foreground-03-values: var(--foreground);
+  --foreground-04-values: var(--foreground);
+  --foreground-05-values: var(--foreground);
+
+  --background-01-values: var(--background);
+  --background-02-values: var(--background);
+  --background-03-values: var(--background);
+  --background-04-values: var(--background);
+  --background-05-values: var(--background);
+
+  --color-accent-values: var(--accent);
+  --accent-01-values: var(--accent);
+  --accent-02-values: var(--accent);
+  --accent-03-values: var(--accent);
+  --accent-04-values: var(--accent);
+  --accent-05-values: var(--accent);
+
+  --accent-contrast-values: 0deg, 0%, 100%;
+}
+
+.contrast-wb {
+  --foreground: 0, 0%, 100%;
+  --background: 0, 0%, 0%;
+  --borders: 0, 0%, 80%;
+  --accent: 60deg 100% 50%;
+
+  --color-foreground-values: var(--foreground);
+  --foreground-01-values: var(--foreground);
+  --foreground-02-values: var(--foreground);
+  --foreground-03-values: var(--foreground);
+  --foreground-04-values: var(--foreground);
+  --foreground-05-values: var(--foreground);
+
+  --color-background-values: var(--background);
+  --background-01-values: var(--background);
+  --background-02-values: var(--background);
+  --background-03-values: var(--background);
+  --background-04-values: var(--background);
+  --background-05-values: var(--background);
+
+  --color-accent-values: var(--accent);
+  --accent-01-values: var(--accent);
+  --accent-02-values: var(--accent);
+  --accent-03-values: var(--accent);
+  --accent-04-values: var(--accent);
+  --accent-05-values: var(--accent);
+
+  --accent-contrast-values: 0deg, 0%, 0%;
+}
+
+/*Black & White Mode*/
+.contrast-bw .right-content-column,
+.contrast-bw .left-content-column,
+.contrast-bw .accordion-item,
+.contrast-bw .post-item,
+.contrast-bw .termin-item,
+.contrast-bw .sidebar-block,
+.contrast-bw .search-field,
+/*White & Black Mode*/
+.contrast-wb .right-content-column,
+.contrast-wb .left-content-column,
+.contrast-wb .accordion-item,
+.contrast-wb .post-item, 
+.contrast-wb .termin-item ,
+.contrast-wb .sidebar-block,
+.contrast-wb .search-field {
+  border: 2px solid hsl(var(--borders)) !important;
+}
+
+.contrast-wb .accessibility-select-wrapper .acc-button > img {
+  filter: invert(0%) sepia(0%) saturate(16%) hue-rotate(309deg) brightness(0);
+}

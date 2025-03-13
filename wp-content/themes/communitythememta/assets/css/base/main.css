@@ -24,6 +24,7 @@ body {
   background-color: var(--background-04);
   margin: 0;
   overflow-x: hidden;
+  color: var(--foreground-01);
 }
 
 @view-transition {

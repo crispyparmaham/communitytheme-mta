@@ -15,7 +15,6 @@
   margin: 0 auto;
   padding: 2.5rem 1.5rem;
   max-width: var(--inner-content-width);
-  color: var(--font-color-text);
 }
 
 .inner-max-width {

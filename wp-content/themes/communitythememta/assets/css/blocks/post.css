@@ -80,7 +80,7 @@
 
 .post-content .post-link {
   background-color: var(--accent-01);
-  color: #fff;
+  color: var(--accent-contrast);
   font-size: 0.9rem;
   padding: 0.375rem 0.75rem;
   margin-top: 1rem;

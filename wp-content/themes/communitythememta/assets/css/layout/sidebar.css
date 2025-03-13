@@ -32,6 +32,7 @@
 }
 
 .sidebar-heading {
+  color: var(--foreground-01);
   font-size: var(--headline-xs);
   padding-bottom: 0.625rem;
   border-bottom: 1px solid var(--background-03);

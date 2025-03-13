@@ -1,5 +1,6 @@
 .wp-block-button__link {
   background-color: var(--accent-01);
+  color: var(--accent-contrast);
   font-family: var(--font-family);
   font-size: var(--body-text-size);
   border: 0;

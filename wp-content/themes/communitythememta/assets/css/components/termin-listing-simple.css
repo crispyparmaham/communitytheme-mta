@@ -46,6 +46,6 @@
 }
 
 .termin-listing-simple .termin-link:hover {
-  background-color: #000;
-  color: #fff;
+  background-color: var(--accent-01);
+  color: var(--accent-contrast);
 }

@@ -31,4 +31,5 @@
   display: block;
   margin-left: auto;
   margin-right: auto;
+  color: var(--foreground-01);
 }

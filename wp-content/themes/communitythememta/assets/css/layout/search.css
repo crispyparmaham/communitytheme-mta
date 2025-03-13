@@ -22,6 +22,8 @@
   width: 260px;
   font-family: var(--font-family-text);
   transition: all 0.3s ease;
+  background-color: var(--background-05);
+  color: var(--foreground-01);
 }
 
 .search-field:focus {
@@ -31,6 +33,7 @@
 
 .search-field::placeholder {
   font-family: var(--font-family-text);
+  color: var(--foreground-01);
 }
 
 input[type='search' i]::-webkit-search-cancel-button {

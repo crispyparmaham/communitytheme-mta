@@ -6,20 +6,7 @@ class AccessibilityControls {
         this.defaultFontSize = 18; // Default font size
         this.fontSizeVar = "--body-text-size";
 
-        this.contrastModes = {
-            "contrast-bw": {
-                "--color-background": "hsl(0, 0%, 0%)",
-                "--color-foreground": "hsl(0, 0%, 100%)"
-            },
-            "contrast-wb": {
-                "--color-background": "hsl(0, 0%, 100%)",
-                "--color-foreground": "hsl(0, 0%, 0%)"
-            },
-            "contrast-reset": {
-                "--color-background": "hsl(0, 0%, 60.6%)",
-                "--color-foreground": "hsl(0, 0%, 0%)"
-            }
-        };
+        this.contrastClasses = ["contrast-bw", "contrast-wb"]; // Defined contrast classes
 
         this.init();
     }
@@ -49,11 +36,13 @@ class AccessibilityControls {
     }
 
     setContrast(mode) {
-        if (this.contrastModes[mode]) {
-            for (let [key, value] of Object.entries(this.contrastModes[mode])) {
-                document.documentElement.style.setProperty(key, value);
-            }
+        document.documentElement.classList.remove(...this.contrastClasses); // Remove existing contrast classes
+
+        if (mode !== "contrast-reset") {
+            document.documentElement.classList.add(mode);
             localStorage.setItem("contrastMode", mode);
+        } else {
+            localStorage.removeItem("contrastMode"); // Reset contrast setting
         }
     }
 
@@ -64,8 +53,8 @@ class AccessibilityControls {
         }
 
         const savedContrastMode = localStorage.getItem("contrastMode");
-        if (savedContrastMode && this.contrastModes[savedContrastMode]) {
-            this.setContrast(savedContrastMode);
+        if (savedContrastMode && this.contrastClasses.includes(savedContrastMode)) {
+            document.documentElement.classList.add(savedContrastMode);
         }
     }
 }

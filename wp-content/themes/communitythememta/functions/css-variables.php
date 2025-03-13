@@ -61,15 +61,39 @@ function hex_to_hsl( $hex ) {
     return [$h, $s, $l]; // Rückgabe als Array
 }
 
-// === FUNCTION TO GENERATE HSL SHADES === //
+/* === FUNCTION TO GENERATE HSL SHADES === */
+// function generate_hsl_shades($h, $s, $l) {
+//     $shades = [];
+//     for ($i = 1; $i <= 6; $i++) {
+//         $newL = min(100, max(0, $l + ($i - 2.6) * 9)); // Schattierungen zwischen 0% und 100%
+//         $shades[] = "{$h}, {$s}%, {$newL}%";
+//     }
+//     return $shades;
+// }
+
 function generate_hsl_shades($h, $s, $l) {
     $shades = [];
+
     for ($i = 1; $i <= 6; $i++) {
-        $newL = min(100, max(0, $l + ($i - 2.6) * 9)); // Schattierungen zwischen 0% und 100%
+        // Dynamic factor based on the initial lightness
+        if ($l > 80) {
+            $factor = 6; // For very light colors, smaller adjustments
+        } elseif ($l > 50) {
+            $factor = 9; // Mid-range colors get standard adjustments
+        } else {
+            $factor = 12; // Darker colors get stronger changes
+        }
+
+        // Apply a non-linear transformation
+        $adjustment = ($i - 3) * $factor;
+        $newL = min(98, max(5, $l + $adjustment)); // Keep within 5%-98% range
+
         $shades[] = "{$h}, {$s}%, {$newL}%";
     }
+
     return $shades;
 }
+
 
 // === GENERATE DYNAMIC CSS === //
 function generate_dynamic_css() {
@@ -85,15 +109,18 @@ function generate_dynamic_css() {
     $primaryColorHex = get_field( 'foreground_color', 'option' );
     $secondaryColorHex = get_field( 'background_color', 'option' );
     $tertiaryColorHex = get_field( 'accent_color', 'option' );
+    $tertiaryColorContrastHex = get_field( 'accent_color_contrast', 'option' );
 
     // Sicherstellen, dass es sich um gültige Hex-Werte handelt
     $primaryColorHex = is_string( $primaryColorHex ) ? $primaryColorHex : "#000000";
     $secondaryColorHex = is_string( $secondaryColorHex ) ? $secondaryColorHex : "#FFFFFF";
-    $tertiaryColorHex = is_string( $tertiaryColorHex ) ? $tertiaryColorHex : "#CCCCCC";
+    $tertiaryColorHex = is_string( $tertiaryColorHex ) ? $tertiaryColorHex : "#3311FF";
+    $tertiaryColorContrastHex = is_string( $tertiaryColorContrastHex ) ? $tertiaryColorContrastHex : "#FFFFFF";
 
     $primaryColorHSL = hex_to_hsl( $primaryColorHex );
     $secondaryColorHSL = hex_to_hsl( $secondaryColorHex );
     $tertiaryColorHSL = hex_to_hsl( $tertiaryColorHex );
+    $teriaryColorContrastHSL = hex_to_hsl( $tertiaryColorContrastHex );
 
     $primaryShades = generate_hsl_shades($primaryColorHSL[0], $primaryColorHSL[1], $primaryColorHSL[2]);
     $secondaryShades = generate_hsl_shades($secondaryColorHSL[0], $secondaryColorHSL[1], $secondaryColorHSL[2]);
@@ -101,14 +128,7 @@ function generate_dynamic_css() {
 
     // === FONT SETTINGS === //
     $bodyText = get_field( 'body_text', 'option' ) ? get_field( 'body_text', 'option' ) : 18;
-
-    // Dynamische Überschrift-Größen basierend auf bodyText
-    $headlineXS = "clamp(" . ( $bodyText * 1 ) . "px, 3vw, " . ( $bodyText * 1.2 ) . "px)";
-    $headlineS = "clamp(" . ( $bodyText * 1.2 ) . "px, 3.5vw, " . ( $bodyText * 1.4 ) . "px)";
-    $headlineM = "clamp(" . ( $bodyText * 1.6 ) . "px, 4vw, " . ( $bodyText * 2 ) . "px)";
-    $headlineL = "clamp(" . ( $bodyText * 2 ) . "px, 5vw, " . ( $bodyText * 2.6 ) . "px)";
-    $headlineXL = "clamp(" . ( $bodyText * 2.2 ) . "px, 6vw, " . ( $bodyText * 3 ) . "px)";
-    $headlineXXL = "clamp(" . ( $bodyText * 2.6 ) . "px, 8vw, " . ( $bodyText * 3.2 ) . "px)";
+   
 
 
     // === BUILD CSS CONTENT === //
@@ -116,11 +136,11 @@ function generate_dynamic_css() {
 :root {
     /* PRIMARY COLORS */
     --color-foreground-values: {$primaryShades[0]};
-    --color-foreground: hsl({$primaryShades[0]});
+    --color-foreground: hsl(var(--color-foreground-values));
     --color-background-values: {$secondaryShades[0]};
-    --color-background: hsl({$secondaryShades[0]});
+    --color-background: hsl(var(--color-background-values));
     --color-accent-values: {$tertiaryShades[0]};
-    --color-accent: hsl({$tertiaryShades[0]});
+    --color-accent: hsl(var(--color-accent-values));
 
     /* COLOR SHADES */
     --foreground-01-values: {$primaryShades[1]};
@@ -128,48 +148,55 @@ function generate_dynamic_css() {
     --foreground-03-values: {$primaryShades[3]};
     --foreground-04-values: {$primaryShades[4]};
     --foreground-05-values: {$primaryShades[5]};
-    --foreground-01: hsl({$primaryShades[1]});
-    --foreground-02: hsl({$primaryShades[2]});
-    --foreground-03: hsl({$primaryShades[3]});
-    --foreground-04: hsl({$primaryShades[4]});
-    --foreground-05: hsl({$primaryShades[5]});
+    --foreground-01: hsl(var(--foreground-01-values));
+    --foreground-02: hsl(var(--foreground-02-values));
+    --foreground-03: hsl(var(--foreground-03-values));
+    --foreground-04: hsl(var(--foreground-04-values));
+    --foreground-05: hsl(var(--foreground-05-values));
 
     --background-01-values: {$secondaryShades[1]};
     --background-02-values: {$secondaryShades[2]};
     --background-03-values: {$secondaryShades[3]};
     --background-04-values: {$secondaryShades[4]};
     --background-05-values: {$secondaryShades[5]};
-    --background-01: hsl({$secondaryShades[1]});
-    --background-02: hsl({$secondaryShades[2]});
-    --background-03: hsl({$secondaryShades[3]});
-    --background-04: hsl({$secondaryShades[4]});
-    --background-05: hsl({$secondaryShades[5]});
+    --background-01: hsl(var(--background-01-values));
+    --background-02: hsl(var(--background-02-values));
+    --background-03: hsl(var(--background-03-values));
+    --background-04: hsl(var(--background-04-values));
+    --background-05: hsl(var(--background-05-values));
 
     --accent-01-values: {$tertiaryShades[1]};
     --accent-02-values: {$tertiaryShades[2]};
     --accent-03-values: {$tertiaryShades[3]};
     --accent-04-values: {$tertiaryShades[4]};
     --accent-05-values: {$tertiaryShades[5]};
-    --accent-01: hsl({$tertiaryShades[1]});
-    --accent-02: hsl({$tertiaryShades[2]});
-    --accent-03: hsl({$tertiaryShades[3]});
-    --accent-04: hsl({$tertiaryShades[4]});
-    --accent-05: hsl({$tertiaryShades[5]});
+    --accent-01: hsl(var(--accent-01-values));
+    --accent-02: hsl(var(--accent-02-values));
+    --accent-03: hsl(var(--accent-03-values));
+    --accent-04: hsl(var(--accent-04-values));
+    --accent-05: hsl(var(--accent-05-values));
+
+    --accent-contrast-values: {$teriaryColorContrastHSL[0]}deg, {$teriaryColorContrastHSL[1]}%, {$teriaryColorContrastHSL[2]}%; 
+    --accent-contrast: hsl(var(--accent-contrast-values));
     
     /* FONT SIZES */
-    --headline-xs: {$headlineXS};
-    --headline-s: {$headlineS};
-    --headline-m: {$headlineM};
-    --headline-l: {$headlineL};
-    --headline-xl: {$headlineXL};
-    --headline-xxl: {$headlineXXL};
     --body-text-size: {$bodyText}px;
+    --headline-xs: clamp(var(--body-text-size), 3vw, calc(var(--body-text-size) * 1.2));
+    --headline-s: clamp(calc(var(--body-text-size) * 1.2), 3.5vw, calc(var(--body-text-size) * 1.4));
+    --headline-m: clamp(calc(var(--body-text-size) * 1.6), 4vw, calc(var(--body-text-size) * 2));
+    --headline-l: clamp(calc(var(--body-text-size) * 2), 5vw, calc(var(--body-text-size) * 2.6));
+    --headline-xl: clamp(calc(var(--body-text-size) * 2.2), 6vw, calc(var(--body-text-size) * 3.16666));
+    --headline-xxl: clamp(calc(var(--body-text-size) * 2.6), 8vw, calc(var(--body-text-size) * 3.2));
 
     /* GRID WIDTH */
     --inner-content-width: {$innerContentWidth};
     --inner-header-width: {$innerHeaderWidth};
     --inner-footer-width: {$innerFooterWidth};
 
+    /* Border RADIUS */
+    --border-radius-s: 4px;
+    --border-radius-m: 6px;
+    --border-radius-l: 10px;
 }";
 
     // === WRITE CSS TO FILE === //

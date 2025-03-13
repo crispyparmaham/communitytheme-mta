@@ -1,10 +1,5 @@
 :root {
-  --border-radius-s: 4px;
-  --border-radius-m: 6px;
-  --border-radius-l: 10px;
-
   /*FONTS*/
-
   --font-family-heading: 'Fira Sans', sans-serif;
   --font-family-text: 'Fira Sans', sans-serif;
   --font-weight-text: 400;
