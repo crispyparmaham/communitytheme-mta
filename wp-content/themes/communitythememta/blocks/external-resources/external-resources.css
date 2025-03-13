@@ -1,5 +1,5 @@
 .external-resources-embed .ma-content-consent-notice .ma-content-consent__text {
-  font-size: 1rem !important;
+  font-size: calc(var(--body-text-size) * 1) !important;
   margin-top: 0;
 }
 
@@ -27,7 +27,7 @@
   text-align: center;
   margin-top: 1rem;
   margin-bottom: 2rem;
-  font-size: 0.82rem;
+  font-size: calc(var(--body-text-size) * 0.82);
   display: block;
   margin-left: auto;
   margin-right: auto;

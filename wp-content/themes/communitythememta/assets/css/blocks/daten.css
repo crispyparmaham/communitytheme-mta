@@ -35,12 +35,12 @@
 }
 
 .data-item .label {
-  font-size: 1.25rem;
+  font-size: calc(var(--body-text-size) * 1.25);
 }
 
 .daten .value {
   font-weight: bold;
-  font-size: 2rem;
+  font-size: var(--headline-m);
   position: relative;
   margin-left: 2.5rem;
 }

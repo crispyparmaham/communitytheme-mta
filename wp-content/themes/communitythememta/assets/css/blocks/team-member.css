@@ -31,21 +31,21 @@
 }
 
 .team-member-name {
-  font-size: 1.5rem;
+  font-size: calc(var(--body-text-size) * 1.5);
   font-weight: bold;
   margin: 0.5rem 0;
   color: #333;
 }
 
 .team-member-position {
-  font-size: 1.1rem;
+  font-size: calc(var(--body-text-size) * 1.1);
   color: #666;
   margin-bottom: 0.5rem;
 }
 
 .team-member-phone,
 .team-member-email {
-  font-size: 0.9rem;
+  font-size: calc(var(--body-text-size) * 0.9);
   color: #555;
   margin: 0.3125rem 0;
 }

@@ -68,20 +68,20 @@
 }
 
 .post-meta {
-  font-size: 0.9rem;
+  font-size: calc(var(--body-text-size) * 0.9);
   color: var(--foreground-03);
   margin-bottom: 0.5rem;
 }
 
 .post-excerpt {
-  font-size: 0.95rem;
+  font-size: calc(var(--body-text-size) * 0.95);
   color: var(--foreground-03);
 }
 
 .post-content .post-link {
   background-color: var(--accent-01);
   color: var(--accent-contrast);
-  font-size: 0.9rem;
+  font-size: calc(var(--body-text-size) * 0.9);
   padding: 0.375rem 0.75rem;
   margin-top: 1rem;
   width: fit-content;
