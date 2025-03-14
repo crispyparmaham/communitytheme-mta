@@ -5,6 +5,7 @@
   margin-right: 2rem;
 }
 
+.accessibility-button .sr-only,
 .accessibility-select-wrapper .sr-only {
   position: absolute;
   width: 1px;
@@ -23,12 +24,88 @@
   padding: 0.25rem;
 }
 .accessibility-select-wrapper .acc-button > img {
-  width: 1.5rem;
-  height: 1.5rem;
+  width: calc(var(--body-text-size) * 1.5);
+  height: calc(var(--body-text-size) * 1.5);
   transition: ease transform 0.3s;
 }
 .accessibility-select-wrapper .acc-button:hover > img {
   transform: scale(1.1);
+}
+
+/*PopUp for Accessibility*/
+
+.accessibility-button {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  border-radius: var(--border-radius-m);
+  background: black;
+  border: 2px solid white;
+  padding: 1rem;
+  transition: ease all 400ms;
+  cursor: pointer;
+  z-index: 999;
+}
+.accessibility-button > img {
+  width: calc(var(--body-text-size) * 2);
+  height: calc(var(--body-text-size) * 2);
+  transition: ease all 400ms;
+}
+.accessibility-button:hover,
+.accessibility-button:focus {
+  background: white;
+  border-color: black;
+}
+.accessibility-button:hover > img,
+.accessibility-button:focus > img {
+  filter: invert(1);
+}
+
+.accessibility-tools-dialog {
+  background: black;
+  border: 2px solid white;
+  padding: 1.5rem;
+  border-radius: var(--border-radius-m);
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  max-width: 400px;
+  width: 100%;
+  padding-bottom: 8rem;
+  display: none;
+}
+.accessibility-tools-dialog .accessibility-select-wrapper {
+  flex-direction: column;
+  margin-right: 0;
+  width: 100%;
+}
+.accessibility-tools-dialog .acc-button {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  border: 2px solid transparent;
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--border-radius-s);
+  text-align: left;
+}
+.accessibility-tools-dialog .acc-button.active,
+.accessibility-tools-dialog .acc-button:hover,
+.accessibility-tools-dialog .acc-button:focus {
+  border-color: white;
+}
+.accessibility-tools-dialog .acc-button .sr-only {
+  all: unset;
+  color: white;
+  text-align: left;
+  font-size: var(--body-text-size);
+}
+
+.close-acc-dialog {
+  background: transparent;
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  cursor: pointer;
 }
 
 .contrast-bw {
@@ -108,6 +185,6 @@
   border: 2px solid hsl(var(--borders)) !important;
 }
 
-.contrast-wb .accessibility-select-wrapper .acc-button > img {
+.contrast-wb .top-header-row .accessibility-select-wrapper .acc-button > img {
   filter: invert(0%) sepia(0%) saturate(16%) hue-rotate(309deg) brightness(0);
 }

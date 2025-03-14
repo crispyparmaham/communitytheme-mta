@@ -8,6 +8,9 @@ class AccessibilityControls {
 
         this.contrastClasses = ["contrast-bw", "contrast-wb"]; // Defined contrast classes
 
+        this.buttons = [];
+        this.toolOpen = false; 
+
         this.init();
     }
 
@@ -17,15 +20,90 @@ class AccessibilityControls {
     }
 
     addEventListeners() {
-        document.getElementById("increase-fontsize").addEventListener("click", () => this.changeFontSize(1));
-        document.getElementById("decrease-fontsize").addEventListener("click", () => this.changeFontSize(-1));
+        const elements = {
+            openTools: document.querySelectorAll("[data-id='open-accessibility-tools']"),
+            closeTools: document.querySelectorAll(".close-acc-dialog"),
+            increaseFontsize: document.querySelectorAll("[data-id='increase-fontsize']"),
+            decreaseFontsize: document.querySelectorAll("[data-id='decrease-fontsize']"),
+            contrastBW: document.querySelectorAll("[data-id='contrast-bw']"),
+            contrastWB: document.querySelectorAll("[data-id='contrast-wb']"),
+            contrastReset: document.querySelectorAll("[data-id='contrast-reset']"),
+            reset: document.querySelectorAll("[data-id='reset-all']"),
+        };
+        elements.openTools.forEach((button) => {
+            button.addEventListener("click", () => this.openCloseTool());
+        })
+        elements.closeTools.forEach((button) => {
+            button.addEventListener("click", () => this.openCloseTool());
+        })
 
-        document.getElementById("contrast-bw").addEventListener("click", () => this.setContrast("contrast-bw"));
-        document.getElementById("contrast-wb").addEventListener("click", () => this.setContrast("contrast-wb"));
-        document.getElementById("contrast-reset").addEventListener("click", () => this.setContrast("contrast-reset"));
+        elements.increaseFontsize.forEach((button) => {
+            button.addEventListener("click", () => this.changeFontSize(1));
+        })
+        elements.decreaseFontsize.forEach((button) => {
+            button.addEventListener("click", () => this.changeFontSize(-1));
+        })
+        elements.contrastBW.forEach((button) => {
+            button.addEventListener("click", () => {
+                this.addActiveClass(button)
+                this.setContrast("contrast-bw")
+            });
+        })
+        elements.contrastWB.forEach((button) => {
+            button.addEventListener("click", () => {
+                this.addActiveClass(button)
+                this.setContrast("contrast-wb")
+            });
+        })
+        elements.contrastReset.forEach((button) => {
+            button.addEventListener("click", () => {
+                this.addActiveClass(button)
+                this.setContrast("contrast-reset");
+            })
+        })
+        elements.reset.forEach((button) => {
+            button.addEventListener("click", () => {
+                this.addActiveClass(button)
+                this.setContrast("contrast-reset");
+                document.documentElement.style.setProperty(this.fontSizeVar, `${this.defaultFontSize}px`);
+                localStorage.setItem("fontSize", this.defaultFontSize);
+            })
+        })
+    }
+
+
+    
+    openTool(toolsDialog) {
+        toolsDialog.style.display = 'block';
+        toolsDialog.setAttribute("aria-hidden", "false");
+    }
+    closeTool(toolsDialog) {
+        toolsDialog.style.display = 'none';
+        toolsDialog.setAttribute("aria-hidden", "true");
+    }
+    openCloseTool() {
+        let toolsDialog = document.getElementById("accessibility-tools-dialog");
+        if(!this.toolOpen) {
+           this.openTool(toolsDialog);
+        } else {
+            this.closeTool(toolsDialog);
+        }
+        this.toolOpen = !this.toolOpen; 
+    }
+
+    addActiveClass(element) {
+        this.buttons.forEach((button) => {
+            button.classList.remove("active");
+        })
+        this.buttons = [];
+        this.buttons.push(element);
+        this.buttons.forEach((button) => {
+            button.classList.add("active");
+        })
     }
 
     changeFontSize(direction) {
+        console.log("change-font-size")
         let currentSize = parseFloat(getComputedStyle(document.documentElement).getPropertyValue(this.fontSizeVar));
         let newSize = currentSize + direction * this.fontSizeStep;
 
@@ -61,3 +139,5 @@ class AccessibilityControls {
 
 // Initialize the accessibility controls
 document.addEventListener("DOMContentLoaded", () => new AccessibilityControls());
+
+

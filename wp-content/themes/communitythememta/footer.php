@@ -4,6 +4,10 @@
 
 <?php wp_footer(); ?>
 
+<?php 
+	get_template_part('components/accessibility-popup');
+?>
+
 <footer class="main-footer" role="contentinfo">
 	<div class="footer-inner-wrap">
 		<div class="footer-top">
