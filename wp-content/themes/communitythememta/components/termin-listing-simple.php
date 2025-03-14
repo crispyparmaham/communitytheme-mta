@@ -1,4 +1,4 @@
-<div class="termin-listing-simple">
+<div class="termin-listing-simple" role="list">
     <?php
     // === INITIALISIERUNG === //
     global $post;

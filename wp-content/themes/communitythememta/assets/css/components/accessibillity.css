@@ -44,7 +44,7 @@
   padding: 1rem;
   transition: ease all 400ms;
   cursor: pointer;
-  z-index: 999;
+  z-index: 9991;
 }
 .accessibility-button > img {
   width: calc(var(--body-text-size) * 2);
@@ -72,6 +72,7 @@
   max-width: 400px;
   width: 100%;
   padding-bottom: 8rem;
+  z-index: 999;
   display: none;
 }
 .accessibility-tools-dialog .accessibility-select-wrapper {

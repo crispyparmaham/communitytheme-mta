@@ -36,7 +36,7 @@ if ($einwohner || $plz || $hohe || $flache || $einwohner_ort || $personen) :
 
         <div class="einwohner-gemeinderat inner-max-width">
             <div class="einwohner-grid">
-                <h4 id="einwohnerOrtsteil">Einwohner pro Ortsteil</h4>
+                <h3 id="einwohnerOrtsteil">Einwohner pro Ortsteil</h3>
                 <div class="ortsteil-tabelle" aria-labelledby="einwohnerOrtsteil">
                     <table>
                         <tbody>

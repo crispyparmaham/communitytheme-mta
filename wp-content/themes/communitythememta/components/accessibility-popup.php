@@ -1,5 +1,5 @@
 <div class="accessibility-tools-wrapper">
-    <button data-id="open-accessibility-tools" class="accessibility-button" aria-label="Barrierefreiheits Einstellungen öffnen">
+    <button aria-controls="accessibility-tools-dialog" data-id="open-accessibility-tools" class="accessibility-button" aria-label="Barrierefreiheits Einstellungen öffnen">
         <img width="32" height="32" src="<?= get_template_directory_uri() ?>/assets/images/icons/accessibility-icon.svg"
     alt="Icon: Ein Piktogramm eines menschen mit ausgestreckten Armen und Beinen.">
         <span class="sr-only">Barrierefreiheits Einstellungen öffnen</span>
