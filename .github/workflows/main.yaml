@@ -1,0 +1,57 @@
+name: Deploy WordPress Theme
+
+on:
+  push:
+    branches:
+      - main
+      - staging
+
+jobs:
+  production-deploy:
+    if: github.ref == 'refs/heads/main'
+    name: PRODUCTION - Package and Send Theme Zip
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@master
+
+      - name: Install Composer Dependencies
+        run: composer install --no-interaction --prefer-dist
+
+      - name: Prepare Theme for Deployment
+        run: |
+          mkdir -p build
+          rsync -av --exclude=".git" --exclude="node_modules" . build/communitytheme-mta
+          cd build
+          zip -r communitytheme-mta.zip communitytheme-mta
+          
+      - name: Upload Zipped Theme to Server
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.SSH_HOST_LIVE }}
+          username: ${{ secrets.SSH_USER_LIVE }}
+          password: ${{ secrets.SSH_PASSWORD_LIVE }}
+          port: ${{ secrets.PORT }}
+          source: "build/communitytheme-mta.zip"
+          target: "/packages/"
+
+  staging-deploy:
+    if: github.ref == 'refs/heads/staging'
+    name: STAGING - Deploy Unzipped Theme
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@master
+
+      - name: Install Composer Dependencies
+        run: composer install --no-interaction --prefer-dist
+
+      - name: Upload Theme to Staging Server
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.SSH_HOST_STAGING }}
+          username: ${{ secrets.SSH_USER_STAGING }}
+          password: ${{ secrets.SSH_PASSWORD_STAGING }}
+          port: ${{ secrets.PORT }}
+          source: "./"
+          target: "wp-content/themes/communitytheme-mta/"

@@ -1,7 +1,6 @@
 <?php 
 define('THEME_VERSION', '1.0.0');
 
-
 /* -------------------------------------------------------------- */
 /* -------------------------------------------------------------- */
 /* -------------------------------------------------------------- */
@@ -12,9 +11,9 @@ define('THEME_VERSION', '1.0.0');
 require __DIR__ . '/vendor/autoload.php';
 use YahnisElsts\PluginUpdateChecker\v5\PucFactory;
 $UpdateChecker = PucFactory::buildUpdateChecker(
-	'https://update-server.morethanads.de/index.php?action=get_metadata&slug=communitythememta', //Metadata URL.
+	'https://update-server.morethanads.de/index.php?action=get_metadata&slug=communitytheme-mta', //Metadata URL.
 	__FILE__, 
-	'communitythememta' 
+	'communitytheme-mta' 
 );
 
 
