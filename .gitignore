@@ -2,6 +2,8 @@
 .*
 ~*
 
+vendor/
+
 # ignore node dependency directories (used by grunt)
 node_modules/
 
