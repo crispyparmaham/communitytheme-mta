@@ -14,6 +14,15 @@ Wordpress Plugins:
 - [Simple Custom Post Order](https://wordpress.org/plugins/simple-custom-post-order/)
 
 ## How to install 
+
+### Clone the Repository inside your `themes` folder
+You can clone the repository inside your `themes` folder. You can do this by running the following command:
+
+```bash
+git clone ***REPO_URL***
+```
+
+### Local Development
 We use DDEV for local development. You can install DDEV by following the instructions [here](https://ddev.readthedocs.io/en/stable/).
 
 Once you have DDEV installed, you can run the following commands to get the project up and running:
