@@ -1,17 +1,3 @@
-# ignore everything in the root except the "wp-content" directory.
-/*
-
-
-!wp-content
-wp-content/*
-
-
-!wp-content/plugins
-wp-content/plugins/*
-
-!wp-content/themes
-wp-content/themes/*
-
 # ignore all files starting with . or ~
 .*
 ~*
@@ -65,8 +51,3 @@ Thumbs.db
 !CHANGELOG.md
 !composer.json
 !.github
-
-# track these plugins
-!wp-content/themes/communitythememta
-wp-content/themes/communitythememta/node_modules
-wp-content/themes/communitythememta/vendor
