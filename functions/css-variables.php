@@ -8,12 +8,12 @@ function enqueue_theme_styles() {
 	// Variables CSS
 	wp_enqueue_style(
 		'variables-style',
-		wp_get_upload_dir() . '/theme-css/dynamic-variables.css',
+		wp_get_upload_dir()['baseurl'] . '/theme-css/dynamic-variables.css',
 		[],
-		filemtime( wp_get_upload_dir() . '/theme-css/dynamic-variables.css' )
+		filemtime( wp_get_upload_dir()['basedir'] . '/theme-css/dynamic-variables.css' )
 	);
 }
-add_action( 'wp_enqueue_scripts', 'enqueue_theme_styles' );
+add_action( 'wp_enqueue_scripts', 'enqueue_theme_styles', 1 );
 
 
 // === FUNCTION TO CONVERT HEX TO HSL === //
@@ -98,7 +98,14 @@ function generate_hsl_shades(int $h, int $s, int $l) {
 // === GENERATE DYNAMIC CSS === //
 function generate_dynamic_css() {
     // Pfad zur variables.css
-    $css_file = wp_get_upload_dir() . '/theme-css/dynamic-variables.css';
+    $upload_dir = wp_get_upload_dir();
+    $css_dir = $upload_dir['basedir'] . '/theme-css/';
+    $css_file = $css_dir . 'dynamic-variables.css';
+
+    // Ensure the directory exists
+    if (!file_exists($css_dir)) {
+        mkdir($css_dir, 0755, true); // Create the directory with proper permissions
+    }
 
     // === GRID SETTINGS === //
     $innerContentWidth = get_field( 'inner_content_width', 'option' ) ? get_field( 'inner_content_width', 'option' ) . "px" : "1120px";

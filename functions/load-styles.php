@@ -48,9 +48,9 @@ add_action('enqueue_block_editor_assets', 'load_stylesheet');
 function load_variables_in_block_editor() {
     wp_enqueue_style(
         'variables-style',
-		wp_get_upload_dir() . '/theme-css/dynamic-variables.css',
+		wp_get_upload_dir()['baseurl'] . '/theme-css/dynamic-variables.css',
 		[],
-		filemtime( wp_get_upload_dir() . '/theme-css/dynamic-variables.css' ),
+		filemtime( wp_get_upload_dir()['basedir'] . '/theme-css/dynamic-variables.css' ),
 	);
 }
 add_action('enqueue_block_editor_assets', 'load_variables_in_block_editor');
