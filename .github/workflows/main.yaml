@@ -55,8 +55,6 @@ jobs:
           echo 'GO INTO build FOLDER: '
           cd build
           cd communitytheme-mta
-          cd build
-          cd communitytheme-mta
           echo 'FILE PATH IS: '
           pwd
           echo 'FILES HERE ARE: '
