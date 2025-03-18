@@ -56,7 +56,7 @@ jobs:
             composer install --no-interaction --prefer-dist
 
       - name: Upload Theme to Staging Server
-        uses: burnett01/rsync-deploy-action@v5
+        uses: burnett01/rsync-deployments@7.0.2
         with:
           switches: -av --delete
           path: build/
