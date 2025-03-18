@@ -69,8 +69,8 @@ When you are done with your feature or bug fix, you can create a pull request to
 ### Staging Branch & Environment
 We are running a staging environment for testing purposes. The staging environment is running on the `staging` branch. When we want to deploy changes to the staging environment, we can merge the `develop` branch into the `staging` branch.
 
-Staging environment: [https://ctmta.morethanads.de/](https://ctmta.morethanads.de/)
-Staging environment admin: [https://ctmta.morethanads.de/wp-admin/](https://ctmta.morethanads.de/wp-admin/)
+Staging environment: [https://ct.morethanads.de/](https://ct.morethanads.de/)
+Staging environment admin: [https://ct.morethanads.de/wp-admin/](https://ct.morethanads.de/wp-admin/)
 
 ### Production Branch & Environment
 The production environment is running on the `main` branch. When we want to deploy changes to the production environment, we can merge the `staging` branch into the `main` branch.

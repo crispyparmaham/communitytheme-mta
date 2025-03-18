@@ -21,19 +21,19 @@ jobs:
       - name: Prepare Theme for Deployment
         run: |
           mkdir -p build
-          rsync -av --exclude=".git" --exclude="node_modules" . build/communitytheme-mta
+          rsync -av --exclude=".git" --exclude=".github" --exclude="node_modules" . build/communitytheme-mta
           cd build
           zip -r communitytheme-mta.zip communitytheme-mta
-          
+
       - name: Upload Zipped Theme to Server
         uses: appleboy/scp-action@master
         with:
-          host: ${{ secrets.SSH_HOST_LIVE }}
-          username: ${{ secrets.SSH_USER_LIVE }}
-          password: ${{ secrets.SSH_PASSWORD_LIVE }}
-          port: ${{ secrets.PORT }}
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          password: ${{ secrets.SSH_PASSWORD }}
+          port: ${{ secrets.SSH_PORT }}
           source: "build/communitytheme-mta.zip"
-          target: "/packages/"
+          target: "update-server.morethanads.de/packages/"
 
   staging-deploy:
     if: github.ref == 'refs/heads/staging'
@@ -49,9 +49,9 @@ jobs:
       - name: Upload Theme to Staging Server
         uses: appleboy/scp-action@master
         with:
-          host: ${{ secrets.SSH_HOST_STAGING }}
-          username: ${{ secrets.SSH_USER_STAGING }}
-          password: ${{ secrets.SSH_PASSWORD_STAGING }}
-          port: ${{ secrets.PORT }}
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          password: ${{ secrets.SSH_PASSWORD }}
+          port: ${{ secrets.SSH_PORT }}
           source: "./"
-          target: "wp-content/themes/communitytheme-mta/"
+          target: "ct.morethanads.de/wp-content/themes/communitytheme-mta/"
