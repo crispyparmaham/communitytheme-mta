@@ -64,6 +64,14 @@ jobs:
       - name: Fix File Permissions
         run: chmod -R 755 build/communitytheme-mta
 
+      - name: Test Location
+        run: |
+          echo 'FILE PATH IN A NEW ACTION IS:'
+          pwd
+          echo 'FILES HERE ARE: '
+          ls -al
+
+
       - name: Upload Theme to Staging Server
         uses: appleboy/scp-action@master
         with:
