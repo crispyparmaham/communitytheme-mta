@@ -47,12 +47,12 @@ jobs:
       - name: Prepare Theme for Staging
         run: |
           rm -rf build  # Ensure there's no existing build directory
-          mkdir build
-          rsync -av --exclude=".git" --exclude=".github" --exclude="node_modules" --exclude="build" . build/
+          mkdir communitytheme-mta
+          rsync -av --exclude=".git" --exclude=".github" --exclude="node_modules" --exclude="communitytheme-mta" . communitytheme-mta/
 
       - name: Install Composer Dependencies
         run: | 
-            cd build
+            cd communitytheme-mta
             composer install --no-interaction --prefer-dist
             
 
@@ -66,5 +66,5 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           password: ${{ secrets.SSH_PASSWORD }}
           port: ${{ secrets.SSH_PORT }}
-          source: "build/*"
-          target: "ct.morethanads.de/wp-content/themes/communitytheme-mta/"
+          source: "communitytheme-mta/*"
+          target: "ct.morethanads.de/wp-content/themes/"
