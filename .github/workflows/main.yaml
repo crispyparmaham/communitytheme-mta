@@ -68,15 +68,3 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           source: "build/*"
           target: "ct.morethanads.de/wp-content/themes/communitytheme-mta/"
-
-          
-      - name: Move Files and Cleanup on Server
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USER }}
-          password: ${{ secrets.SSH_PASSWORD }}
-          port: ${{ secrets.SSH_PORT }}
-          script: |
-            mv ct.morethanads.de/wp-content/themes/communitytheme-mta/build/* ct.morethanads.de/wp-content/themes/communitytheme-mta/
-            rmdir ct.morethanads.de/wp-content/themes/communitytheme-mta/build
