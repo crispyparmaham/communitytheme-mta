@@ -49,10 +49,9 @@ jobs:
       - name: Prepare Theme for Staging
         run: |
           rm -rf build  # Ensure there's no existing build directory
-          mkdir -p build/communitytheme-mta
-          rsync -av --exclude=".git" --exclude=".github" --exclude="node_modules" --exclude="build" . build/communitytheme-mta
-          echo 'Files copied to build/communitytheme-mta/'
-          ls -al build/communitytheme-mta/
+          mkdir build
+          rsync -av --exclude=".git" --exclude=".github" --exclude="node_modules" --exclude="build" . build/
+
 
       - name: Fix File Permissions
         run: chmod -R 755 build/communitytheme-mta
@@ -64,6 +63,6 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           password: ${{ secrets.SSH_PASSWORD }}
           port: ${{ secrets.SSH_PORT }}
-          source: "build/communitytheme-mta/."  # ✅ FIXED PATH
+          source: "build/."
           target: "ct.morethanads.de/wp-content/themes/communitytheme-mta/"
 
