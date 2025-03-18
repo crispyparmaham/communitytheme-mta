@@ -54,14 +54,29 @@ jobs:
         run: | 
             cd build
             composer install --no-interaction --prefer-dist
+            
+
+      #- name: Fix File Permissions
+      #  run: chmod -R 755 build/communitytheme-mta
 
       - name: Upload Theme to Staging Server
-        uses: burnett01/rsync-deployments@7.0.2
+        uses: appleboy/scp-action@master
         with:
-          switches: -av --delete
-          path: build/
-          remote_path: ct.morethanads.de/wp-content/themes/communitytheme-mta/
-          remote_host: ${{ secrets.SSH_HOST }}
-          remote_user: ${{ secrets.SSH_USER }}
-          remote_key: ${{ secrets.SSH_PRIVATE_KEY }}
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          password: ${{ secrets.SSH_PASSWORD }}
+          port: ${{ secrets.SSH_PORT }}
+          source: "build/*"
+          target: "ct.morethanads.de/wp-content/themes/communitytheme-mta/"
 
+          
+      - name: Move Files and Cleanup on Server
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          password: ${{ secrets.SSH_PASSWORD }}
+          port: ${{ secrets.SSH_PORT }}
+          script: |
+            mv ct.morethanads.de/wp-content/themes/communitytheme-mta/build/* ct.morethanads.de/wp-content/themes/communitytheme-mta/
+            rmdir ct.morethanads.de/wp-content/themes/communitytheme-mta/build
