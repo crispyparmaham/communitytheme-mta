@@ -17,9 +17,9 @@ add_action( 'wp_enqueue_scripts', 'enqueue_theme_styles' );
 
 
 // === FUNCTION TO CONVERT HEX TO HSL === //
-function hex_to_hsl( $hex ) {
+function hex_to_hsl( string $hex ) : array  {
     if ( ! is_string( $hex ) ) {
-        return "0, 0%, 0%"; // Fallback zu Schwarz, falls der Wert ungültig ist
+        return ['0', '0', '0']; // Fallback zu Schwarz, falls der Wert ungültig ist
     }
 
     $hex = str_replace( "#", "", $hex );
@@ -32,7 +32,7 @@ function hex_to_hsl( $hex ) {
         $g = hexdec( substr( $hex, 2, 2 ) ) / 255;
         $b = hexdec( substr( $hex, 4, 2 ) ) / 255;
     } else {
-        return "0, 0%, 0%"; // Fallback zu Schwarz, falls der Wert ungültig ist
+        return ['0', '0', '0']; // Fallback zu Schwarz, falls der Wert ungültig ist
     }
 
     $max = max( $r, $g, $b );
@@ -71,7 +71,7 @@ function hex_to_hsl( $hex ) {
 //     return $shades;
 // }
 
-function generate_hsl_shades($h, $s, $l) {
+function generate_hsl_shades(int $h, int $s, int $l) {
     $shades = [];
 
     for ($i = 1; $i <= 6; $i++) {
@@ -112,10 +112,10 @@ function generate_dynamic_css() {
     $tertiaryColorContrastHex = get_field( 'accent_color_contrast', 'option' );
 
     // Sicherstellen, dass es sich um gültige Hex-Werte handelt
-    $primaryColorHex = is_string( $primaryColorHex ) ? $primaryColorHex : "#000000";
-    $secondaryColorHex = is_string( $secondaryColorHex ) ? $secondaryColorHex : "#FFFFFF";
-    $tertiaryColorHex = is_string( $tertiaryColorHex ) ? $tertiaryColorHex : "#3311FF";
-    $tertiaryColorContrastHex = is_string( $tertiaryColorContrastHex ) ? $tertiaryColorContrastHex : "#FFFFFF";
+    $primaryColorHex = $primaryColorHex?: "#000000";
+    $secondaryColorHex = $secondaryColorHex ?: "#c4c4c4";
+    $tertiaryColorHex = $tertiaryColorHex ?: "#00a7f5";
+    $tertiaryColorContrastHex = $tertiaryColorContrastHex ?: "#FFFFFF";
 
     $primaryColorHSL = hex_to_hsl( $primaryColorHex );
     $secondaryColorHSL = hex_to_hsl( $secondaryColorHex );

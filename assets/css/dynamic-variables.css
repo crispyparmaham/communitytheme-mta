@@ -5,7 +5,7 @@
     --color-foreground: hsl(var(--color-foreground-values));
     --color-background-values: 0, 0%, 70%;
     --color-background: hsl(var(--color-background-values));
-    --color-accent-values: 0, 71%, 35%;
+    --color-accent-values: 126, 63%, 20%;
     --color-accent: hsl(var(--color-accent-values));
 
     /* COLOR SHADES */
@@ -31,11 +31,11 @@
     --background-04: hsl(var(--background-04-values));
     --background-05: hsl(var(--background-05-values));
 
-    --accent-01-values: 0, 71%, 44%;
-    --accent-02-values: 0, 71%, 53%;
-    --accent-03-values: 0, 71%, 62%;
-    --accent-04-values: 0, 71%, 71%;
-    --accent-05-values: 0, 71%, 80%;
+    --accent-01-values: 126, 63%, 32%;
+    --accent-02-values: 126, 63%, 44%;
+    --accent-03-values: 126, 63%, 56%;
+    --accent-04-values: 126, 63%, 68%;
+    --accent-05-values: 126, 63%, 80%;
     --accent-01: hsl(var(--accent-01-values));
     --accent-02: hsl(var(--accent-02-values));
     --accent-03: hsl(var(--accent-03-values));
