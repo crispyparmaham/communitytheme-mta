@@ -32,6 +32,11 @@ function create_community_roles() {
         'edit_users'   => true,  // Edit users (but NOT admins)
         'delete_users' => true,  // Delete users (but NOT admins)
         'promote_users' => true, // Promote users (but NOT to admin)
+        'edit_theme_options' => true,
+    ]);
+
+    $community_editor_caps = array_merge($editor_caps, [
+        'edit_theme_options' => true, // ✅ Allow access to Widgets menu
     ]);
 
     // Remove old roles to ensure changes apply
@@ -42,10 +47,58 @@ function create_community_roles() {
     add_role('community_admin', 'Gemeinde Admin', $community_admin_caps);
 
     // Create Community Editor role (inherits Editor capabilities, no user management)
-    add_role('community_editor', 'Gemeinde Redakteur', $editor_caps);
+    add_role('community_editor', 'Gemeinde Redakteur', $community_editor_caps);
 }
 add_action('init', 'create_community_roles');
 
+
+function remove_unwanted_appearance_menus() {
+    $current_user = wp_get_current_user();
+    $restricted_roles = ['community_admin', 'community_editor'];
+
+    if (array_intersect($restricted_roles, $current_user->roles)) {
+        // Remove everything under "Appearance" except "Widgets"
+        remove_submenu_page('themes.php', 'themes.php');         // Remove Themes
+        remove_submenu_page('themes.php', 'customize.php');     
+        remove_submenu_page('themes.php', 'nav-menus.php');      // Remove Menus
+        remove_submenu_page('themes.php', 'theme-editor.php');   // Remove Theme Editor
+        remove_submenu_page('themes.php', 'site-editor.php');   
+
+        remove_menu_page('customize.php'); // Customizer
+        remove_menu_page('site-editor.php'); // Full Site Editor (FSE)
+    }
+}
+add_action('admin_menu', 'remove_unwanted_appearance_menus', 999);
+
+
+function block_customizer_and_site_editor() {
+    $current_user = wp_get_current_user();
+    $restricted_roles = ['community_admin', 'community_editor'];
+
+    if (array_intersect($restricted_roles, $current_user->roles)) {
+        global $pagenow;
+
+        if ($pagenow === 'customize.php' || $pagenow === 'site-editor.php') {
+            wp_redirect(admin_url('admin.php?page=theme-settings-colors'));
+            exit;
+        }
+    }
+}
+add_action('admin_init', 'block_customizer_and_site_editor');
+
+/**
+ * Hide Customizer & Site Editor from Admin Bar
+ */
+function hide_customizer_from_admin_bar($wp_admin_bar) {
+    $current_user = wp_get_current_user();
+    $restricted_roles = ['community_admin', 'community_editor'];
+
+    if (array_intersect($restricted_roles, $current_user->roles)) {
+        $wp_admin_bar->remove_node('customize');
+        $wp_admin_bar->remove_node('site-editor');
+    }
+}
+add_action('admin_bar_menu', 'hide_customizer_from_admin_bar', 999);
 
 
 // Restrict Community Admin from managing Admin users

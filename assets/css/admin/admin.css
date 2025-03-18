@@ -1,0 +1,4 @@
+#menu-appearance .hide-if-no-customize,
+#menu-appearance .wp-first-item {
+  display: none;
+}

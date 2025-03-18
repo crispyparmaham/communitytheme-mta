@@ -309,6 +309,13 @@ require_once(get_template_directory() . '/functions/ma-external-resources.php');
 require_once(get_template_directory() . '/capabilities/user-capabilities.php');
 require_once(get_template_directory() . '/capabilities/custom-dashboard.php');
 
+
+add_action('admin_enqueue_scripts', 'enqueue_admin_styles');
+function enqueue_admin_styles() {
+    wp_enqueue_style('mta-admin-styles', get_template_directory_uri() . '/assets/css/admin/admin.css', [], THEME_VERSION);
+}
+
+
 /* -------------------------------------------------------------- */
 /* -------------------------------------------------------------- */
 /* -------------------------------------------------------------- */
@@ -438,7 +445,7 @@ if( function_exists('acf_add_options_page') ) {
         'page_title'    => 'Farben & Einstellungen',
         'menu_title'    => 'Farben & Einstellungen',
         'menu_slug'     => 'theme-settings-colors',
-        'parent' => 'theme-settings',
+        'parent' => 'themes.php',
         'capability'    => 'edit_posts',
         'position'      => '2.1',
         'icon_url'      => 'dashicons-admin-generic',
