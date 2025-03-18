@@ -52,7 +52,9 @@ jobs:
 
       - name: Install Composer Dependencies
         run: | 
+            cd build
             ls -al
+
             
 
       #- name: Fix File Permissions
