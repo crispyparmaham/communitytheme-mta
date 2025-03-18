@@ -8,9 +8,9 @@ function enqueue_theme_styles() {
 	// Variables CSS
 	wp_enqueue_style(
 		'variables-style',
-		get_template_directory_uri() . '/assets/css/dynamic-variables.css',
+		wp_get_upload_dir() . '/theme-css/dynamic-variables.css',
 		[],
-		filemtime( get_template_directory() . '/assets/css/dynamic-variables.css' )
+		filemtime( wp_get_upload_dir() . '/theme-css/dynamic-variables.css' )
 	);
 }
 add_action( 'wp_enqueue_scripts', 'enqueue_theme_styles' );
@@ -98,7 +98,7 @@ function generate_hsl_shades(int $h, int $s, int $l) {
 // === GENERATE DYNAMIC CSS === //
 function generate_dynamic_css() {
     // Pfad zur variables.css
-    $css_file = get_template_directory() . '/assets/css/dynamic-variables.css';
+    $css_file = wp_get_upload_dir() . '/theme-css/dynamic-variables.css';
 
     // === GRID SETTINGS === //
     $innerContentWidth = get_field( 'inner_content_width', 'option' ) ? get_field( 'inner_content_width', 'option' ) . "px" : "1120px";
