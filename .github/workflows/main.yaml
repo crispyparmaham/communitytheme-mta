@@ -52,9 +52,8 @@ jobs:
           mkdir build
           rsync -av --exclude=".git" --exclude=".github" --exclude="node_modules" --exclude="build" . build/
 
-
-      - name: Fix File Permissions
-        run: chmod -R 755 build/communitytheme-mta
+      #- name: Fix File Permissions
+      #  run: chmod -R 755 build/communitytheme-mta
 
       - name: Upload Theme to Staging Server
         uses: appleboy/scp-action@master
