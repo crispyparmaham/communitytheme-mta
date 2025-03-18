@@ -56,6 +56,9 @@ jobs:
           cd build
           echo 'FILE PATH IS: '
           pwd
+          echo 'FILES HERE ARE: '
+          ls -al
+
 
       - name: Fix File Permissions
         run: chmod -R 755 build/communitytheme-mta
