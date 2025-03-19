@@ -74,15 +74,13 @@ function get_termin_data_formatted_with_icons($termin_data)
 
     <!-- Termin-Infos -->
     <div class="termin-info-wrap">
-        <span class="termin-info <?php echo $more_days ? 'no-margin-right' : ''; ?>">
-            <span class="termin-icon dashicons <?php echo esc_attr($date_icon); ?>" aria-hidden="true"></span>
+        <span class="termin-info <?php echo $more_days ? 'mr-05' : ''; ?> link-icon-before cticon-calendar link-icon icon-accent">
             <?php echo $more_days ? 'Vom ' : ''; ?>
             <?php echo esc_html($startdatum_formatted); ?>
         </span>
         <?php if (!$more_days): ?>
             <?php if ($time): ?>
-                <span class="post-listing-item-info-time termin-info">
-                    <span class="termin-icon dashicons <?php echo esc_attr($time_icon); ?>" aria-hidden="true"></span>
+                <span class="post-listing-item-info-time termin-info link-icon-before cticon-time link-icon icon-accent">
                     <?php echo esc_html($time); ?> Uhr
                 </span>
             <?php endif; ?>
@@ -117,7 +115,7 @@ function get_termin_data_formatted_simple($termin_data)
 
     <!-- Termin-Infos -->
     <div class="termin-info-wrap">
-        <span class="termin-info <?php echo $more_days ? 'no-margin-right' : ''; ?>">
+        <span class="termin-info <?php echo $more_days ? 'mr-05' : ''; ?>">
             <?php echo $more_days ? 'Vom ' : ''; ?>
             <?php echo esc_html($startdatum_formatted); ?>
             <?php if ($more_days): ?>

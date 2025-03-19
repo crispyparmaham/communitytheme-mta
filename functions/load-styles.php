@@ -6,6 +6,7 @@ function load_stylesheet() {
     $styles = [
         'main' => '/assets/css/base/main.css',
         'variables' => '/assets/css/base/variables.css',
+        'icons' => '/assets/css/base/icons.css',
         'grid' => '/assets/css/layout/grid.css',
         'front-page' => '/assets/css/layout/front-page.css',
         'header' => '/assets/css/layout/header.css',

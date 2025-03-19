@@ -42,38 +42,6 @@
   font-weight: bold;
   font-size: var(--headline-m);
   position: relative;
-  margin-left: 2.5rem;
-}
-
-/* Die Icon-Grafik als Hintergrundbild */
-.daten .data-item .value::before {
-  content: '';
-  position: absolute;
-  left: -45px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 40px; /* Icon-Größe */
-  height: 40px; /* Icon-Größe */
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-/* Icons für einzelne Daten */
-.daten .data-item.einwohner .value::before {
-  background-image: url('/wp-content/themes/communitythememta/assets/images/icons/person-icon.svg');
-}
-
-.daten .data-item.plz .value::before {
-  background-image: url('/wp-content/themes/communitythememta/assets/images/icons/location-icon.svg');
-}
-
-.daten .data-item.hoehe .value::before {
-  background-image: url('/wp-content/themes/communitythememta/assets/images/icons/size-icon.svg');
-}
-
-.daten .data-item.flaeche .value::before {
-  background-image: url('/wp-content/themes/communitythememta/assets/images/icons/area-icon.svg');
 }
 
 /* Layout für die Flexbox */

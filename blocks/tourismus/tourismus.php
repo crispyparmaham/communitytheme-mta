@@ -60,18 +60,14 @@ if ( $query->have_posts() ) :
 								<div class="social-link-wrap">
 									<?php if ( $website ) : ?>
 										<a href="<?php echo esc_url( $website ); ?>" target="_blank" rel="noopener noreferrer"
-											class="social-link">
-											<img src="/wp-content/themes/communitythememta/assets/images/icons/web-icon.svg"
-												alt="Web-Icon">
-											<p>Webseite</p>
+											class="social-link link-icon-before cticon-web link-icon icon-accent">
+											Webseite
 										</a>
 									<?php endif; ?>
 
 									<?php if ( $email ) : ?>
-										<a href="mailto:<?php echo esc_attr( antispambot($email) ); ?>" class="social-link">
-											<img src="/wp-content/themes/communitythememta/assets/images/icons/mail-icon.svg"
-												alt="E-Mail-Icon">
-											<p>E-Mail</p>
+										<a href="mailto:<?php echo esc_attr( antispambot($email) ); ?>" class="social-link link-icon-before cticon-email link-icon icon-accent">
+											E-Mail
 										</a>
 									<?php endif; ?>
 								</div>

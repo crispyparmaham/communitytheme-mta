@@ -1,0 +1,130 @@
+.btn-icon-before,
+.btn-icon-after {
+  position: relative;
+  z-index: 2;
+}
+.btn-icon-before,
+.fluentform.ff-default .ff_btn_style.btn-icon-before {
+  padding-left: 3rem;
+}
+.btn-icon-after,
+.fluentform.ff-default .ff_btn_style.btn-icon-after {
+  padding-right: 3rem;
+}
+
+.btn-only-icon {
+  padding: 1.2rem 2.2rem;
+}
+.btn-icon-before.btn-only-icon::before,
+.btn-icon-after.btn-only-icon::before {
+  left: 50%;
+  right: auto;
+  transform: translate(-50%, -50%);
+}
+
+.btn-icon-before::before,
+.btn-icon-after::before {
+  content: '';
+  width: 1em;
+  height: 1em;
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  display: block;
+  font-size: 1em;
+  transition: ease all 400ms;
+}
+.btn-icon-before::before {
+  left: 1.2em;
+}
+
+.btn-icon-after::before {
+  right: 1.2em;
+}
+
+.icon-arrow-down-left::before,
+.icon-arrow-up-right::before {
+  width: 0.8em;
+  height: 0.8em;
+  font-size: 0.8em;
+}
+
+.btn-icon-before.icon-arrow-down-left::before,
+.btn-icon-before.icon-arrow-up-right::before {
+  left: 1.6em;
+}
+
+.btn-icon-after.icon-arrow-down-left::before,
+.btn-icon-after.icon-arrow-up-right::before {
+  right: 1.6em;
+}
+
+/* Link Icon */
+/* link-icon-sm link-icon-after icon-arrow-right */
+
+.link-icon {
+  text-decoration: none;
+  position: relative;
+  background-color: transparent;
+  padding: 0;
+  color: inherit !important;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.link-icon-after {
+  padding-right: 1.5em;
+}
+.link-icon-before {
+  padding-left: 1.5em;
+}
+
+.link-icon-after::before,
+.link-icon-before::before {
+  content: '';
+  width: 1em;
+  height: 1em;
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  display: block;
+  font-size: 1em;
+  transition: ease all 400ms;
+}
+.link-icon-before::before {
+  right: calc(100% - 1em);
+}
+
+.link-icon-after::after {
+  right: 0;
+}
+.link-icon-after::before {
+  left: calc(100% - 1em);
+}
+
+.icon-accent::before {
+  color: var(--accent-01);
+}
+
+.icon-only {
+  position: relative;
+  display: inline-block;
+}
+.icon-only::before {
+  content: '';
+  width: 1em;
+  height: 1em;
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  display: block;
+  font-size: 1em;
+  transition: ease all 400ms;
+}
+
+.icon-32 {
+  font-size: calc(var(--body-text-size) * 1.7);
+  height: calc(var(--body-text-size) * 1.7);
+  width: calc(var(--body-text-size) * 1.7);
+}

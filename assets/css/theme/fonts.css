@@ -54,3 +54,77 @@
   font-weight: 900;
   src: url('../../fonts/fira-sans-v17-latin-900.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
+
+@font-face {
+  font-family: 'community-theme';
+  src: url('../../fonts/community-theme.eot?7izsez');
+  src: url('../../fonts/community-theme.eot?7izsez#iefix') format('embedded-opentype'),
+    url('../../fonts/community-theme.ttf?7izsez') format('truetype'),
+    url('../../fonts/community-theme.woff?7izsez') format('woff'),
+    url('../../fonts/community-theme.svg?7izsez#community-theme') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^='cticon-']::before,
+[class*=' cticon-']::before {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'community-theme' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.cticon-web:before {
+  content: '\e900' !important;
+}
+.cticon-reset:before {
+  content: '\e901' !important;
+}
+.cticon-accessibility:before {
+  content: '\e902' !important;
+}
+.cticon-mail:before {
+  content: '\e903' !important;
+}
+.cticon-calendar:before {
+  content: '\e904' !important;
+}
+.cticon-time:before {
+  content: '\e905' !important;
+}
+.cticon-constrast-black-white:before {
+  content: '\e906' !important;
+}
+.cticon-contrast-color:before {
+  content: '\e907' !important;
+}
+.cticon-contrast-white-black:before {
+  content: '\e908' !important;
+}
+.cticon-font-bigger:before {
+  content: '\e909' !important;
+}
+.cticon-font-smaller:before {
+  content: '\e90a' !important;
+}
+.cticon-height:before {
+  content: '\e90b' !important;
+}
+.cticon-map:before {
+  content: '\e90c' !important;
+}
+.cticon-area:before {
+  content: '\e90d' !important;
+}
+.cticon-person:before {
+  content: '\e90e' !important;
+}

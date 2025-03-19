@@ -40,6 +40,7 @@
   right: 1rem;
   border-radius: var(--border-radius-m);
   background: black;
+  color: white;
   border: 2px solid white;
   padding: 1rem;
   transition: ease all 400ms;
@@ -88,6 +89,7 @@
   padding: 0.25rem 0.5rem;
   border-radius: var(--border-radius-s);
   text-align: left;
+  color: white;
 }
 .accessibility-tools-dialog .acc-button.active,
 .accessibility-tools-dialog .acc-button:hover,
@@ -186,6 +188,6 @@
   border: 2px solid hsl(var(--borders)) !important;
 }
 
-.contrast-wb .top-header-row .accessibility-select-wrapper .acc-button > img {
-  filter: invert(0%) sepia(0%) saturate(16%) hue-rotate(309deg) brightness(0);
+.top-header-row .accessibility-select-wrapper .acc-button {
+  color: var(--accent-contrast);
 }

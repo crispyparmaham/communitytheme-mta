@@ -17,19 +17,19 @@ if ($einwohner || $plz || $hohe || $flache || $einwohner_ort || $personen) :
             <div class="inner-wrap inner-max-width">
                 <div class="data-item einwohner">
                     <span class="label">Einwohner</span>
-                    <span class="value"><?php echo esc_html($einwohner); ?></span>
+                    <span class="value link-icon-before cticon-person icon-accent"><?php echo esc_html($einwohner); ?></span>
                 </div>
                 <div class="data-item plz">
                     <span class="label">Postleitzahl</span>
-                    <span class="value"><?php echo esc_html($plz); ?></span>
+                    <span class="value link-icon-before cticon-map icon-accent"><?php echo esc_html($plz); ?></span>
                 </div>
                 <div class="data-item hoehe">
                     <span class="label">Höhe</span>
-                    <span class="value"><?php echo esc_html($hohe); ?> m</span>
+                    <span class="value link-icon-before cticon-height icon-accent"><?php echo esc_html($hohe); ?> m</span>
                 </div>
                 <div class="data-item flaeche">
                     <span class="label">Fläche</span>
-                    <span class="value"><?php echo esc_html($flache); ?> km²</span>
+                    <span class="value link-icon-before cticon-area icon-accent"><?php echo esc_html($flache); ?> km²</span>
                 </div>
             </div>
         </div>
