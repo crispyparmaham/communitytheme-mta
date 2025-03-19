@@ -91,7 +91,7 @@
 .main-container .page-start-text h1 {
   color: var(--foreground-01);
   font-size: var(--headline-xl);
-  font-weight: 500;
+  font-weight: var(--font-weight-heading);
 }
 
 .main-container .page-start-text h1:has(+ p) {

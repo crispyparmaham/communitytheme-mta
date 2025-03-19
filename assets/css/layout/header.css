@@ -80,7 +80,7 @@
 }
 
 .header-greeting span {
-  font-weight: 900;
+  font-weight: var(--font-weight-heading);
   color: var(--foreground-01);
 }
 

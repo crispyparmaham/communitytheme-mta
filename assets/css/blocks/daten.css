@@ -10,7 +10,7 @@
   top: 50%;
   transform: translate(0, -50%);
   font-size: 10rem;
-  font-weight: 900;
+  font-weight: var(--font-weight-heading);
   line-height: 1;
   opacity: 0.05;
 }
@@ -39,7 +39,7 @@
 }
 
 .daten .value {
-  font-weight: bold;
+  font-weight: var(--font-weight-heading);
   font-size: var(--headline-m);
   position: relative;
 }
@@ -88,7 +88,7 @@
 .ortsteil-tabelle th {
   background-color: var(--background-04);
   color: var(--foreground-05);
-  font-weight: bold;
+  font-weight: var(--font-weight-heading);
 }
 
 /* Hintergrundfarbe für die Zellen */

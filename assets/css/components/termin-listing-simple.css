@@ -8,7 +8,7 @@
 .termin-listing-simple .post-listings-item-heading {
   margin-bottom: 0;
   font-size: calc(var(--body-text-size) * 1.125);
-  font-weight: 500;
+  font-weight: var(--font-weight-heading);
   text-decoration: none;
   color: var(--foreground-01);
 }
