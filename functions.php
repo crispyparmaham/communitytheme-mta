@@ -450,7 +450,7 @@ if( function_exists('acf_add_options_page') ) {
         'menu_title'    => 'Schriftart',
         'menu_slug'     => 'theme-settings-fonts',
         'parent' => 'themes.php',
-        'capability'    => 'edit_posts',
+        'capability'    => 'manage_options',
         'position'      => '2.1',
         'icon_url'      => 'dashicons-admin-generic',
         'redirect'      => false,
