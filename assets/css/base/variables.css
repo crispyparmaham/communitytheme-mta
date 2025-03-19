@@ -1,7 +1,7 @@
 :root {
   /*FONTS*/
-  --font-family-heading: var(--ff-heading, 'Fira Sans, sans-serif');
-  --font-family-text: var(--ff-text, 'Fira Sans, sans-serif');
+  --font-family-heading: var(--ff-heading, 'Fira Sans');
+  --font-family-text: var(--ff-text, 'Fira Sans');
   --font-weight-text: var(--fw-heading, 400);
   --font-weight-heading: var(--fw-text, 700);
 
