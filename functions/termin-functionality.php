@@ -19,8 +19,6 @@ function get_termin_data($postId)
     $enddatum = get_field('enddatum', $postId);
     $time = get_field('uhrzeit', $postId) ? trim(get_field('uhrzeit', $postId)) : '';
     $more_days = get_field('more_days', $postId);
-    $date_icon = get_field('date_icon', 'option') ?: 'dashicons-calendar-alt';
-    $time_icon = get_field('time_icon', 'option') ?: 'dashicons-clock';
 
     $startdatum_formatted = $startdatum ? date_i18n("d. F Y", strtotime($startdatum)) : '';
     $enddatum_formatted = $enddatum ? date_i18n("d. F Y", strtotime($enddatum)) : '';
@@ -33,8 +31,6 @@ function get_termin_data($postId)
         'enddatum' => $enddatum,
         'time' => $time,
         'more_days' => $more_days,
-        'date_icon' => $date_icon,
-        'time_icon' => $time_icon,
         'startdatum_formatted' => $startdatum_formatted,
         'enddatum_formatted' => $enddatum_formatted,
     );
@@ -49,8 +45,6 @@ function get_termin_data_formatted_with_icons($termin_data)
     $enddatum = $termin_data['enddatum'];
     $time = $termin_data['time'];
     $more_days = $termin_data['more_days'];
-    $date_icon = $termin_data['date_icon'];
-    $time_icon = $termin_data['time_icon'];
     $startdatum_formatted = $termin_data['startdatum_formatted'];
     $enddatum_formatted = $termin_data['enddatum_formatted'];
 

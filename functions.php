@@ -96,14 +96,6 @@ function theme_enqueue_scripts() {
         true
     );
 
-    wp_enqueue_style(
-        'dashicons-frontend',
-        '/wp-includes/css/dashicons.min.css?ver=6.7.1',
-        [],
-        '6.7.1'
-    );
-
-
     wp_enqueue_script(
         'mta-masterpiece-console',
         get_template_directory_uri() . '/assets/js/morethanadsmasterpiece.min.js',

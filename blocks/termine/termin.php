@@ -41,7 +41,6 @@
             $post_image_array = wp_get_attachment_image_src($post_image, 'post-listing');
             $post_image_width = $post_image_array ? $post_image_array[1] : 310;
             $post_image_height = $post_image_array ? $post_image_array[2] : 200;
-            $placeholder_image = get_field('platzhalter_bild_termine', 'option') ? get_field('platzhalter_bild_termine', 'option')['id'] : false;
 
             // Adresse
             $termin_data = get_termin_data($post->ID);
@@ -111,33 +110,6 @@
                         <?php if ($content): ?>
                         </a>
                     <?php endif; ?>
-                    <!-- Bild -->
-                <?php elseif ($placeholder_image): ?>
-                    <div class="post-listing-item-image <?php echo $post_image ? '' : 'is-empty-post-image'; ?>">
-                        <?php if ($content): ?>
-                            <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-                            <?php endif; ?>
-                            <?php
-                            if ($post_image) {
-                                echo wp_get_attachment_image($post_image, 'post-listing', false, [
-                                    'width' => $post_image_width,
-                                    'height' => $post_image_height,
-                                    'alt' => esc_attr(get_post_meta($post_image, '_wp_attachment_image_alt', true) ?: get_the_title($post_image)),
-                                    'loading' => 'lazy',
-                                ]);
-                            } else {
-                                echo wp_get_attachment_image($placeholder_image, 'post-listing', false, [
-                                    'width' => $post_image_width,
-                                    'height' => $post_image_height,
-                                    'alt' => esc_attr(get_post_meta($placeholder_image, '_wp_attachment_image_alt', true) ?: get_the_title($placeholder_image)),
-                                    'loading' => 'lazy',
-                                ]);
-                            }
-                            ?>
-                            <?php if ($content): ?>
-                            </a>
-                        <?php endif; ?>
-                    </div>
                 <?php endif; ?>
             </div>
             <?php
