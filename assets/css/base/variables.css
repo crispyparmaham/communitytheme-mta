@@ -1,9 +1,9 @@
 :root {
   /*FONTS*/
-  --font-family-heading: 'Fira Sans', sans-serif;
-  --font-family-text: 'Fira Sans', sans-serif;
-  --font-weight-text: 400;
-  --font-weight-heading: 700;
+  --font-family-heading: var(--ff-heading, 'Fira Sans, sans-serif');
+  --font-family-text: var(--ff-text, 'Fira Sans, sans-serif');
+  --font-weight-text: var(--fw-heading, 400);
+  --font-weight-heading: var(--fw-text, 700);
 
   transition-behavior: allow-discrete;
   interpolate-size: allow-keywords;

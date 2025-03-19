@@ -292,6 +292,7 @@ add_filter('acf/load_field/name=selected_menu', 'populate_selected_menu_field');
 
 require_once(get_template_directory() . '/functions/css-variables.php'); // Dynamische CSS-Variablen
 require_once(get_template_directory() . '/functions/load-styles.php'); // Stylesheets laden
+require_once(get_template_directory() . '/functions/load-fonts.php'); // Fonts laden
 require_once(get_template_directory() . '/functions/load-acf-fields.php'); // ACF-Felder laden
 require_once(get_template_directory() . '/functions/breadcrumbs.php');
 require_once(get_template_directory() . '/functions/termin-functionality.php');

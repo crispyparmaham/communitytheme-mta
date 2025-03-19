@@ -135,7 +135,16 @@ function generate_dynamic_css() {
 
     // === FONT SETTINGS === //
     $bodyText = get_field( 'body_text', 'option' ) ? get_field( 'body_text', 'option' ) : 18;
-   
+
+    $fontFamilyHeading = get_field('font-family-headings', 'option') ?: 'Fira Sans, sans-serif';
+    $fontWeightHeading = get_field('font-weight-headings', 'option') ?: '700';
+    $fontFamilyText = get_field('font-family-text', 'option') ?: 'Fira Sans, sans-serif';
+    $fontWeightText = get_field('font-weight-text', 'option') ?: '400';
+
+    // --ff-heading
+    // ff-heading-weight
+    // ff-text 
+    // ff-text-weight
 
 
     // === BUILD CSS CONTENT === //
@@ -186,6 +195,13 @@ function generate_dynamic_css() {
     --accent-contrast-values: {$teriaryColorContrastHSL[0]}deg, {$teriaryColorContrastHSL[1]}%, {$teriaryColorContrastHSL[2]}%; 
     --accent-contrast: hsl(var(--accent-contrast-values));
     
+
+    /* FONTS */
+    --ff-heading: {$fontFamilyHeading};
+    --fw-heading: {$fontWeightHeading};
+    --ff-text: {$fontFamilyText};
+    --fw-text: {$fontWeightText};
+
     /* FONT SIZES */
     --body-text-size: {$bodyText}px;
     --headline-xs: clamp(var(--body-text-size), 3vw, calc(var(--body-text-size) * 1.2));
