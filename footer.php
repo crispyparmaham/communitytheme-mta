@@ -48,11 +48,9 @@
 			<div class="footer-top-inner">
 				<div class="footer-contact-info">
 					<?php $contact_info = get_field( 'contact', 'option' ); ?>
-					<h4><?php _e( 'Kontakt', 'communitytheme' ); ?></h4>
 					<?php if ( $contact_info ) : ?>
+					<h4><?php _e( 'Kontakt', 'communitytheme' ); ?></h4>
 						<address><?php echo wp_kses_post( $contact_info ); ?></address>
-					<?php else : ?>
-						<p><?php _e( 'Keine Kontaktinformationen verfügbar.', 'communitytheme' ); ?></p>
 					<?php endif; ?>
 				</div>
 
@@ -68,8 +66,6 @@
 							'role' => 'navigation', // Role hinzugefügt
 							'fallback_cb' => false // Verhindert die Anzeige von Standardmenüs
 						) );
-					else :
-						echo '<p>' . __( 'Kein Menü ausgewählt.', 'communitytheme' ) . '</p>';
 					endif;
 					?>
 				</div>
