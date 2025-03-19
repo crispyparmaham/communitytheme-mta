@@ -443,7 +443,19 @@ if( function_exists('acf_add_options_page') ) {
         'icon_url'      => 'dashicons-admin-generic',
         'redirect'      => false,
         'update_button' => __('Farben & Einstellungen speichern', 'acf'),
-        'updated_message' => __("Farben & Einstellungen wurde gespeichert", 'acf'),
+        'updated_message' => __("Farben & Einstellungen wurden gespeichert", 'acf'),
+    ));    
+    acf_add_options_page(array(
+        'page_title'    => 'Schriftart',
+        'menu_title'    => 'Schriftart',
+        'menu_slug'     => 'theme-settings-fonts',
+        'parent' => 'themes.php',
+        'capability'    => 'edit_posts',
+        'position'      => '2.1',
+        'icon_url'      => 'dashicons-admin-generic',
+        'redirect'      => false,
+        'update_button' => __('Schriftart Einstellungen speichern', 'acf'),
+        'updated_message' => __("Schriftart Einstellungen wurden gespeichert", 'acf'),
     ));    
 }
 
