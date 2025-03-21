@@ -18,7 +18,7 @@ $slider = $page_slider ? $page_slider : $main_slider;
 
 			?>
 			<?php if($slider_row1 || $slider_row2 ) : ?>
-				<h1><?php echo $slider_row1; ?> <span><?php echo $slider_row2; ?></span></h1>
+				<h1><?php echo $slider_row1; ?> <span class="block"><?php echo $slider_row2; ?></span></h1>
 			<?php endif; ?>
 		</div>
 	</section>
