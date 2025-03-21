@@ -2,7 +2,6 @@
     $privacyPolicyPage = get_privacy_policy_url();
 ?>
 
-<?php wp_footer(); ?>
 
 <?php 
 	get_template_part('components/accessibility-popup');
@@ -86,5 +85,6 @@
 	</div>
 </footer>
 
+<?php wp_footer(); ?>
 </body>
 </html>

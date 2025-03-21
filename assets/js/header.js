@@ -2,21 +2,26 @@ document.addEventListener("DOMContentLoaded", function() {
     const header = document.querySelector('.main-header');
     const logo = header?.querySelector('.logo-wrap img');
     const mainContainer = document.querySelector('.main-container');
+    let lastScrollTop = 0;
 
+    
     function updateHeaderState() {
         if (header) {
-            // Ändere die Bedingung auf 200px Scrollhöhe
-            if (window.scrollY > window.innerHeight * 0.1) {
+            const currentScrollTop = window.scrollY || window.pageYOffset;
+            if (currentScrollTop > lastScrollTop) {
+                // Scroll down
                 header.classList.add('scrolled');
                 if (logo) {
                     logo.classList.add('scrolled');
                 }
             } else {
+                // Scroll up
                 header.classList.remove('scrolled');
                 if (logo) {
                     logo.classList.remove('scrolled');
                 }
             }
+            lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop; // For Mobile or negative scrolling
         }
     }
 

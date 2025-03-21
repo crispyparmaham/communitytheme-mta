@@ -157,7 +157,3 @@ $gemeindeName = get_field('gemeindename', 'option');
 
 	</header>
 
-	<?php wp_footer(); ?>
-</body>
-
-</html>
