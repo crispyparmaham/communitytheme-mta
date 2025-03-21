@@ -53,6 +53,7 @@ $slider = $page_slider ? $page_slider : $main_slider;
 		<?php endif; ?>
 
 		<?php 
+		$show_news = get_field('show_vereine_on_frontpage', 'option');
 		$communityName = get_field('gemeindename', 'option');
 		$today = date('Ymd');
 		$termine_query = new WP_Query([
@@ -67,7 +68,7 @@ $slider = $page_slider ? $page_slider : $main_slider;
 				],
 			],
 		]);
-		if(wp_count_posts('post')->publish > 0 || $termine_query->have_posts()) :
+		if($show_news && wp_count_posts('post')->publish > 0 || $termine_query->have_posts()) :
 		?>
 		<section>
 			<h2 class="section-heading inner-max-width">Aktuelles & Termine in <?= $communityName ?></h2>
