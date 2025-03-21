@@ -35,3 +35,7 @@
 .wp-block-gallery .wp-block-image:hover img {
   transform: scale(1.05);
 }
+
+.wp-block-gallery.has-nested-images figure.wp-block-image figcaption {
+  font-size: calc(var(--body-text-size) * 0.72);
+}

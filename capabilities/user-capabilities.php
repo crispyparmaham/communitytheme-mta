@@ -259,11 +259,11 @@ function restrict_gutenberg_blocks($allowed_blocks, $editor_context) {
             'core/list',
             'core/image',
             'core/gallery',
-            'core/quote',
             'core/button',
             'core/table',
             'core/columns',
             'core/group',
+            'core/buttons',
             // CUSTOM BLOCKS
             'acf/tourismus',
             'acf/vereinsliste',

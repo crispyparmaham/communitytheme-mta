@@ -1,3 +1,4 @@
+html body :where(.editor-styles-wrapper) .wp-block-button__link,
 .wp-block-button__link {
   background-color: var(--accent-01);
   color: var(--accent-contrast);
@@ -8,6 +9,7 @@
   border-radius: var(--border-radius-s);
 }
 
+html body :where(.editor-styles-wrapper) .wp-block-button__link:hover,
 .wp-block-button__link:hover {
   background-color: var(--foreground-01);
 }

@@ -233,3 +233,40 @@ add_action( 'acf/save_post', function ($post_id) {
 		generate_dynamic_css();
 	}
 } );
+
+
+function remove_gutenberg_colors() {
+    add_theme_support('editor-color-palette', []);
+}
+add_action('after_setup_theme', 'remove_gutenberg_colors');
+
+function add_custom_gutenberg_colors() {
+    $custom_colors = [
+        // Vordergrundfarben
+        ['name' => __('Vordergrund 01', 'communitytheme'), 'slug' => 'foreground-01', 'color' => 'hsl(var(--foreground-01-values))'],
+        ['name' => __('Vordergrund 02', 'communitytheme'), 'slug' => 'foreground-02', 'color' => 'hsl(var(--foreground-02-values))'],
+        ['name' => __('Vordergrund 03', 'communitytheme'), 'slug' => 'foreground-03', 'color' => 'hsl(var(--foreground-03-values))'],
+        ['name' => __('Vordergrund 04', 'communitytheme'), 'slug' => 'foreground-04', 'color' => 'hsl(var(--foreground-04-values))'],
+        ['name' => __('Vordergrund 05', 'communitytheme'), 'slug' => 'foreground-05', 'color' => 'hsl(var(--foreground-05-values))'],
+
+        // Hintergrundfarben
+        ['name' => __('Hintergrund 01', 'communitytheme'), 'slug' => 'background-01', 'color' => 'hsl(var(--background-01-values))'],
+        ['name' => __('Hintergrund 02', 'communitytheme'), 'slug' => 'background-02', 'color' => 'hsl(var(--background-02-values))'],
+        ['name' => __('Hintergrund 03', 'communitytheme'), 'slug' => 'background-03', 'color' => 'hsl(var(--background-03-values))'],
+        ['name' => __('Hintergrund 04', 'communitytheme'), 'slug' => 'background-04', 'color' => 'hsl(var(--background-04-values))'],
+        ['name' => __('Hintergrund 05', 'communitytheme'), 'slug' => 'background-05', 'color' => 'hsl(var(--background-05-values))'],
+
+        // Akzentfarben
+        ['name' => __('Akzent 01', 'communitytheme'), 'slug' => 'accent-01', 'color' => 'hsl(var(--accent-01-values))'],
+        ['name' => __('Akzent 02', 'communitytheme'), 'slug' => 'accent-02', 'color' => 'hsl(var(--accent-02-values))'],
+        ['name' => __('Akzent 03', 'communitytheme'), 'slug' => 'accent-03', 'color' => 'hsl(var(--accent-03-values))'],
+        ['name' => __('Akzent 04', 'communitytheme'), 'slug' => 'accent-04', 'color' => 'hsl(var(--accent-04-values))'],
+        ['name' => __('Akzent 05', 'communitytheme'), 'slug' => 'accent-05', 'color' => 'hsl(var(--accent-05-values))'],
+
+        // Kontrastfarbe für Akzent
+        ['name' => __('Akzent Kontrast', 'communitytheme'), 'slug' => 'accent-contrast', 'color' => 'hsl(var(--accent-contrast-values))'],
+    ];
+
+    add_theme_support('editor-color-palette', $custom_colors);
+}
+add_action('after_setup_theme', 'add_custom_gutenberg_colors');

@@ -2,3 +2,7 @@
 #menu-appearance .wp-first-item {
   display: none;
 }
+
+.block-editor-url-popover__expand-on-click {
+  display: none;
+}
