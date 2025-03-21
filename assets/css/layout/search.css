@@ -1,9 +1,7 @@
 /* Container für das Suchformular */
 .search-container {
-  margin-left: 1.25rem;
   display: flex;
   align-items: center;
-  padding-bottom: 1.25rem;
 }
 
 /* Suchformular */
