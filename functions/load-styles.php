@@ -32,6 +32,7 @@ function load_stylesheet() {
         'breadcrumbs' => '/assets/css/layout/breadcrumbs.css',
         'termin-listing-simple' => '/assets/css/components/termin-listing-simple.css',
         'swipers' => '/assets/css/components/swipers.css',
+        'galleries' => '/assets/css/components/galleries.css',
         'accessibillity' => '/assets/css/components/accessibillity.css',
         'pagination' => '/assets/css/layout/pagination.css',
     ];

@@ -46,6 +46,41 @@ function theme_enqueue_framework_assets() {
 add_action('wp_enqueue_scripts', 'theme_enqueue_framework_assets');
 
 
+
+function theme_enqueue_lightgallery_assets() {
+
+    global $post;
+    if ( ! isset( $post ) ) {
+        return;
+    }
+
+    if ( ! has_block( 'core/gallery', $post->post_content ) ) {
+        return;
+    }
+    wp_enqueue_script(
+        'lightgallery',
+        get_template_directory_uri() . '/assets/js/frameworks/lightgallery.min.js',
+        [],
+        '2.8.2',
+        false
+    );
+    wp_enqueue_style(
+        'lightgallery',
+        get_template_directory_uri() . '/assets/css/frameworks/lightgallery-bundle.min.css',
+        [],
+        '2.8.2'
+    );
+    wp_enqueue_script(
+        'lightgallery-functionality',
+        get_template_directory_uri() . '/assets/js/custom-gallery.js',
+        ['lightgallery'],
+        THEME_VERSION,
+        false
+    );
+}
+add_action('wp_enqueue_scripts', 'theme_enqueue_lightgallery_assets');
+
+
 function theme_enqueue_scripts() {
     // Pfad zu den Skripten mit get_template_directory_uri() (für Themes)
     

@@ -1,0 +1,37 @@
+/* Lightgallery Enhancements to look like theme*/
+
+.lg-backdrop {
+  background-color: hsla(var(--foreground-01-values), 0.8);
+}
+
+.lg-next,
+.lg-prev {
+  background-color: hsla(var(--accent-02-values), 0.45);
+  color: hsla(var(--accent-contrast-values), 1);
+  border-radius: var(--border-radius-s);
+}
+
+.lg-next:hover,
+.lg-prev:hover {
+  background-color: hsla(var(--accent-02-values), 1);
+}
+
+.lg-counter {
+  font-family: var(--ff-text);
+}
+.lg-counter,
+.lg-toolbar .lg-icon {
+  color: hsla(var(--background-05-values), 1);
+}
+
+/* WP BLock Gallery */
+.wp-block-gallery .wp-block-image {
+  overflow: hidden;
+  border-radius: var(--border-radius-m);
+}
+.wp-block-gallery .wp-block-image img {
+  transition: transform 0.3s ease;
+}
+.wp-block-gallery .wp-block-image:hover img {
+  transform: scale(1.05);
+}
