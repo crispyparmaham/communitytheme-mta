@@ -14,7 +14,7 @@ if ($einwohner || $plz || $hohe || $flache || $einwohner_ort || $personen) :
     <?php if ($einwohner || $plz || $hohe || $flache ) : ?>
     <div class="daten-fakten">
         <div class="daten">
-            <span class="coordinates"><?php echo wp_kses_post($koordinaten); ?></span>
+            <span class="coordinates"><?php echo strip_tags(wp_kses_post($koordinaten), ['<br>', '<br/>']); ?></span>
             <div class="inner-wrap inner-max-width">
                 <div class="data-item einwohner">
                     <span class="label">Einwohner</span>
