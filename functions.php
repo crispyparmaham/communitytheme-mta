@@ -383,7 +383,7 @@ add_action('admin_menu', 'custom_theme_settings_menu');
 function custom_theme_settings_menu() {
     add_menu_page(
         'MTA Community Theme - Einstellungen',
-        'Theme',
+        'Startseite',
         'manage_options',
         'theme-settings', 
         'custom_theme_settings_page', 

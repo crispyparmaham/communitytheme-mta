@@ -90,7 +90,10 @@ $slider = $page_slider ? $page_slider : $main_slider;
 			</div>
 		</section>
 		<?php endif; ?>
-		<?php if (wp_count_posts('verein')->publish > 0) : ?>
+
+		<?php
+		$show_vereine = get_field('show_vereine_on_frontpage', 'option');
+		if ($show_vereine && wp_count_posts('verein')->publish > 0) : ?>
 		<section id="vereine" class="content-container">
 			<h2 class="section-heading inner-max-width">Vereine & Institutionen</h2>
 			<?php include get_template_directory() . '/blocks/vereine/verein.php'; ?>
