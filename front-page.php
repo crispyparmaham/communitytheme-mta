@@ -12,10 +12,14 @@ $slider = $page_slider ? $page_slider : $main_slider;
 			<?php get_template_part('components/top-slider'); ?>
 			<div class="header-img-heading">
 				<?php
+
 					$slider_row1 = get_field('slider_row1', 'option');
 					$slider_row2 = get_field('slider_row2', 'option');
+
 			?>
-			<h1><?php echo $slider_row1; ?> <span><?php echo $slider_row2; ?></span></h1>
+			<?php if($slider_row1 || $slider_row2 ) : ?>
+				<h1><?php echo $slider_row1; ?> <span><?php echo $slider_row2; ?></span></h1>
+			<?php endif; ?>
 		</div>
 	</section>
 	<?php else : ?>
