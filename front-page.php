@@ -42,7 +42,10 @@ $slider = $page_slider ? $page_slider : $main_slider;
 		$plz = get_field('plz', 'option');
 		$hohe = get_field('hohe', 'option');
 		$flache = get_field('flache', 'option');
-		if ($einwohner || $plz || $hohe || $flache) : ?>
+		$einwohner_ort = get_field('einwohner_ort', 'option'); // Repeater
+		$personen = get_field('personen', 'option'); // WYSIWYG Inhalt
+
+		if ($einwohner || $plz || $hohe || $flache || $einwohner_ort || $personen  ) : ?>
 		<section id="daten-fakten" class="content-container">
 			<h2 class="section-heading inner-max-width">Daten & Fakten</h2>
 			<?php include get_template_directory() . '/blocks/front-page/daten.php'; ?>

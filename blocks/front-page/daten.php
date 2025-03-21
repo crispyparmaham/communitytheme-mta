@@ -11,6 +11,7 @@ $personen = get_field('personen', 'option'); // WYSIWYG Inhalt
 if ($einwohner || $plz || $hohe || $flache || $einwohner_ort || $personen) :
     ?>
 
+    <?php if ($einwohner || $plz || $hohe || $flache ) : ?>
     <div class="daten-fakten">
         <div class="daten">
             <span class="coordinates"><?php echo wp_kses_post($koordinaten); ?></span>
@@ -33,8 +34,10 @@ if ($einwohner || $plz || $hohe || $flache || $einwohner_ort || $personen) :
                 </div>
             </div>
         </div>
-
+        <?php endif; ?>
+        
         <div class="einwohner-gemeinderat inner-max-width">
+            <?php if ($einwohner_ort) : ?>
             <div class="einwohner-grid">
                 <h3 id="einwohnerOrtsteil">Einwohner pro Ortsteil</h3>
                 <div class="ortsteil-tabelle" aria-labelledby="einwohnerOrtsteil">
@@ -57,12 +60,15 @@ if ($einwohner || $plz || $hohe || $flache || $einwohner_ort || $personen) :
                     </table>
                 </div>
             </div>
-            <div class="gemeinderat-grid">
-                <h4 id="gemeinderatHeader">Gemeinderat</h4>
-                <div class="personen" aria-labelledby="gemeinderatHeader">
-                    <?php echo wp_kses_post($personen); ?>
+            <?php endif; ?>
+            <?php if ($personen) : ?>
+                <div class="gemeinderat-grid">
+                    <h4 id="gemeinderatHeader">Gemeinderat</h4>
+                    <div class="personen" aria-labelledby="gemeinderatHeader">
+                        <?php echo wp_kses_post($personen); ?>
+                    </div>
                 </div>
-            </div>
+            <?php endif; ?>
         </div>
     </div>
     <?php
